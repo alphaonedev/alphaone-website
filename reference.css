@@ -1,0 +1,287 @@
+/* ========================================
+   AlphaOne LLC — Reference Guide Styles
+   Extends site dark theme (style.css)
+   ======================================== */
+
+/* Section layout */
+.ref-section {
+    padding: 80px 0;
+}
+
+.ref-section-header {
+    max-width: 640px;
+    margin-bottom: 48px;
+}
+
+.ref-section-header h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+}
+
+.ref-section-header p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* Alternate background for sections */
+.ref-principles-bg {
+    background: var(--surface);
+}
+
+/* Summary Box */
+.summary-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    margin-top: 32px;
+}
+
+.summary-box h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.summary-box p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.75;
+}
+
+.summary-box .highlight {
+    color: var(--primary-light);
+    font-weight: 600;
+}
+
+/* Service Blocks */
+.ref-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ref-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 28px 28px;
+    transition: all var(--transition);
+}
+
+.ref-block:hover {
+    border-color: var(--border-hover);
+    border-left-color: var(--primary-light);
+}
+
+.ref-block h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+}
+
+.ref-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.ref-block p {
+    font-size: 14.5px;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.ref-value {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text-dim);
+    font-style: italic;
+    line-height: 1.65;
+}
+
+.ref-value strong {
+    color: var(--white);
+    font-style: normal;
+}
+
+/* Principle Blocks */
+.ref-principles {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 760px;
+}
+
+.ref-principle {
+    display: flex;
+    gap: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    transition: all var(--transition);
+}
+
+.ref-principle:hover {
+    border-color: var(--border-hover);
+}
+
+.ref-principle-num {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.ref-principle-body h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.ref-principle-body p {
+    font-size: 14.5px;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.ref-bottom-line {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--primary-light);
+    font-weight: 600;
+}
+
+/* Process Steps */
+.ref-steps {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.ref-step {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 32px;
+    position: relative;
+}
+
+.ref-step:last-child {
+    padding-bottom: 0;
+}
+
+/* Connecting line between steps */
+.ref-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 44px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary-dark), transparent);
+}
+
+.ref-step-num {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    color: white;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.ref-step-body h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+}
+
+.ref-step-body p {
+    font-size: 14.5px;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* Glossary */
+.ref-glossary {
+    max-width: 760px;
+}
+
+.glossary-row {
+    display: flex;
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+}
+
+.glossary-row:last-child {
+    border-bottom: none;
+}
+
+.glossary-term {
+    min-width: 180px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.glossary-def {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 768px) {
+    .ref-principle {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .ref-step:not(:last-child)::after {
+        display: none;
+    }
+
+    .glossary-row {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .glossary-term {
+        min-width: unset;
+    }
+}

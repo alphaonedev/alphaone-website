@@ -3,739 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlphaOne LLC — Services Reference Guide</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-        :root {
-            --navy: #0f172a;
-            --navy-light: #1e293b;
-            --slate: #334155;
-            --gray: #64748b;
-            --light: #94a3b8;
-            --white: #f8fafc;
-            --accent: #6366f1;
-            --accent-light: #818cf8;
-            --teal: #06b6d4;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        @page {
-            size: letter;
-            margin: 0.75in 0.85in;
-        }
-
-        @media print {
-            body { background: white; }
-            .page-break { page-break-before: always; }
-            .document { box-shadow: none; max-width: 100%; padding: 0; }
-            .cover { min-height: auto; padding: 120px 60px 80px; }
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #e2e8f0;
-            color: var(--navy);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Site Navigation */
-        .site-nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            padding: 14px 0;
-        }
-
-        .site-nav .nav-inner {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .site-nav .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: white;
-        }
-
-        .site-nav .nav-logo-icon {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, var(--accent), var(--teal));
-            border-radius: 7px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 12px;
-            color: white;
-        }
-
-        .site-nav .nav-logo-text {
-            font-weight: 700;
-            font-size: 16px;
-        }
-
-        .site-nav .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            list-style: none;
-        }
-
-        .site-nav .nav-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .site-nav .nav-links a:hover,
-        .site-nav .nav-links a.active {
-            color: white;
-        }
-
-        .site-nav .nav-links .btn-nav {
-            padding: 6px 16px;
-            background: rgba(99, 102, 241, 0.15);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            border-radius: 7px;
-            color: var(--accent-light);
-        }
-
-        .site-nav .nav-links .btn-nav:hover {
-            background: rgba(99, 102, 241, 0.25);
-            color: white;
-        }
-
-        @media print {
-            .site-nav { display: none; }
-        }
-
-        @media (max-width: 768px) {
-            .site-nav .nav-links { display: none; }
-        }
-
-        .document {
-            max-width: 850px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 4px 40px rgba(0,0,0,0.12);
-        }
-
-        /* Cover Page */
-        .cover {
-            background: linear-gradient(135deg, var(--navy) 0%, #1a1a3e 100%);
-            color: white;
-            padding: 140px 60px 100px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cover::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -30%;
-            width: 80%;
-            height: 120%;
-            background: radial-gradient(ellipse, rgba(99,102,241,0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .cover-logo {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 60px;
-        }
-
-        .cover-logo-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--accent), var(--teal));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 18px;
-            color: white;
-        }
-
-        .cover-logo-text {
-            font-weight: 700;
-            font-size: 22px;
-            letter-spacing: -0.3px;
-        }
-
-        .cover h1 {
-            font-size: 42px;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin-bottom: 20px;
-        }
-
-        .cover h1 span {
-            background: linear-gradient(135deg, var(--accent-light), var(--teal));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .cover-sub {
-            font-size: 18px;
-            color: var(--light);
-            max-width: 520px;
-            line-height: 1.7;
-            margin-bottom: 60px;
-        }
-
-        .cover-meta {
-            font-size: 13px;
-            color: var(--gray);
-            border-top: 1px solid rgba(255,255,255,0.08);
-            padding-top: 24px;
-        }
-
-        .cover-meta span {
-            color: var(--light);
-        }
-
-        /* Content Pages */
-        .content {
-            padding: 60px;
-        }
-
-        .content h2 {
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--navy);
-            letter-spacing: -0.03em;
-            margin-bottom: 8px;
-            padding-bottom: 12px;
-            border-bottom: 3px solid var(--accent);
-            display: inline-block;
-        }
-
-        .content h3 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--navy);
-            margin-top: 36px;
-            margin-bottom: 12px;
-            letter-spacing: -0.01em;
-        }
-
-        .section-intro {
-            font-size: 15px;
-            color: var(--gray);
-            margin-bottom: 32px;
-            max-width: 640px;
-            line-height: 1.7;
-        }
-
-        /* Service Blocks */
-        .service-block {
-            margin-bottom: 32px;
-            padding: 28px 28px;
-            background: #f8fafc;
-            border-left: 4px solid var(--accent);
-            border-radius: 0 8px 8px 0;
-        }
-
-        .service-block h4 {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 4px;
-        }
-
-        .service-block .what-it-means {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-
-        .service-block p {
-            font-size: 14.5px;
-            color: var(--slate);
-            line-height: 1.7;
-        }
-
-        .service-block .customer-value {
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid #e2e8f0;
-            font-size: 14px;
-            color: var(--gray);
-            font-style: italic;
-        }
-
-        .service-block .customer-value strong {
-            color: var(--navy);
-            font-style: normal;
-        }
-
-        /* Principle Blocks */
-        .principle-block {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 28px;
-            padding: 24px;
-            background: #f8fafc;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .principle-number {
-            width: 40px;
-            height: 40px;
-            background: var(--navy);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 15px;
-            flex-shrink: 0;
-        }
-
-        .principle-content h4 {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 6px;
-        }
-
-        .principle-content p {
-            font-size: 14.5px;
-            color: var(--slate);
-            line-height: 1.7;
-        }
-
-        .principle-content .bottom-line {
-            margin-top: 8px;
-            font-size: 14px;
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        /* Glossary */
-        .glossary-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 16px;
-        }
-
-        .glossary-table th {
-            text-align: left;
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--gray);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            padding: 10px 16px;
-            border-bottom: 2px solid var(--navy);
-        }
-
-        .glossary-table td {
-            font-size: 14px;
-            padding: 12px 16px;
-            border-bottom: 1px solid #e2e8f0;
-            vertical-align: top;
-        }
-
-        .glossary-table td:first-child {
-            font-weight: 600;
-            color: var(--navy);
-            white-space: nowrap;
-            width: 200px;
-        }
-
-        .glossary-table td:last-child {
-            color: var(--slate);
-            line-height: 1.6;
-        }
-
-        .glossary-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* Process Steps */
-        .process-step {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 24px;
-        }
-
-        .step-num {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, var(--accent), #4f46e5);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 14px;
-            flex-shrink: 0;
-        }
-
-        .step-body h4 {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 4px;
-        }
-
-        .step-body p {
-            font-size: 14.5px;
-            color: var(--slate);
-            line-height: 1.65;
-        }
-
-        /* Summary Box */
-        .summary-box {
-            background: var(--navy);
-            color: white;
-            padding: 36px 32px;
-            border-radius: 12px;
-            margin-top: 40px;
-        }
-
-        .summary-box h3 {
-            font-size: 18px;
-            color: white;
-            margin-top: 0;
-            margin-bottom: 16px;
-        }
-
-        .summary-box p {
-            font-size: 15px;
-            color: var(--light);
-            line-height: 1.75;
-        }
-
-        .summary-box .highlight {
-            color: var(--accent-light);
-            font-weight: 600;
-        }
-
-        /* Contact bar */
-        .contact-bar {
-            text-align: center;
-            padding: 32px 60px;
-            background: #f8fafc;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .contact-bar p {
-            font-size: 14px;
-            color: var(--gray);
-        }
-
-        .contact-bar a {
-            color: var(--accent);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .contact-bar .company {
-            font-size: 12px;
-            color: var(--light);
-            margin-top: 8px;
-        }
-
-        /* Divider */
-        .section-divider {
-            border: none;
-            border-top: 1px solid #e2e8f0;
-            margin: 40px 0;
-        }
-    </style>
+    <title>Services Reference Guide | AlphaOne LLC</title>
+    <meta name="description" content="A plain-language guide to AlphaOne's services, engineering principles, and approach — what we do, what it means, and how it benefits your organization.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="reference.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
-
-<!-- Site Navigation -->
-<nav class="site-nav">
-    <div class="nav-inner">
-        <a href="index.html" class="nav-logo">
-            <div class="nav-logo-icon">A1</div>
-            <div class="nav-logo-text">AlphaOne</div>
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#principles">Principles</a></li>
-            <li><a href="reference.html" class="active">Reference Guide</a></li>
-            <li><a href="mvps.html">MVPs</a></li>
-            <li><a href="opensource.html">Open Source</a></li>
-            <li><a href="index.html#contact" class="btn-nav">Contact Us</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="document">
-
-    <!-- Cover Page -->
-    <div class="cover">
-        <div class="cover-logo">
-            <div class="cover-logo-icon">A1</div>
-            <div class="cover-logo-text">AlphaOne LLC</div>
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">A1</span>
+                <span class="logo-text">AlphaOne</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#principles">Principles</a></li>
+                <li><a href="reference.html" class="active">Reference Guide</a></li>
+                <li><a href="mvps.html">MVPs</a></li>
+                <li><a href="opensource.html">Open Source</a></li>
+                <li><a href="index.html#contact" class="btn btn-nav">Contact Us</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-        <h1>Services <span>Reference Guide</span></h1>
-        <p class="cover-sub">A plain-language guide to AlphaOne's services, engineering principles, and approach — what we do, what it means, and how it benefits your organization.</p>
-        <div class="cover-meta">
-            <span>Confidential — For Customer Reference</span><br>
-            alpha-one.mobi &middot; sales@alpha-one.mobi<br>
-            &copy; 2026 AlphaOne LLC
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-badge">For Our Customers</div>
+            <h1>Services <span class="gradient-text">Reference Guide</span></h1>
+            <p class="hero-sub">A plain-language guide to AlphaOne's services, engineering principles, and approach — what we do, what it means, and how it benefits your organization.</p>
         </div>
-    </div>
+    </section>
 
-    <!-- Section 1: Who We Are -->
-    <div class="content">
-        <h2>Who We Are</h2>
-        <p class="section-intro">AlphaOne LLC is a software development and engineering firm that builds AI systems designed to work reliably in production — not just in demos. We specialize in agentic AI, context architecture, and the infrastructure discipline required to deploy AI at commercial scale.</p>
+    <!-- Who We Are -->
+    <section class="ref-section">
+        <div class="container">
+            <div class="ref-section-header">
+                <span class="section-tag">Overview</span>
+                <h2>Who We Are</h2>
+                <p>AlphaOne LLC is a software development and engineering firm that builds AI systems designed to work reliably in production — not just in demos. We specialize in agentic AI, context architecture, and the infrastructure discipline required to deploy AI at commercial scale.</p>
+            </div>
 
-        <div class="summary-box">
-            <h3>The Short Version</h3>
-            <p>Anyone can call an AI API. Almost nobody knows how to make AI systems work reliably in production with <span class="highlight">multiple customers</span>, <span class="highlight">real security requirements</span>, and <span class="highlight">actual cost control</span>. That's what AlphaOne does. We engineer the architecture — the information flow, the guardrails, the memory, the isolation — that turns AI capabilities into deployable commercial systems.</p>
-        </div>
-    </div>
-
-    <!-- Section 2: Our Services -->
-    <div class="content page-break">
-        <h2>Our Services</h2>
-        <p class="section-intro">Each service is described below alongside a plain-language explanation and the direct value it delivers to your organization.</p>
-
-        <div class="service-block">
-            <h4>Agentic AI Systems</h4>
-            <div class="what-it-means">What this means</div>
-            <p>We build AI agents — software that can independently reason through a problem, decide what tools to use, execute multi-step tasks, and course-correct when something goes wrong. Unlike a simple chatbot that responds to one question at a time, an agentic system can take an objective, break it into steps, use external tools and data sources, and deliver a completed outcome.</p>
-            <p class="customer-value"><strong>Value to you:</strong> Work that currently requires a human to orchestrate multiple steps can be handled autonomously by AI — reducing cycle times and operational overhead while maintaining quality controls.</p>
-        </div>
-
-        <div class="service-block">
-            <h4>Context Architecture & Engineering</h4>
-            <div class="what-it-means">What this means</div>
-            <p>We design how information flows through your AI system. This includes defining a single authoritative data source (so the AI never works from stale or conflicting information), labeling every piece of data with who can access it and what type it is, and building the pipelines that deliver the right information to the AI at the right time.</p>
-            <p class="customer-value"><strong>Value to you:</strong> Your AI system gives consistent, trustworthy answers because it always works from verified, properly scoped data — not a growing pile of unstructured history.</p>
-        </div>
-
-        <div class="service-block">
-            <h4>AI Systems Design & Strategy</h4>
-            <div class="what-it-means">What this means</div>
-            <p>Before building anything, we conduct a thorough design engagement. We map your business domain to an AI architecture — identifying what data scopes exist, where customer boundaries need to be enforced, how AI agents should interact with each other, and what the cost model looks like. This produces a blueprint that guides the entire implementation.</p>
-            <p class="customer-value"><strong>Value to you:</strong> You avoid the most expensive mistake in AI projects — building first and discovering architectural problems later. The design phase ensures alignment on scope, cost, and security before development begins.</p>
-        </div>
-
-        <div class="service-block">
-            <h4>Deterministic AI Automation</h4>
-            <div class="what-it-means">What this means</div>
-            <p>We build workflow automation where every AI execution is recorded and can be replayed exactly. A complete record — what data the AI saw, what decisions it made, what actions it took, and what it cost — is captured for every run. This makes the system auditable, debuggable, and compliant with regulatory requirements.</p>
-            <p class="customer-value"><strong>Value to you:</strong> When a regulator, auditor, or stakeholder asks "why did the system make this decision?" — you can show them exactly what happened, step by step. Full accountability without manual logging.</p>
-        </div>
-
-        <div class="service-block">
-            <h4>Multi-Tenant AI Infrastructure</h4>
-            <div class="what-it-means">What this means</div>
-            <p>When multiple customers share the same AI platform, their data must be kept completely separate. We enforce this separation at the infrastructure level — in the actual database and network routing — not by relying on AI instructions to "only look at the right data." If the AI model malfunctions or is manipulated, the isolation still holds because it is physically enforced.</p>
-            <p class="customer-value"><strong>Value to you:</strong> Your data cannot be accessed by another customer on the same platform. This is a structural guarantee, not a software promise — it holds even if the AI model behaves unexpectedly.</p>
-        </div>
-
-        <div class="service-block">
-            <h4>Production AI Operations</h4>
-            <div class="what-it-means">What this means</div>
-            <p>Running AI in production costs real money — every question asked, every document processed, every decision made consumes tokens that translate directly to dollars. We build systems with hard spending limits per operation, real-time cost tracking, automated cleanup of expired data, and monitoring dashboards that give you visibility into exactly where your AI budget is going.</p>
-            <p class="customer-value"><strong>Value to you:</strong> No surprise AI bills. You know exactly what each operation costs, spending is controlled with hard limits, and waste is automatically eliminated. AI becomes a predictable line item, not an open-ended expense.</p>
-        </div>
-    </div>
-
-    <!-- Section 3: Our Principles -->
-    <div class="content page-break">
-        <h2>Engineering Principles</h2>
-        <p class="section-intro">These are the non-negotiable engineering standards behind every system we build. They exist to protect your data, control your costs, and ensure your AI system remains reliable as it scales.</p>
-
-        <div class="principle-block">
-            <div class="principle-number">1</div>
-            <div class="principle-content">
-                <h4>Context Over Model</h4>
-                <p>The AI model (GPT, Claude, Llama, or any future model) is replaceable. What isn't replaceable is how you organize, scope, and deliver information to that model. Two identical models given different context will produce drastically different results. We invest our engineering in the context architecture — the durable asset — not in coupling your system to a single AI vendor.</p>
-                <p class="bottom-line">You are never locked into one AI provider. Your investment is in the architecture, which works with any model.</p>
+            <div class="summary-box">
+                <h3>The Short Version</h3>
+                <p>Anyone can call an AI API. Almost nobody knows how to make AI systems work reliably in production with <span class="highlight">multiple customers</span>, <span class="highlight">real security requirements</span>, and <span class="highlight">actual cost control</span>. That's what AlphaOne does. We engineer the architecture — the information flow, the guardrails, the memory, the isolation — that turns AI capabilities into deployable commercial systems.</p>
             </div>
         </div>
+    </section>
 
-        <div class="principle-block">
-            <div class="principle-number">2</div>
-            <div class="principle-content">
-                <h4>Isolation is Infrastructure</h4>
-                <p>Data separation between customers is enforced at the infrastructure level — in database partitions and network routing — not by asking the AI to restrict itself. This means even if the AI model is compromised, confused, or manipulated, it physically cannot access another customer's data. We treat this as a non-negotiable architectural requirement, not a feature to be configured.</p>
-                <p class="bottom-line">Your data is protected by physics, not by policy. Isolation holds regardless of AI model behavior.</p>
+    <!-- Our Services -->
+    <section class="ref-section" id="ref-services">
+        <div class="container">
+            <div class="ref-section-header">
+                <span class="section-tag">What We Do</span>
+                <h2>Our Services — In Plain Language</h2>
+                <p>Each service is described below alongside a plain-language explanation and the direct value it delivers to your organization.</p>
+            </div>
+
+            <div class="ref-blocks">
+                <div class="ref-block">
+                    <h3>Agentic AI Systems</h3>
+                    <div class="ref-label">What this means</div>
+                    <p>We build AI agents — software that can independently reason through a problem, decide what tools to use, execute multi-step tasks, and course-correct when something goes wrong. Unlike a simple chatbot that responds to one question at a time, an agentic system can take an objective, break it into steps, use external tools and data sources, and deliver a completed outcome.</p>
+                    <div class="ref-value"><strong>Value to you:</strong> Work that currently requires a human to orchestrate multiple steps can be handled autonomously by AI — reducing cycle times and operational overhead while maintaining quality controls.</div>
+                </div>
+
+                <div class="ref-block">
+                    <h3>Context Architecture & Engineering</h3>
+                    <div class="ref-label">What this means</div>
+                    <p>We design how information flows through your AI system. This includes defining a single authoritative data source (so the AI never works from stale or conflicting information), labeling every piece of data with who can access it and what type it is, and building the pipelines that deliver the right information to the AI at the right time.</p>
+                    <div class="ref-value"><strong>Value to you:</strong> Your AI system gives consistent, trustworthy answers because it always works from verified, properly scoped data — not a growing pile of unstructured history.</div>
+                </div>
+
+                <div class="ref-block">
+                    <h3>AI Systems Design & Strategy</h3>
+                    <div class="ref-label">What this means</div>
+                    <p>Before building anything, we conduct a thorough design engagement. We map your business domain to an AI architecture — identifying what data scopes exist, where customer boundaries need to be enforced, how AI agents should interact with each other, and what the cost model looks like. This produces a blueprint that guides the entire implementation.</p>
+                    <div class="ref-value"><strong>Value to you:</strong> You avoid the most expensive mistake in AI projects — building first and discovering architectural problems later. The design phase ensures alignment on scope, cost, and security before development begins.</div>
+                </div>
+
+                <div class="ref-block">
+                    <h3>Deterministic AI Automation</h3>
+                    <div class="ref-label">What this means</div>
+                    <p>We build workflow automation where every AI execution is recorded and can be replayed exactly. A complete record — what data the AI saw, what decisions it made, what actions it took, and what it cost — is captured for every run. This makes the system auditable, debuggable, and compliant with regulatory requirements.</p>
+                    <div class="ref-value"><strong>Value to you:</strong> When a regulator, auditor, or stakeholder asks "why did the system make this decision?" — you can show them exactly what happened, step by step. Full accountability without manual logging.</div>
+                </div>
+
+                <div class="ref-block">
+                    <h3>Multi-Tenant AI Infrastructure</h3>
+                    <div class="ref-label">What this means</div>
+                    <p>When multiple customers share the same AI platform, their data must be kept completely separate. We enforce this separation at the infrastructure level — in the actual database and network routing — not by relying on AI instructions to "only look at the right data." If the AI model malfunctions or is manipulated, the isolation still holds because it is physically enforced.</p>
+                    <div class="ref-value"><strong>Value to you:</strong> Your data cannot be accessed by another customer on the same platform. This is a structural guarantee, not a software promise — it holds even if the AI model behaves unexpectedly.</div>
+                </div>
+
+                <div class="ref-block">
+                    <h3>Production AI Operations</h3>
+                    <div class="ref-label">What this means</div>
+                    <p>Running AI in production costs real money — every question asked, every document processed, every decision made consumes tokens that translate directly to dollars. We build systems with hard spending limits per operation, real-time cost tracking, automated cleanup of expired data, and monitoring dashboards that give you visibility into exactly where your AI budget is going.</p>
+                    <div class="ref-value"><strong>Value to you:</strong> No surprise AI bills. You know exactly what each operation costs, spending is controlled with hard limits, and waste is automatically eliminated. AI becomes a predictable line item, not an open-ended expense.</div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="principle-block">
-            <div class="principle-number">3</div>
-            <div class="principle-content">
-                <h4>Assemble, Don't Accumulate</h4>
-                <p>Every time the AI runs, it builds a fresh, purpose-built information set from authoritative sources. It does not carry forward a growing history of old conversations, stale data, and past mistakes. This prevents a common failure mode where AI systems slowly degrade because they are drowning in irrelevant or outdated context that crowds out the information that actually matters.</p>
-                <p class="bottom-line">Your AI system gets more reliable over time, not less. No mystery degradation, no unexplained drift.</p>
+    <!-- Engineering Principles -->
+    <section class="ref-section ref-principles-bg" id="ref-principles">
+        <div class="container">
+            <div class="ref-section-header">
+                <span class="section-tag">What We Believe</span>
+                <h2>Engineering Principles</h2>
+                <p>These are the non-negotiable engineering standards behind every system we build. They exist to protect your data, control your costs, and ensure your AI system remains reliable as it scales.</p>
+            </div>
+
+            <div class="ref-principles">
+                <div class="ref-principle">
+                    <div class="ref-principle-num">1</div>
+                    <div class="ref-principle-body">
+                        <h3>Context Over Model</h3>
+                        <p>The AI model (GPT, Claude, Llama, or any future model) is replaceable. What isn't replaceable is how you organize, scope, and deliver information to that model. Two identical models given different context will produce drastically different results. We invest our engineering in the context architecture — the durable asset — not in coupling your system to a single AI vendor.</p>
+                        <div class="ref-bottom-line">You are never locked into one AI provider. Your investment is in the architecture, which works with any model.</div>
+                    </div>
+                </div>
+
+                <div class="ref-principle">
+                    <div class="ref-principle-num">2</div>
+                    <div class="ref-principle-body">
+                        <h3>Isolation is Infrastructure</h3>
+                        <p>Data separation between customers is enforced at the infrastructure level — in database partitions and network routing — not by asking the AI to restrict itself. This means even if the AI model is compromised, confused, or manipulated, it physically cannot access another customer's data. We treat this as a non-negotiable architectural requirement, not a feature to be configured.</p>
+                        <div class="ref-bottom-line">Your data is protected by physics, not by policy. Isolation holds regardless of AI model behavior.</div>
+                    </div>
+                </div>
+
+                <div class="ref-principle">
+                    <div class="ref-principle-num">3</div>
+                    <div class="ref-principle-body">
+                        <h3>Assemble, Don't Accumulate</h3>
+                        <p>Every time the AI runs, it builds a fresh, purpose-built information set from authoritative sources. It does not carry forward a growing history of old conversations, stale data, and past mistakes. This prevents a common failure mode where AI systems slowly degrade because they are drowning in irrelevant or outdated context that crowds out the information that actually matters.</p>
+                        <div class="ref-bottom-line">Your AI system gets more reliable over time, not less. No mystery degradation, no unexplained drift.</div>
+                    </div>
+                </div>
+
+                <div class="ref-principle">
+                    <div class="ref-principle-num">4</div>
+                    <div class="ref-principle-body">
+                        <h3>Zero Trust by Design</h3>
+                        <p>Nothing in the system is trusted by default — not the AI model, not other AI agents, not data flowing between components. Every piece of data crossing a boundary is validated. When one AI agent produces output for another, that output is treated as unverified external data and must pass through validation before it can be stored or acted upon. Security is structural, not instructional.</p>
+                        <div class="ref-bottom-line">Attackers cannot trick one component into compromising another. Every boundary is a security checkpoint.</div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="principle-block">
-            <div class="principle-number">4</div>
-            <div class="principle-content">
-                <h4>Zero Trust by Design</h4>
-                <p>Nothing in the system is trusted by default — not the AI model, not other AI agents, not data flowing between components. Every piece of data crossing a boundary is validated. When one AI agent produces output for another, that output is treated as unverified external data and must pass through validation before it can be stored or acted upon. Security is structural, not instructional.</p>
-                <p class="bottom-line">Attackers cannot trick one component into compromising another. Every boundary is a security checkpoint.</p>
+    <!-- How We Work -->
+    <section class="ref-section" id="ref-process">
+        <div class="container">
+            <div class="ref-section-header">
+                <span class="section-tag">Our Process</span>
+                <h2>How We Work</h2>
+                <p>Our engagement process is designed to eliminate waste, surface risks early, and deliver production-ready systems — not prototypes that require months of additional hardening.</p>
+            </div>
+
+            <div class="ref-steps">
+                <div class="ref-step">
+                    <div class="ref-step-num">1</div>
+                    <div class="ref-step-body">
+                        <h3>Discovery & Scoping</h3>
+                        <p>We learn your business: what data exists, who needs access to what, what regulations apply, and where AI genuinely adds value versus where it adds complexity. We identify data boundaries, customer separation requirements, and cost constraints. The output is a clear scope document with measurable success criteria.</p>
+                    </div>
+                </div>
+
+                <div class="ref-step">
+                    <div class="ref-step-num">2</div>
+                    <div class="ref-step-body">
+                        <h3>Plan Before Execute</h3>
+                        <p>We design the complete system architecture before writing code. This includes: how AI agents will interact, how data flows between components, what the authoritative data sources are, what validation rules govern data promotion, and what the token cost budget looks like. You review and approve this blueprint before development begins.</p>
+                    </div>
+                </div>
+
+                <div class="ref-step">
+                    <div class="ref-step-num">3</div>
+                    <div class="ref-step-body">
+                        <h3>Build & Validate</h3>
+                        <p>We build iteratively with continuous validation. Every AI execution is recorded so we can replay and verify any scenario produces the expected result. Testing is deterministic — not "run it and hope." We track the cost of every operation so there are no surprises when the system goes live.</p>
+                    </div>
+                </div>
+
+                <div class="ref-step">
+                    <div class="ref-step-num">4</div>
+                    <div class="ref-step-body">
+                        <h3>Deploy & Harden</h3>
+                        <p>We deploy to production with automated data cleanup, retention policy enforcement, and hardening pipelines that continuously strengthen the system after launch. Unlike traditional software that becomes more fragile over time, our systems are designed to become more reliable the longer they run.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Section 4: How We Work -->
-    <div class="content page-break">
-        <h2>How We Work</h2>
-        <p class="section-intro">Our engagement process is designed to eliminate waste, surface risks early, and deliver production-ready systems — not prototypes that require months of additional hardening.</p>
+    <!-- Glossary -->
+    <section class="ref-section ref-principles-bg" id="ref-glossary">
+        <div class="container">
+            <div class="ref-section-header">
+                <span class="section-tag">Quick Reference</span>
+                <h2>Glossary of Terms</h2>
+                <p>A quick reference for technical terms you may encounter when working with AlphaOne.</p>
+            </div>
 
-        <div class="process-step">
-            <div class="step-num">1</div>
-            <div class="step-body">
-                <h4>Discovery & Scoping</h4>
-                <p>We learn your business: what data exists, who needs access to what, what regulations apply, and where AI genuinely adds value versus where it adds complexity. We identify data boundaries, customer separation requirements, and cost constraints. The output is a clear scope document with measurable success criteria.</p>
+            <div class="ref-glossary">
+                <div class="glossary-row">
+                    <div class="glossary-term">Agentic AI</div>
+                    <div class="glossary-def">AI that can independently take actions, use tools, and make multi-step decisions — not just answer questions in a chat window.</div>
+                </div>
+                <div class="glossary-row">
+                    <div class="glossary-term">Context Engineering</div>
+                    <div class="glossary-def">Designing how information flows to and from AI models — what the AI sees, when it sees it, and with what permissions. The architecture around the model.</div>
+                </div>
+                <div class="glossary-row">
+                    <div class="glossary-term">Canonical Truth Store</div>
+                    <div class="glossary-def">The single authoritative source of data in a system. Everything else is derived from it and can be rebuilt if needed — like a financial ledger that all reports are generated from.</div>
+                </div>
+                <div class="glossary-row">
+                    <div class="glossary-term">Tenant Isolation</div>
+                    <div class="glossary-def">Keeping one customer's data completely separate from another's in a shared platform. Enforced at the infrastructure level, not through software rules.</div>
+                </div>
+                <div class="glossary-row">
+                    <div class="glossary-term">Data Plane</div>
+                    <div class="glossary-def">The infrastructure layer where data is actually stored and routed. Security enforced here cannot be bypassed by software bugs or AI misbehavior.</div>
+                </div>
+                <div class="glossary-row">
+                    <div class="glossary-term">Promotion Gate</div>
+                    <div class="glossary-def">A validation checkpoint where temporary data is reviewed before becoming permanent. Prevents unverified or erroneous information from being stored as fact.</div>
+                </div>
+                <div class="glossary-row">
+                    <div class="glossary-term">Deterministic Replay</div>
+                    <div class="glossary-def">The ability to re-run any past AI execution and get the same result. Essential for debugging problems and satisfying audit requirements.</div>
+                </div>
+                <div class="glossary-row">
+                    <div class="glossary-term">Trace Envelope</div>
+                    <div class="glossary-def">A complete record of a single AI execution — what data it retrieved, what decisions it made, what actions it took, what model version was used, and what it cost. A flight recorder for AI.</div>
+                </div>
+                <div class="glossary-row">
+                    <div class="glossary-term">Token Budget</div>
+                    <div class="glossary-def">A hard spending limit on how many AI tokens (the unit AI providers charge for) a single operation can consume. Prevents runaway costs.</div>
+                </div>
+                <div class="glossary-row">
+                    <div class="glossary-term">Economic Surface</div>
+                    <div class="glossary-def">Any point in the system where money is being spent — token consumption, compute time, storage. These are monitored and controlled like any other operational cost.</div>
+                </div>
+                <div class="glossary-row">
+                    <div class="glossary-term">Memory Governance</div>
+                    <div class="glossary-def">Rules for what data gets remembered by the system, how long it's kept, who can access it, and when it expires. Prevents the system from accumulating stale or unauthorized data.</div>
+                </div>
+                <div class="glossary-row">
+                    <div class="glossary-term">Context Drift</div>
+                    <div class="glossary-def">When an AI system slowly degrades because its information store fills with stale, irrelevant, or contradictory data. A primary cause of AI systems that "worked fine at first" but deteriorate over time.</div>
+                </div>
+                <div class="glossary-row">
+                    <div class="glossary-term">Zero Trust</div>
+                    <div class="glossary-def">A security model where nothing is trusted by default. Every data transfer, every component interaction, and every boundary crossing requires explicit validation — regardless of source.</div>
+                </div>
+                <div class="glossary-row">
+                    <div class="glossary-term">Self-Healing Architecture</div>
+                    <div class="glossary-def">A system design where AI agents continuously monitor component health and automatically fix problems — restarting failed processes, rolling back bad deployments, and escalating only when automated recovery is exhausted.</div>
+                </div>
+                <div class="glossary-row">
+                    <div class="glossary-term">OSINT</div>
+                    <div class="glossary-def">Open Source Intelligence — intelligence analysis derived from publicly available information sources such as news, government publications, and public data feeds.</div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="process-step">
-            <div class="step-num">2</div>
-            <div class="step-body">
-                <h4>Plan Before Execute</h4>
-                <p>We design the complete system architecture before writing code. This includes: how AI agents will interact, how data flows between components, what the authoritative data sources are, what validation rules govern data promotion, and what the token cost budget looks like. You review and approve this blueprint before development begins.</p>
+    <!-- CTA -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-card">
+                <div class="contact-content">
+                    <span class="section-tag">Questions?</span>
+                    <h2>Ready to <span class="gradient-text">Talk Details</span>?</h2>
+                    <p>This guide is a starting point. We're happy to go deeper on any service, principle, or technical topic.</p>
+                    <a href="mailto:sales@alpha-one.mobi" class="btn btn-primary btn-lg">sales@alpha-one.mobi</a>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="process-step">
-            <div class="step-num">3</div>
-            <div class="step-body">
-                <h4>Build & Validate</h4>
-                <p>We build iteratively with continuous validation. Every AI execution is recorded so we can replay and verify any scenario produces the expected result. Testing is deterministic — not "run it and hope." We track the cost of every operation so there are no surprises when the system goes live.</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">A1</span>
+                    <span class="logo-text">AlphaOne</span>
+                </a>
+                <p>Context-Engineered AI Systems & Agentic Software</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#principles">Principles</a>
+                <a href="reference.html">Reference Guide</a>
+                <a href="mvps.html">MVPs</a>
+                <a href="opensource.html">Open Source</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AlphaOne LLC. All rights reserved.</p>
             </div>
         </div>
+    </footer>
 
-        <div class="process-step">
-            <div class="step-num">4</div>
-            <div class="step-body">
-                <h4>Deploy & Harden</h4>
-                <p>We deploy to production with automated data cleanup, retention policy enforcement, and hardening pipelines that continuously strengthen the system after launch. Unlike traditional software that becomes more fragile over time, our systems are designed to become more reliable the longer they run.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section 5: Glossary -->
-    <div class="content page-break">
-        <h2>Glossary of Terms</h2>
-        <p class="section-intro">A quick reference for technical terms you may encounter when working with AlphaOne.</p>
-
-        <table class="glossary-table">
-            <thead>
-                <tr>
-                    <th>Term</th>
-                    <th>What It Means</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Agentic AI</td>
-                    <td>AI that can independently take actions, use tools, and make multi-step decisions — not just answer questions in a chat window.</td>
-                </tr>
-                <tr>
-                    <td>Context Engineering</td>
-                    <td>Designing how information flows to and from AI models — what the AI sees, when it sees it, and with what permissions. The architecture around the model.</td>
-                </tr>
-                <tr>
-                    <td>Canonical Truth Store</td>
-                    <td>The single authoritative source of data in a system. Everything else is derived from it and can be rebuilt if needed — like a financial ledger that all reports are generated from.</td>
-                </tr>
-                <tr>
-                    <td>Tenant Isolation</td>
-                    <td>Keeping one customer's data completely separate from another's in a shared platform. Enforced at the infrastructure level, not through software rules.</td>
-                </tr>
-                <tr>
-                    <td>Data Plane</td>
-                    <td>The infrastructure layer where data is actually stored and routed. Security enforced here cannot be bypassed by software bugs or AI misbehavior.</td>
-                </tr>
-                <tr>
-                    <td>Promotion Gate</td>
-                    <td>A validation checkpoint where temporary data is reviewed before becoming permanent. Prevents unverified or erroneous information from being stored as fact.</td>
-                </tr>
-                <tr>
-                    <td>Deterministic Replay</td>
-                    <td>The ability to re-run any past AI execution and get the same result. Essential for debugging problems and satisfying audit requirements.</td>
-                </tr>
-                <tr>
-                    <td>Trace Envelope</td>
-                    <td>A complete record of a single AI execution — what data it retrieved, what decisions it made, what actions it took, what model version was used, and what it cost. A flight recorder for AI.</td>
-                </tr>
-                <tr>
-                    <td>Token Budget</td>
-                    <td>A hard spending limit on how many AI tokens (the unit AI providers charge for) a single operation can consume. Prevents runaway costs.</td>
-                </tr>
-                <tr>
-                    <td>Economic Surface</td>
-                    <td>Any point in the system where money is being spent — token consumption, compute time, storage. These are monitored and controlled like any other operational cost.</td>
-                </tr>
-                <tr>
-                    <td>Memory Governance</td>
-                    <td>Rules for what data gets remembered by the system, how long it's kept, who can access it, and when it expires. Prevents the system from accumulating stale or unauthorized data.</td>
-                </tr>
-                <tr>
-                    <td>Context Drift</td>
-                    <td>When an AI system slowly degrades because its information store fills with stale, irrelevant, or contradictory data. A primary cause of AI systems that "worked fine at first" but deteriorate over time.</td>
-                </tr>
-                <tr>
-                    <td>Zero Trust</td>
-                    <td>A security model where nothing is trusted by default. Every data transfer, every component interaction, and every boundary crossing requires explicit validation — regardless of source.</td>
-                </tr>
-                <tr>
-                    <td>Self-Healing Architecture</td>
-                    <td>A system design where AI agents continuously monitor component health and automatically fix problems — restarting failed processes, rolling back bad deployments, and escalating only when automated recovery is exhausted.</td>
-                </tr>
-                <tr>
-                    <td>OSINT</td>
-                    <td>Open Source Intelligence — intelligence analysis derived from publicly available information sources such as news, government publications, and public data feeds.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Contact Bar -->
-    <div class="contact-bar">
-        <p>Questions about our services? Contact us at <a href="mailto:sales@alpha-one.mobi">sales@alpha-one.mobi</a></p>
-        <p class="company">&copy; 2026 AlphaOne LLC &middot; alpha-one.mobi &middot; Confidential — For Customer Reference</p>
-    </div>
-
-</div>
-
+    <script src="main.js"></script>
 </body>
 </html>
