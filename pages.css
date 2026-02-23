@@ -1,0 +1,451 @@
+/* ========================================
+   AlphaOne LLC — Subpage Styles (MVPs & Open Source)
+   ======================================== */
+
+/* Active nav link */
+.nav-links a.active {
+    color: var(--primary-light);
+}
+
+/* Page Hero (shorter than home) */
+.page-hero {
+    position: relative;
+    padding: 140px 0 60px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.page-hero .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(99, 102, 241, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 70% 10%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.page-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.page-hero .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--text-muted);
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* MVP Section */
+.mvp-section {
+    padding: 80px 0;
+}
+
+.mvp-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.mvp-badge {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.mvp-badge.cyber {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    color: #f87171;
+}
+
+.mvp-badge.intel {
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    color: var(--primary-light);
+}
+
+.mvp-badge.oss {
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    color: #4ade80;
+}
+
+.mvp-header h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.03em;
+    margin-bottom: 10px;
+}
+
+.mvp-tagline {
+    font-size: 17px;
+    color: var(--text-muted);
+}
+
+/* Overview Block */
+.mvp-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+    padding: 36px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.overview-text p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 16px;
+}
+
+.overview-text p:last-child {
+    margin-bottom: 0;
+}
+
+.overview-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-content: center;
+}
+
+.overview-stat {
+    text-align: center;
+    padding: 20px 12px;
+    background: rgba(99, 102, 241, 0.06);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.overview-stat-value {
+    display: block;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+}
+
+.overview-stat-label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+/* Feature Cards (Obsidian Halo) */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    transition: all var(--transition);
+}
+
+.feature-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+}
+
+.feature-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.feature-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Intelligence Modules Chips */
+.intelligence-modules {
+    margin-bottom: 32px;
+}
+
+.intelligence-modules h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.modules-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.module-chip {
+    padding: 8px 18px;
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #f87171;
+}
+
+.mvp-footer-info {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.mvp-footer-info p {
+    font-size: 13px;
+    color: var(--text-dim);
+}
+
+/* Intel module chips */
+.module-chip.intel-chip {
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    color: var(--primary-light);
+}
+
+.platform-section {
+    margin-bottom: 48px;
+}
+
+/* Section Divider */
+.section-divider {
+    padding: 0 0;
+}
+
+.section-divider hr {
+    border: none;
+    border-top: 1px solid var(--border);
+}
+
+/* Architecture Section */
+.architecture-section,
+.self-healing-section,
+.ai-depth-section {
+    margin-bottom: 60px;
+}
+
+.architecture-section h3,
+.self-healing-section h3,
+.ai-depth-section h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.arch-intro {
+    font-size: 15px;
+    color: var(--text-muted);
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+}
+
+.arch-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.arch-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    transition: all var(--transition);
+}
+
+.arch-card:hover {
+    border-color: var(--border-hover);
+}
+
+.arch-step {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.arch-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.arch-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+}
+
+/* Healing Grid */
+.healing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.healing-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    transition: all var(--transition);
+}
+
+.healing-item:hover {
+    border-color: var(--border-hover);
+}
+
+.healing-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.healing-item h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+}
+
+.healing-item p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+}
+
+/* AI Depth List */
+.ai-depth-list {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.ai-depth-item {
+    display: flex;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+}
+
+.ai-depth-item:last-child {
+    border-bottom: none;
+}
+
+.ai-depth-label {
+    min-width: 160px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-light);
+    flex-shrink: 0;
+}
+
+.ai-depth-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* OSS CTA */
+.oss-cta {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 48px;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 768px) {
+    .mvp-overview {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .arch-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .healing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-depth-item {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .ai-depth-label {
+        min-width: unset;
+    }
+}
+
+@media (max-width: 480px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .overview-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .arch-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

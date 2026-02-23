@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Source | AlphaOne LLC</title>
+    <meta name="description" content="AlphaOne LLC open source contributions — OpenClaw Graph, a graph-enhanced AI skill database with TOON optimization that reduced token costs by 229%.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">A1</span>
+                <span class="logo-text">AlphaOne</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#principles">Principles</a></li>
+                <li><a href="mvps.html">MVPs</a></li>
+                <li><a href="opensource.html" class="active">Open Source</a></li>
+                <li><a href="index.html#contact" class="btn btn-nav">Contact Us</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-badge">Giving Back</div>
+            <h1>Open Source <span class="gradient-text">Contributions</span></h1>
+            <p class="hero-sub">We believe the best way to advance AI engineering is to share what we learn. Our open source work is contributed back to the communities that make this work possible.</p>
+        </div>
+    </section>
+
+    <!-- OpenClaw Graph -->
+    <section class="mvp-section" id="openclaw-graph">
+        <div class="container">
+            <div class="mvp-header">
+                <div class="mvp-badge oss">Open Source</div>
+                <h2>OpenClaw Graph</h2>
+                <p class="mvp-tagline">Graph-enhanced AI skill database for the OpenClaw community</p>
+                <a href="https://alphaonedev.github.io/openclaw-graph/" target="_blank" class="btn btn-primary" style="margin-top:20px;">View Project &rarr;</a>
+            </div>
+
+            <div class="mvp-overview">
+                <div class="overview-text">
+                    <p>OpenClaw Graph is AlphaOne's contribution to the open source OpenClaw project — a graph database layer that fundamentally transforms how AI agents discover, relate, and invoke skills. By replacing flat skill registries with a graph-native architecture, agents gain multi-hop reasoning across skill relationships, cluster-aware discovery, and dramatically reduced token consumption.</p>
+                    <p>The project demonstrates our core belief that context architecture — not model selection — is the differentiator in production AI systems. Graph databases provide the structural foundation for scoped, efficient, and relationship-aware context assembly.</p>
+                </div>
+                <div class="overview-stats">
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">229%</span>
+                        <span class="overview-stat-label">Token Cost Reduction</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">316</span>
+                        <span class="overview-stat-label">Skills Mapped</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">27</span>
+                        <span class="overview-stat-label">Skill Clusters</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">545K+</span>
+                        <span class="overview-stat-label">Graph Nodes</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How AI is Enhanced with Graph -->
+            <div class="architecture-section">
+                <h3>How AI is Enhanced with Graph Database Capabilities</h3>
+                <p class="arch-intro">Traditional AI skill registries are flat lists — the agent must scan everything to find what it needs, consuming tokens proportional to the registry size. Graph databases change the fundamental economics.</p>
+
+                <div class="arch-grid">
+                    <div class="arch-card">
+                        <div class="arch-step">1</div>
+                        <h4>Relationship-Aware Discovery</h4>
+                        <p>Skills are connected through typed edges — dependencies, compositions, alternatives, and cluster memberships. Instead of scanning a flat list, agents traverse relationships to find exactly what they need in logarithmic time.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step">2</div>
+                        <h4>Cluster-Based Context Assembly</h4>
+                        <p>Related skills are grouped into semantic clusters. When an agent needs capabilities in a domain, it retrieves the relevant cluster — getting a coherent, pre-organized context window instead of pulling individual skills and hoping they compose well.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step">3</div>
+                        <h4>Multi-Hop Reasoning</h4>
+                        <p>Graph traversal enables agents to reason across skill relationships — "if I need skill A, I also need its dependencies B and C, and there's an optimized alternative D." This compositional reasoning is impossible with flat registries.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step">4</div>
+                        <h4>Scoped Retrieval</h4>
+                        <p>Graph queries naturally enforce scope boundaries. Agents retrieve only the subgraph relevant to their current task — no over-fetching, no token waste on irrelevant context. This is context assembly, not context accumulation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TOON and Cost Reduction -->
+            <div class="self-healing-section">
+                <h3>TOON Optimization & Token Cost Reduction</h3>
+                <p class="arch-intro">The 229% token cost reduction comes from multiple optimization layers working together — what we call the TOON (Token-Optimized Operation Network) approach.</p>
+
+                <div class="healing-grid">
+                    <div class="healing-item">
+                        <div class="healing-icon">🎯</div>
+                        <h4>Targeted Retrieval</h4>
+                        <p>Graph queries return precisely scoped subgraphs instead of bulk skill dumps. Agents receive only the context they need for the current task — eliminating the token overhead of transmitting entire registries.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">🗜️</div>
+                        <h4>Structural Compression</h4>
+                        <p>Graph edges encode relationships that would otherwise require verbose natural language descriptions. A single edge replaces paragraphs of context about how skills relate — compressing the context window without losing information.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">🔄</div>
+                        <h4>Cached Traversals</h4>
+                        <p>Frequently accessed subgraphs are pre-materialized. Common agent workflows hit warm caches instead of executing fresh graph queries — reducing both latency and the token cost of re-computing context.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">📉</div>
+                        <h4>Progressive Disclosure</h4>
+                        <p>Instead of loading all skill details upfront, the graph serves summaries first and full definitions on demand. Agents decide what to expand based on initial traversal — paying token costs only for what they actually use.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Data -->
+            <div class="ai-depth-section">
+                <h3>Performance Impact</h3>
+                <div class="ai-depth-list">
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Token Cost</span>
+                        <span class="ai-depth-desc">229% reduction through TOON optimization — targeted retrieval, structural compression, cached traversals</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Skill Discovery</span>
+                        <span class="ai-depth-desc">Graph traversal replaces linear scan — logarithmic vs. linear complexity for skill lookup</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Context Quality</span>
+                        <span class="ai-depth-desc">Cluster-aware assembly delivers coherent, pre-organized context instead of arbitrary skill fragments</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Relationship Reasoning</span>
+                        <span class="ai-depth-desc">Multi-hop graph queries enable compositional skill reasoning impossible with flat registries</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Scalability</span>
+                        <span class="ai-depth-desc">545K+ nodes with sub-millisecond query times — cost stays flat as the skill database grows</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="oss-cta">
+                <a href="https://alphaonedev.github.io/openclaw-graph/" target="_blank" class="btn btn-primary btn-lg">Explore OpenClaw Graph &rarr;</a>
+                <a href="https://github.com/alphaonedev/openclaw-graph" target="_blank" class="btn btn-outline btn-lg">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-card">
+                <div class="contact-content">
+                    <span class="section-tag">Collaborate</span>
+                    <h2>Interested in Our <span class="gradient-text">Open Source Work</span>?</h2>
+                    <p>We're always looking for contributors and partners who share our commitment to building better AI infrastructure in the open.</p>
+                    <a href="mailto:sales@alpha-one.mobi" class="btn btn-primary btn-lg">sales@alpha-one.mobi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">A1</span>
+                    <span class="logo-text">AlphaOne</span>
+                </a>
+                <p>Context-Engineered AI Systems & Agentic Software</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#principles">Principles</a>
+                <a href="mvps.html">MVPs</a>
+                <a href="opensource.html">Open Source</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AlphaOne LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

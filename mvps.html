@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVPs | AlphaOne LLC</title>
+    <meta name="description" content="AlphaOne LLC MVP products — Obsidian Halo cyber defense platform and AlphaOne Daily Intelligence Briefing with autonomous AI health monitoring.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">A1</span>
+                <span class="logo-text">AlphaOne</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#principles">Principles</a></li>
+                <li><a href="mvps.html" class="active">MVPs</a></li>
+                <li><a href="opensource.html">Open Source</a></li>
+                <li><a href="index.html#contact" class="btn btn-nav">Contact Us</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-badge">Shipping Product</div>
+            <h1>Minimum Viable <span class="gradient-text">Products</span></h1>
+            <p class="hero-sub">Production systems built on our context-engineering principles. Each MVP demonstrates end-to-end AI integration — from autonomous operation to self-healing infrastructure.</p>
+        </div>
+    </section>
+
+    <!-- MVP 1: Obsidian Halo -->
+    <section class="mvp-section" id="obsidian-halo">
+        <div class="container">
+            <div class="mvp-header">
+                <div class="mvp-badge cyber">Cyber Defense</div>
+                <h2>Obsidian Halo</h2>
+                <p class="mvp-tagline">Real-time endpoint security monitoring for macOS</p>
+            </div>
+
+            <div class="mvp-overview">
+                <div class="overview-text">
+                    <p>Obsidian Halo is a privacy-first cyber defense platform that runs entirely on-device. It delivers enterprise-grade threat detection, nation-state attribution, and real-time threat intelligence — all processed locally on Apple Silicon with zero cloud dependencies.</p>
+                    <p>On-device AI analysis powered by Llama 3.2 running locally via MLX provides intelligent threat assessment without sending data to external AI providers. Install once, protection forever.</p>
+                </div>
+                <div class="overview-stats">
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">&lt;2%</span>
+                        <span class="overview-stat-label">CPU Usage</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">&lt;100MB</span>
+                        <span class="overview-stat-label">Memory</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">146</span>
+                        <span class="overview-stat-label">Detection Rules</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">100K+</span>
+                        <span class="overview-stat-label">Malicious IPs Tracked</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>100% Local Processing</h3>
+                    <p>All analysis runs on-device. Security data never leaves your Mac — no cloud, no subscriptions, no data harvesting.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍎</div>
+                    <h3>Apple Silicon Native</h3>
+                    <p>Built from the ground up for M1/M2/M3/M4 chips with neural engine acceleration.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Enterprise-Grade Detection</h3>
+                    <p>146 detection rules covering 75 MITRE ATT&CK techniques. Same methodology used by Fortune 500 SOCs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Nation-State Attribution</h3>
+                    <p>Matches attack patterns against 10 APT groups (Russia, China, North Korea, Iran) with YARA-based signatures.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📡</div>
+                    <h3>Real-Time Threat Intelligence</h3>
+                    <p>18+ threat feeds with automatic 6-hour refresh. Spamhaus, FireHOL, Tor exit nodes, and Feodo tracker integration.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>On-Device AI Analysis</h3>
+                    <p>Llama 3.2 LLM runs locally via MLX. Intelligent threat assessment without sending data to OpenAI or Anthropic.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Privacy-First Tracker Detection</h3>
+                    <p>DuckDuckGo Tracker Radar integration identifies fingerprinting and cross-site tracking in real-time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Zero Configuration</h3>
+                    <p>Install once, protection forever. No agents to configure, no policies to manage, no cloud console.</p>
+                </div>
+            </div>
+
+            <div class="intelligence-modules">
+                <h3>Intelligence Modules</h3>
+                <div class="modules-grid">
+                    <div class="module-chip">Main Dashboard</div>
+                    <div class="module-chip">APT Intelligence</div>
+                    <div class="module-chip">Graph Intelligence</div>
+                    <div class="module-chip">Counter-Intelligence</div>
+                    <div class="module-chip">Browser Intelligence</div>
+                    <div class="module-chip">Tracker Intelligence</div>
+                    <div class="module-chip">Network Intelligence</div>
+                    <div class="module-chip">DNS Intelligence</div>
+                </div>
+            </div>
+
+            <div class="mvp-footer-info">
+                <p>www.obsidianhalo.ai &middot; CC BY-NC-ND 4.0</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider"><div class="container"><hr></div></div>
+
+    <!-- MVP 2: Daily Intelligence Briefing -->
+    <section class="mvp-section" id="daily-briefing">
+        <div class="container">
+            <div class="mvp-header">
+                <div class="mvp-badge intel">AI Intelligence</div>
+                <h2>AlphaOne Daily Intelligence Briefing</h2>
+                <p class="mvp-tagline">AI-enhanced OSINT analytics — autonomous intelligence aggregation, analysis, and delivery</p>
+            </div>
+
+            <div class="mvp-overview">
+                <div class="overview-text">
+                    <p>The AlphaOne Daily Intelligence Briefing is an AI-enhanced OSINT (Open Source Intelligence) analytics platform — a fully autonomous, end-to-end AI pipeline that collects, validates, scores, analyzes, and delivers curated intelligence briefings with zero human intervention. It provides AI-driven analysis of the current global risk picture across geopolitical, cyber, economic, and technology domains.</p>
+                    <p>Available on <strong>iOS</strong>, <strong>Android</strong>, and <strong>desktop web</strong>, the briefing is delivered as a native mobile experience with responsive dashboards optimized for each platform. The system operates on a self-healing architecture where AI agents continuously monitor their own health, detect anomalies, and autonomously remediate failures across the entire pipeline.</p>
+                </div>
+                <div class="overview-stats">
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">100%</span>
+                        <span class="overview-stat-label">Autonomous</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">24/7</span>
+                        <span class="overview-stat-label">Continuous Operation</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">Self-Healing</span>
+                        <span class="overview-stat-label">Architecture</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">iOS + Android</span>
+                        <span class="overview-stat-label">Native Mobile Apps</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platform Availability -->
+            <div class="platform-section">
+                <div class="modules-grid">
+                    <div class="module-chip intel-chip">iOS App</div>
+                    <div class="module-chip intel-chip">Android App</div>
+                    <div class="module-chip intel-chip">Desktop Web</div>
+                    <div class="module-chip intel-chip">Mobile Web</div>
+                </div>
+            </div>
+
+            <!-- Architecture Section -->
+            <div class="architecture-section">
+                <h3>End-to-End AI Architecture</h3>
+                <p class="arch-intro">Every stage of the pipeline is AI-driven. No manual curation, no human gatekeepers, no scheduled batch jobs waiting for someone to press a button.</p>
+
+                <div class="arch-grid">
+                    <div class="arch-card">
+                        <div class="arch-step">1</div>
+                        <h4>Autonomous Feed Collection</h4>
+                        <p>AI-managed feed watchdog continuously monitors and ingests intelligence sources. Adaptive scheduling adjusts collection frequency based on source reliability and freshness signals. Failed feeds are automatically retried with exponential backoff.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step">2</div>
+                        <h4>Schema Validation & Quality Scoring</h4>
+                        <p>Every ingested item passes through AI-powered schema validation and quality scoring. Structured schemas enforce data integrity while quality scorers assess relevance, credibility, and timeliness — filtering noise before it enters the pipeline.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step">3</div>
+                        <h4>Graph Database Intelligence Store</h4>
+                        <p>All validated intelligence is stored in a graph database that maps relationships between entities, sources, topics, and temporal patterns. Graph traversal enables multi-hop reasoning that flat databases cannot support — connecting dots across disparate intelligence domains.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step">4</div>
+                        <h4>AI Analysis & Briefing Generation</h4>
+                        <p>LLM-powered analysis synthesizes collected intelligence into structured briefings. Context-engineered prompts ensure consistent output quality. The generator produces responsive dashboards for both desktop and mobile with real-time data visualization.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step">5</div>
+                        <h4>Multi-Platform Delivery</h4>
+                        <p>Finished briefings deploy automatically to desktop and mobile platforms via Cloudflare Pages. Deployment pipelines validate output integrity before going live. Zero-downtime delivery ensures consumers always have access to the latest intelligence.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step">6</div>
+                        <h4>Autonomous Health Monitoring & Self-Healing</h4>
+                        <p>A dedicated AI health monitoring system continuously observes every component in the pipeline. It detects feed failures, data quality degradation, pipeline stalls, rendering errors, and infrastructure anomalies — then autonomously remediates without human intervention.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Self-Healing Architecture -->
+            <div class="self-healing-section">
+                <h3>Self-Healing Architecture</h3>
+                <p class="arch-intro">The health monitoring system operates as an independent AI agent that treats the briefing pipeline as its observability domain.</p>
+
+                <div class="healing-grid">
+                    <div class="healing-item">
+                        <div class="healing-icon">🔍</div>
+                        <h4>Continuous Observation</h4>
+                        <p>Health agents poll every pipeline stage — feed latency, schema validation pass rates, graph DB query performance, generation success rates, and deployment status. Metrics are collected into a dedicated health dashboard with real-time visualization.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">⚠️</div>
+                        <h4>Anomaly Detection</h4>
+                        <p>AI-driven anomaly detection identifies deviations from baseline behavior. Feed staleness, quality score drops, generation failures, and deployment errors trigger graduated alert levels — from advisory through critical.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">🔧</div>
+                        <h4>Autonomous Remediation</h4>
+                        <p>When anomalies are detected, the health system autonomously executes remediation workflows: restarting failed feeds, re-triggering generation passes, rolling back bad deployments, and escalating only when automated recovery is exhausted.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">📊</div>
+                        <h4>Health Dashboard</h4>
+                        <p>A dedicated health monitoring dashboard provides real-time visibility into pipeline status, component health scores, remediation history, and system-wide metrics — giving operators confidence the system is operating within spec.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Integration Depth -->
+            <div class="ai-depth-section">
+                <h3>AI Utilization — End to End</h3>
+                <div class="ai-depth-list">
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Feed Management</span>
+                        <span class="ai-depth-desc">AI-adaptive scheduling, reliability scoring, automatic retry logic</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Data Validation</span>
+                        <span class="ai-depth-desc">Schema enforcement, quality scoring, relevance filtering</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Knowledge Storage</span>
+                        <span class="ai-depth-desc">Graph database with entity resolution, relationship mapping, temporal indexing</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Analysis & Generation</span>
+                        <span class="ai-depth-desc">LLM synthesis, context-engineered prompts, structured output generation</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Deployment</span>
+                        <span class="ai-depth-desc">Automated build, validation, and zero-downtime delivery to Cloudflare edge</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Health Monitoring</span>
+                        <span class="ai-depth-desc">AI anomaly detection, autonomous remediation, self-healing pipelines</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Observability</span>
+                        <span class="ai-depth-desc">Real-time dashboards, trace logging, cost attribution per pipeline run</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-card">
+                <div class="contact-content">
+                    <span class="section-tag">Interested?</span>
+                    <h2>Want to Build Something <span class="gradient-text">Like This</span>?</h2>
+                    <p>These MVPs demonstrate what's possible when AI is engineered into every layer of the stack. Let's talk about your use case.</p>
+                    <a href="mailto:sales@alpha-one.mobi" class="btn btn-primary btn-lg">sales@alpha-one.mobi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">A1</span>
+                    <span class="logo-text">AlphaOne</span>
+                </a>
+                <p>Context-Engineered AI Systems & Agentic Software</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#principles">Principles</a>
+                <a href="mvps.html">MVPs</a>
+                <a href="opensource.html">Open Source</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AlphaOne LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
