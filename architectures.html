@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference Architectures | AlphaOne LLC</title>
+    <meta name="description" content="AlphaOne LLC reference architectures — production-grade blueprints for enterprise AI agent systems with context engineering, self-healing, and zero-trust design.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="architectures.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">A1</span>
+                <span class="logo-text">AlphaOne</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#principles">Principles</a></li>
+                <li><a href="reference.html">Reference Guide</a></li>
+                <li><a href="mvps.html">MVPs</a></li>
+                <li><a href="architectures.html" class="active">Reference Architectures</a></li>
+                <li><a href="opensource.html">Open Source</a></li>
+                <li><a href="index.html#contact" class="btn btn-nav">Contact Us</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-badge">Architecture</div>
+            <h1>Reference <span class="gradient-text">Architectures</span></h1>
+            <p class="hero-sub">Production-grade architecture blueprints for enterprise AI systems — context-engineered, self-healing, and built for scale.</p>
+        </div>
+    </section>
+
+    <!-- Enterprise AI Agent Reference Architecture -->
+    <section class="mvp-section" id="enterprise-ai-agents">
+        <div class="ref-arch-wrap">
+
+            <!-- Architecture Header -->
+            <div class="ref-arch-header">
+                <h2>Enterprise AI Agent <span class="gradient-text">Reference Architecture</span></h2>
+                <div class="ref-arch-sub">
+                    100 AI Agents &bull; 10 Deployment Groups (A1&ndash;A10) &bull; 10 Agents per Group<br>
+                    Context-engineered architecture with autonomous health monitoring and self-healing design
+                </div>
+                <div class="header-badges">
+                    <span class="badge badge-primary">Azure Native</span>
+                    <span class="badge badge-accent">GPT-5.2 Responses API</span>
+                    <span class="badge badge-green">Self-Healing</span>
+                    <span class="badge badge-orange">Autonomous Health</span>
+                    <span class="badge badge-red">Zero-Trust Isolation</span>
+                </div>
+                <div class="header-meta">
+                    <span>&#x1F4D0; Conforms to: Daly Framework (2026)</span>
+                    <span>&#x1F4C4; Version 3.0</span>
+                    <span>&#x1F4C5; February 2026</span>
+                </div>
+            </div>
+
+            <!-- The Three Non-Negotiables -->
+            <div class="section-title">The Three Non-Negotiables</div>
+            <div class="principles">
+                <div class="principle-card">
+                    <div class="pnum">1</div>
+                    <div class="pname">Structural Isolation</div>
+                    <div class="pdesc">Data-plane enforced. tenant_id as mandatory predicate BEFORE ranking. IsolationBreach exception on mismatch. Never delegated to the model.</div>
+                </div>
+                <div class="principle-card">
+                    <div class="pnum">2</div>
+                    <div class="pname">Deterministic Replay</div>
+                    <div class="pdesc">Every run captures model version, policy version, prefix hash, artifact IDs, tool contracts, token counts. Trace envelopes are the unit of evaluation.</div>
+                </div>
+                <div class="principle-card">
+                    <div class="pnum">3</div>
+                    <div class="pname">Economic Predictability</div>
+                    <div class="pdesc">4 cost surfaces per run: Inference + Retrieval + Tooling + Persistence. Layer-based token budgets. Progressive disclosure over context dumps.</div>
+                </div>
+            </div>
+
+            <!-- External Entry Point -->
+            <div class="section-title">External Entry Point</div>
+            <div class="layer" style="border-color: rgba(168,85,247,0.15);">
+                <div class="layer-label ll-purple">ChatGPT Integration</div>
+                <div class="components">
+                    <div class="comp c-purple" style="flex:2">
+                        <span class="comp-icon">&#x1F4AC;</span>
+                        <div class="comp-name">Custom GPT (ChatGPT)</div>
+                        <div class="comp-detail">OpenAPI Actions &bull; OAuth 2.0 + PKCE &bull; Entra ID callback<br>User invokes action &rarr; Entra ID auth &rarr; Bearer token &rarr; APIM</div>
+                    </div>
+                    <div class="comp c-purple">
+                        <span class="comp-icon">&#x1F512;</span>
+                        <div class="comp-name">OAuth 2.0 Flow</div>
+                        <div class="comp-detail">Auth Code + PKCE<br>MFA + Conditional Access<br>SSO via Entra ID</div>
+                    </div>
+                    <div class="comp c-purple">
+                        <span class="comp-icon">&#x1F310;</span>
+                        <div class="comp-name">API Endpoints</div>
+                        <div class="comp-detail">/api/v1/query &bull; /api/v1/agents/{group}/{id}<br>/api/v1/health &bull; /api/v1/traces/{runId}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-arrow"><div class="arrows">&#x25BC; &#x25BC; &#x25BC;</div><div class="label">HTTPS + Bearer Token (JWT)</div></div>
+
+            <!-- API Gateway & Identity -->
+            <div class="section-title">API Gateway & Identity</div>
+            <div class="layer" style="border-color: rgba(99,102,241,0.15);">
+                <div class="layer-label ll-primary">Gateway & Identity Layer</div>
+                <div class="components">
+                    <div class="comp c-primary" style="flex:2">
+                        <span class="comp-icon">&#x1F6E1;</span>
+                        <div class="comp-name">Azure API Management</div>
+                        <div class="comp-detail">Rate limiting &bull; JWT validation &bull; IdentityEnvelope construction<br>OpenAI API proxy &bull; Token governance &bull; Content Safety scan</div>
+                    </div>
+                    <div class="comp c-primary">
+                        <span class="comp-icon">&#x1F464;</span>
+                        <div class="comp-name">Microsoft Entra ID</div>
+                        <div class="comp-detail">OAuth 2.0 provider &bull; RBAC roles<br>Conditional Access &bull; Managed Identities</div>
+                    </div>
+                    <div class="comp c-primary">
+                        <span class="comp-icon">&#x1F511;</span>
+                        <div class="comp-name">IdentityEnvelope</div>
+                        <div class="comp-detail">tenant_id (tid) &bull; user_id (oid)<br>roles &bull; privacy_mode &bull; policy_version</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-arrow"><div class="arrows">&#x25BC; &#x25BC; &#x25BC;</div><div class="label">IdentityEnvelope + Scoped Request &rarr; Context Engine Loop</div></div>
+
+            <!-- Context Engine Loop -->
+            <div class="section-title">Context Engine Loop (10-Step &mdash; Every Agent, Every Run)</div>
+            <div class="layer" style="border-color: rgba(6,182,212,0.15);">
+                <div class="layer-label ll-accent">Context Engine Loop</div>
+                <div class="loop-wrap">
+                    <div class="loop-step"><div class="num">1</div><div class="lbl">INGEST</div></div>
+                    <div class="loop-arr">&rarr;</div>
+                    <div class="loop-step"><div class="num">2</div><div class="lbl">PLAN</div></div>
+                    <div class="loop-arr">&rarr;</div>
+                    <div class="loop-step"><div class="num">3</div><div class="lbl">RETRIEVE</div></div>
+                    <div class="loop-arr">&rarr;</div>
+                    <div class="loop-step"><div class="num">4</div><div class="lbl">ASSEMBLE</div></div>
+                    <div class="loop-arr">&rarr;</div>
+                    <div class="loop-step"><div class="num">5</div><div class="lbl">STABILIZE</div></div>
+                    <div class="loop-arr">&rarr;</div>
+                    <div class="loop-step"><div class="num">6</div><div class="lbl">GC</div></div>
+                    <div class="loop-arr">&rarr;</div>
+                    <div class="loop-step"><div class="num">7</div><div class="lbl">INFER</div></div>
+                    <div class="loop-arr">&rarr;</div>
+                    <div class="loop-step"><div class="num">8</div><div class="lbl">PROMOTE</div></div>
+                    <div class="loop-arr">&rarr;</div>
+                    <div class="loop-step"><div class="num">9</div><div class="lbl">TRACE</div></div>
+                    <div class="loop-arr">&rarr;</div>
+                    <div class="loop-step"><div class="num">10</div><div class="lbl">LIFECYCLE</div></div>
+                </div>
+                <div class="sub-label" style="margin-top:14px;">Layer-Based Token Budget (4,000 tokens total):</div>
+                <div class="budget-bar">
+                    <div class="bseg bs-global">Global 500</div>
+                    <div class="bseg bs-tenant">Tenant 800</div>
+                    <div class="bseg bs-user">User 600</div>
+                    <div class="bseg bs-retrieved">Retrieved 1,200</div>
+                    <div class="bseg bs-session">Session 900</div>
+                </div>
+            </div>
+
+            <div class="flow-arrow"><div class="arrows">&#x25BC; &#x25BC; &#x25BC;</div><div class="label">Orchestrator dispatches to Agent Groups</div></div>
+
+            <!-- Agent Groups -->
+            <div class="section-title">100 AI Agents &mdash; 10 Deployment Groups (A1&ndash;A10)</div>
+            <div class="layer" style="border-color: rgba(99,102,241,0.15);">
+                <div class="layer-label ll-primary">Compute: Agent Groups (Generic Deployment Units)</div>
+                <div class="sub-label">Each group: dedicated Container Apps Env &bull; dedicated Managed Identity &bull; independent scaling &bull; blue-green deployable &bull; function assigned post-deploy</div>
+                <div class="agent-grid">
+                    <div class="agent-group"><div class="gid">A1</div><div class="cnt">10 Agents</div><div class="ids">AGT-001&ndash;010</div><div class="inf">cae-agents-a1</div></div>
+                    <div class="agent-group"><div class="gid">A2</div><div class="cnt">10 Agents</div><div class="ids">AGT-011&ndash;020</div><div class="inf">cae-agents-a2</div></div>
+                    <div class="agent-group"><div class="gid">A3</div><div class="cnt">10 Agents</div><div class="ids">AGT-021&ndash;030</div><div class="inf">cae-agents-a3</div></div>
+                    <div class="agent-group"><div class="gid">A4</div><div class="cnt">10 Agents</div><div class="ids">AGT-031&ndash;040</div><div class="inf">cae-agents-a4</div></div>
+                    <div class="agent-group"><div class="gid">A5</div><div class="cnt">10 Agents</div><div class="ids">AGT-041&ndash;050</div><div class="inf">cae-agents-a5</div></div>
+                    <div class="agent-group"><div class="gid">A6</div><div class="cnt">10 Agents</div><div class="ids">AGT-051&ndash;060</div><div class="inf">cae-agents-a6</div></div>
+                    <div class="agent-group"><div class="gid">A7</div><div class="cnt">10 Agents</div><div class="ids">AGT-061&ndash;070</div><div class="inf">cae-agents-a7</div></div>
+                    <div class="agent-group"><div class="gid">A8</div><div class="cnt">10 Agents</div><div class="ids">AGT-071&ndash;080</div><div class="inf">cae-agents-a8</div></div>
+                    <div class="agent-group"><div class="gid">A9</div><div class="cnt">10 Agents</div><div class="ids">AGT-081&ndash;090</div><div class="inf">cae-agents-a9</div></div>
+                    <div class="agent-group"><div class="gid">A10</div><div class="cnt">10 Agents</div><div class="ids">AGT-091&ndash;100</div><div class="inf">cae-agents-a10</div></div>
+                </div>
+                <div class="dim-row">
+                    <span>&#x1F504; Patterns: Sequential &bull; Concurrent Fan-Out &bull; Handoff &bull; Group Chat</span>
+                    <span>&#x2699; Scoped Delegation &bull; Isolated Context &bull; Typed Summaries &bull; parent_run_id Lineage</span>
+                </div>
+            </div>
+
+            <div class="flow-arrow"><div class="arrows">&#x25BC; &#x25B2; &nbsp; &#x25BC; &#x25B2; &nbsp; &#x25BC; &#x25B2;</div><div class="label">Read / Write &harr; Canonical Truth + Derived Acceleration</div></div>
+
+            <!-- Data Architecture -->
+            <div class="section-title">Data Architecture: Truth vs Acceleration</div>
+            <div class="two-col">
+                <div class="layer" style="border-color: rgba(16,185,129,0.15);">
+                    <div class="layer-label ll-green">Canonical Truth (Source of Record)</div>
+                    <div style="display:flex; flex-direction:column; gap:10px;">
+                        <div class="comp c-green">
+                            <div class="comp-name">&#x1F4BE; Cosmos DB: Canonical Event Log</div>
+                            <div class="comp-detail">Container: audit-log &bull; Partition: /runId &bull; Append-only<br>Every run: context, policies, tool calls, promotions, outputs<br>Replicated to Blob Storage with legal hold</div>
+                        </div>
+                        <div class="comp c-green">
+                            <div class="comp-name">&#x1F4CA; Cosmos DB: Structured Memory</div>
+                            <div class="comp-detail">Container: structured-memory &bull; Partition: /tenantId<br>Scoped &bull; Typed &bull; Provenance &bull; Retention &bull; Sensitivity<br>States: provisional &rarr; active | quarantined | revoked</div>
+                        </div>
+                        <div class="comp c-green">
+                            <div class="comp-name">&#x2699; Cosmos DB: Agent Config</div>
+                            <div class="comp-detail">Container: agent-config &bull; Partition: /groupId<br>Runtime config for AGT-001 through AGT-100</div>
+                        </div>
+                        <div class="comp c-green">
+                            <div class="comp-name">&#x1F4C1; Azure Blob Storage</div>
+                            <div class="comp-detail">objects/ &mdash; SHA-256 content-addressed, tenant-scoped<br>legal-hold/ &mdash; Immutable event log replica</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layer" style="border-color: rgba(245,158,11,0.15);">
+                    <div class="layer-label ll-orange">Derived Acceleration (Rebuildable)</div>
+                    <div style="display:flex; flex-direction:column; gap:10px;">
+                        <div class="comp c-orange">
+                            <div class="comp-name">&#x1F50D; Azure AI Search (Hybrid)</div>
+                            <div class="comp-detail">DiskANN vector + BM25 lexical &bull; Fully rebuildable<br>Mandatory predicates: tenant_id, scope, expiration<br>Filters BEFORE ranking &mdash; never post-filter</div>
+                        </div>
+                        <div class="comp c-orange">
+                            <div class="comp-name">&#x26A1; Hardening Pipeline</div>
+                            <div class="comp-detail">Container Apps scale-to-zero workers<br>Validate &rarr; Enrich &rarr; Embed &rarr; Update indexes<br>provisional &rarr; active (or quarantined)</div>
+                        </div>
+                        <div class="comp c-orange">
+                            <div class="comp-name">&#x1F4C8; OpenAI GPT-5.2 API</div>
+                            <div class="comp-detail">Responses API via APIM proxy<br>Thinking: reasoning medium/high &bull; No-reasoning: effort=none<br>text-embedding-3-large (3072 dims)</div>
+                        </div>
+                        <div class="comp c-orange">
+                            <div class="comp-name">&#x1F4B0; Prompt Cache</div>
+                            <div class="comp-detail">Static prefix: constitution + tenant policy<br>prefix_hash = SHA-256 &bull; 24h cache, 90% discount</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory Architecture -->
+            <div class="section-title">Memory Architecture: Scoped & Typed</div>
+            <div class="two-col">
+                <div class="layer" style="border-color: rgba(99,102,241,0.12);">
+                    <div class="layer-label ll-primary">Memory Scopes (Security Boundaries)</div>
+                    <div class="scope-card sk-global">
+                        <div class="sc-name">GLOBAL &mdash; Immutable, Write-Locked</div>
+                        <div class="sc-desc">Safety rules, tool contracts, constitution &bull; Versioned artifact bundles</div>
+                    </div>
+                    <div class="scope-card sk-tenant">
+                        <div class="sc-name">TENANT &mdash; Gated Promotion (Human Approval)</div>
+                        <div class="sc-desc">Org policies, playbooks, knowledge bases &bull; Policy-based retention</div>
+                    </div>
+                    <div class="scope-card sk-user">
+                        <div class="sc-name">USER &mdash; Gated Promotion, TTL + User Controls</div>
+                        <div class="sc-desc">Preferences, working style, notes &bull; User-deletable</div>
+                    </div>
+                    <div class="scope-card sk-session">
+                        <div class="sc-name">SESSION &mdash; Volatile, Aggressive Auto-GC</div>
+                        <div class="sc-desc">Tool outputs, scratch buffers &bull; Hours&ndash;days TTL &bull; Never overrides durable memory</div>
+                    </div>
+                </div>
+                <div class="layer" style="border-color: rgba(99,102,241,0.12);">
+                    <div class="layer-label ll-primary">Memory Types (Semantic Roles)</div>
+                    <div class="type-card"><div class="tc-name" style="color:var(--red-light);">POLICY</div><div class="tc-desc">Normative rules &bull; Versioned, signed, NEVER agent-writable</div></div>
+                    <div class="type-card"><div class="tc-name" style="color:var(--primary-light);">PREFERENCE</div><div class="tc-desc">Stable personalization &bull; TTL-based, user-deletable</div></div>
+                    <div class="type-card"><div class="tc-name" style="color:var(--accent-light);">FACT</div><div class="tc-desc">Durable assertions &bull; Must include provenance and source</div></div>
+                    <div class="type-card"><div class="tc-name" style="color:var(--green-light);">EPISODIC</div><div class="tc-desc">Structured summaries &bull; What happened, NOT what to always do</div></div>
+                    <div class="type-card"><div class="tc-name" style="color:var(--purple-light);">TRACE</div><div class="tc-desc">Raw append-only execution events &bull; Immutable flight recorder</div></div>
+                    <div class="danger-note">&#x26A0; DANGER: Episodic/Fact drifting into Policy = Precedent Poisoning. Promotion gates enforce separation.</div>
+                </div>
+            </div>
+
+            <!-- Security -->
+            <div class="section-title">Security, Encryption & Network</div>
+            <div class="layer" style="border-color: rgba(239,68,68,0.12);">
+                <div class="layer-label ll-red">Security & Encryption Layer</div>
+                <div class="components">
+                    <div class="comp c-red">
+                        <span class="comp-icon">&#x1F510;</span>
+                        <div class="comp-name">Azure Key Vault</div>
+                        <div class="comp-detail">Per-tenant KEKs &bull; Rotating DEKs<br>OpenAI API key &bull; Cert mgmt</div>
+                    </div>
+                    <div class="comp c-red">
+                        <span class="comp-icon">&#x1F6E1;</span>
+                        <div class="comp-name">Content Safety</div>
+                        <div class="comp-detail">Prompt Shields &bull; PII Detection<br>Jailbreak scanning &bull; Task adherence</div>
+                    </div>
+                    <div class="comp c-red">
+                        <span class="comp-icon">&#x1F310;</span>
+                        <div class="comp-name">VNet Isolation</div>
+                        <div class="comp-detail">snet-apim (10.0.1.0/24)<br>snet-compute (10.0.2.0/24)<br>snet-pe (10.0.4.0/24) &bull; Private endpoints</div>
+                    </div>
+                    <div class="comp c-red">
+                        <span class="comp-icon">&#x1F50F;</span>
+                        <div class="comp-name">Envelope Encryption</div>
+                        <div class="comp-detail">Canonical: tenant KEK+DEK<br>Object Store: tenant-scoped<br>Cache: short-lived keys</div>
+                    </div>
+                    <div class="comp c-red">
+                        <span class="comp-icon">&#x1F6AB;</span>
+                        <div class="comp-name">Isolation Enforcement</div>
+                        <div class="comp-detail">tenant_id mandatory predicate<br>IsolationBreach exception<br>Privacy routing (no-retention)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Monitoring -->
+            <div class="section-title">AI Autonomous Health Monitoring System</div>
+            <div class="layer" style="border-color: rgba(16,185,129,0.15);">
+                <div class="layer-label ll-green">Health Sentinel (Meta-Agent &mdash; Monitors All 100 Agents)</div>
+                <div class="sub-label">Dedicated hardened partition &bull; Outside A1&ndash;A10 groups &bull; Elevated RBAC &bull; Autonomous operation</div>
+
+                <div class="three-col" style="margin-bottom:14px;">
+                    <div class="comp c-green">
+                        <div class="comp-name">&#x1F4E1; Health Collector</div>
+                        <div class="comp-detail">30s polling &bull; /healthz + /readyz<br>OpenTelemetry metrics &bull; Trace stats<br>Container Apps platform metrics</div>
+                    </div>
+                    <div class="comp c-green">
+                        <div class="comp-name">&#x1F9E0; Diagnostics Engine</div>
+                        <div class="comp-detail">GPT-5.2 reasoning=high<br>Root-cause analysis<br>Cross-group correlation</div>
+                    </div>
+                    <div class="comp c-green">
+                        <div class="comp-name">&#x1F527; Remediation Orchestrator</div>
+                        <div class="comp-detail">12 playbooks (PB-001&ndash;012)<br>Restart, scale, rotate, rebuild<br>Blast radius scoped</div>
+                    </div>
+                </div>
+                <div class="two-col" style="margin-bottom:14px;">
+                    <div class="comp c-green">
+                        <div class="comp-name">&#x1F4DD; GitHub Integration Agent</div>
+                        <div class="comp-detail">Auto-create Issues &bull; Full lifecycle mgmt &bull; Labels: severity, group, type, status<br>Trace envelope links &bull; Reopen on recurrence &bull; Monthly reports</div>
+                    </div>
+                    <div class="comp c-green">
+                        <div class="comp-name">&#x1F4CA; Governance Reporter</div>
+                        <div class="comp-detail">Periodic health reports &bull; SLA adherence &bull; Compliance dashboards<br>MTTD/MTTR &bull; Playbook effectiveness &bull; Cost impact</div>
+                    </div>
+                </div>
+
+                <div class="sub-label-g">5-Level Health Data Collection:</div>
+                <div class="health-grid">
+                    <div class="health-card"><div class="hlvl">L1</div><div class="hlbl">Infrastructure</div><div class="hmet">CPU/Memory &bull; Restarts<br>Network latency<br>Cosmos RU &bull; Search</div></div>
+                    <div class="health-card"><div class="hlvl">L2</div><div class="hlbl">Agent Runtime</div><div class="hmet">Request rate<br>p50/p95/p99<br>Loop step durations</div></div>
+                    <div class="health-card"><div class="hlvl">L3</div><div class="hlbl">Context Health</div><div class="hmet">Budget utilization<br>Retrieval hit rates<br>Promotion ratios</div></div>
+                    <div class="health-card"><div class="hlvl">L4</div><div class="hlbl">Cost Health</div><div class="hmet">Per-run breakdown<br>Token drift trends<br>Cost per group</div></div>
+                    <div class="health-card"><div class="hlvl">L5</div><div class="hlbl">Security Health</div><div class="hmet">IsolationBreach=0<br>Auth failures<br>Key rotation</div></div>
+                </div>
+
+                <div class="sub-label-g">Health Score (0&ndash;100, computed every 60s per agent):</div>
+                <div class="status-row">
+                    <span class="status-chip sc-healthy">90&ndash;100: HEALTHY</span>
+                    <span class="status-chip sc-degraded">70&ndash;89: DEGRADED</span>
+                    <span class="status-chip sc-unhealthy">50&ndash;69: UNHEALTHY (auto-remediate)</span>
+                    <span class="status-chip sc-critical">0&ndash;49: CRITICAL (immediate + escalate)</span>
+                </div>
+            </div>
+
+            <!-- Self-Healing -->
+            <div class="section-title">AI Self-Healing Architecture</div>
+            <div class="layer" style="border-color: rgba(245,158,11,0.15);">
+                <div class="layer-label ll-orange">Closed-Loop Self-Healing Control</div>
+                <div class="heal-flow">
+                    <div class="heal-step"><div class="hicon">&#x1F50D;</div><div class="htxt">DETECT</div><div class="hsub">Score &lt; threshold</div></div>
+                    <div class="heal-arr">&rarr;</div>
+                    <div class="heal-step"><div class="hicon">&#x1F9E0;</div><div class="htxt">DIAGNOSE</div><div class="hsub">GPT-5.2 RCA</div></div>
+                    <div class="heal-arr">&rarr;</div>
+                    <div class="heal-step"><div class="hicon">&#x1F4CB;</div><div class="htxt">PLAN</div><div class="hsub">Select playbook</div></div>
+                    <div class="heal-arr">&rarr;</div>
+                    <div class="heal-step"><div class="hicon">&#x1F527;</div><div class="htxt">REMEDIATE</div><div class="hsub">Execute actions</div></div>
+                    <div class="heal-arr">&rarr;</div>
+                    <div class="heal-step"><div class="hicon">&#x2705;</div><div class="htxt">VERIFY</div><div class="hsub">Re-check health</div></div>
+                    <div class="heal-arr">&rarr;</div>
+                    <div class="heal-step"><div class="hicon">&#x1F4DD;</div><div class="htxt">RECORD</div><div class="hsub">GitHub Issue</div></div>
+                    <div class="heal-arr">&rarr;</div>
+                    <div class="heal-step learn-step"><div class="hicon">&#x1F4A1;</div><div class="htxt">LEARN</div><div class="hsub">Episodic memory</div></div>
+                </div>
+
+                <div class="sub-label-o">12 Automated Remediation Playbooks:</div>
+                <div class="pb-grid">
+                    <div class="pb"><div class="pb-id">PB-001</div><div class="pb-nm">Container Restart</div></div>
+                    <div class="pb"><div class="pb-id">PB-002</div><div class="pb-nm">Scale Out</div></div>
+                    <div class="pb"><div class="pb-id">PB-003</div><div class="pb-nm">Budget Rebalance</div></div>
+                    <div class="pb"><div class="pb-id">PB-004</div><div class="pb-nm">Isolation Emergency</div></div>
+                    <div class="pb"><div class="pb-id">PB-005</div><div class="pb-nm">Promotion Throttle</div></div>
+                    <div class="pb"><div class="pb-id">PB-006</div><div class="pb-nm">Pipeline Scale</div></div>
+                    <div class="pb"><div class="pb-id">PB-007</div><div class="pb-nm">Config Sync</div></div>
+                    <div class="pb"><div class="pb-id">PB-008</div><div class="pb-nm">RU Scale</div></div>
+                    <div class="pb"><div class="pb-id">PB-009</div><div class="pb-nm">Index Rebuild</div></div>
+                    <div class="pb"><div class="pb-id">PB-010</div><div class="pb-nm">Key Rotation</div></div>
+                    <div class="pb"><div class="pb-id">PB-011</div><div class="pb-nm">Resource Increase</div></div>
+                    <div class="pb"><div class="pb-id">PB-012</div><div class="pb-nm">Cost Investigation</div></div>
+                </div>
+
+                <div class="sub-label-o">Escalation Matrix:</div>
+                <div class="esc-row">
+                    <div class="esc-card es-1"><strong>SEV-1: Critical</strong>Isolation breach, data exposure &bull; Immediate page + quarantine</div>
+                    <div class="esc-card es-2"><strong>SEV-2: High</strong>Multi-agent down &bull; Auto-remediate, escalate @ 3 fails</div>
+                    <div class="esc-card es-3"><strong>SEV-3: Medium</strong>Single agent degraded &bull; Auto-remediate + tracking Issue</div>
+                    <div class="esc-card es-4"><strong>SEV-4: Low</strong>Minor drift, config warning &bull; Log + GitHub Issue</div>
+                </div>
+            </div>
+
+            <!-- GitHub Issues Integration -->
+            <div class="section-title">GitHub Issues Integration & Remediation Tracking</div>
+            <div class="layer" style="border-color: rgba(168,85,247,0.15);">
+                <div class="layer-label ll-purple">GitHub Ops (enterprise-ai-agents-ops)</div>
+                <div class="two-col">
+                    <div>
+                        <div class="sub-label-p" style="margin-top:0;">Issue Labels:</div>
+                        <div class="gh-labels">
+                            <span class="ghl ghl-p1">severity/p1-critical</span>
+                            <span class="ghl ghl-p2">severity/p2-high</span>
+                            <span class="ghl ghl-p3">severity/p3-medium</span>
+                            <span class="ghl ghl-p4">severity/p4-low</span>
+                        </div>
+                        <div class="gh-labels" style="margin-top:6px;">
+                            <span class="ghl ghl-type">type/auto-remediation</span>
+                            <span class="ghl ghl-type">type/security-incident</span>
+                            <span class="ghl ghl-type">type/cost-anomaly</span>
+                            <span class="ghl ghl-type">type/isolation-breach</span>
+                        </div>
+                        <div class="gh-labels" style="margin-top:6px;">
+                            <span class="ghl ghl-status">status/detecting</span>
+                            <span class="ghl ghl-status">status/diagnosing</span>
+                            <span class="ghl ghl-status">status/remediating</span>
+                            <span class="ghl ghl-status">status/resolved</span>
+                        </div>
+                        <div class="gh-labels" style="margin-top:6px;">
+                            <span class="ghl ghl-group">group/a1</span>
+                            <span class="ghl ghl-group">group/a2</span>
+                            <span class="ghl ghl-group">...</span>
+                            <span class="ghl ghl-group">group/a10</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="sub-label-p" style="margin-top:0;">Issue Lifecycle:</div>
+                        <div style="font-size:12px; color:var(--text-muted); line-height:2;">
+                            <strong style="color:var(--primary-light);">1.</strong> OPEN &mdash; Anomaly detected, labels applied<br>
+                            <strong style="color:var(--primary-light);">2.</strong> DIAGNOSING &mdash; Root-cause analysis appended<br>
+                            <strong style="color:var(--primary-light);">3.</strong> REMEDIATING &mdash; Playbook + action progress<br>
+                            <strong style="color:var(--primary-light);">4.</strong> VERIFICATION &mdash; Post-remediation health check<br>
+                            <strong style="color:var(--primary-light);">5.</strong> RESOLVED &mdash; Closed with outcome summary<br>
+                            <strong style="color:var(--primary-light);">6.</strong> REOPENED &mdash; Recurrence within 24h<br>
+                            <strong style="color:var(--primary-light);">7.</strong> ESCALATED &mdash; Auto-remediation failed
+                        </div>
+                        <div style="margin-top:10px; font-size:12px; color:var(--text-dim);">
+                            <strong style="color:var(--purple-light);">Milestones:</strong> Weekly Health &bull; Monthly Governance &bull; Quarterly Security
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Observability -->
+            <div class="section-title">Observability & Trace Envelopes</div>
+            <div class="layer" style="border-color: rgba(6,182,212,0.12);">
+                <div class="layer-label ll-accent">Observability Layer</div>
+                <div class="components">
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x1F4CA;</span>
+                        <div class="comp-name">Azure Monitor + App Insights</div>
+                        <div class="comp-detail">OpenTelemetry distributed tracing<br>50 GB/day &bull; KQL analysis</div>
+                    </div>
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x1F4E8;</span>
+                        <div class="comp-name">Trace Envelopes</div>
+                        <div class="comp-detail">identity &bull; model_ver &bull; policy_ver &bull; prefix_hash<br>artifact_IDs &bull; promotions &bull; tokens &bull; cost &bull; lineage</div>
+                    </div>
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x26A1;</span>
+                        <div class="comp-name">Event Hub</div>
+                        <div class="comp-detail">Real-time alerting<br>Hardening pipeline trigger<br>Health event streaming</div>
+                    </div>
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x1F4B0;</span>
+                        <div class="comp-name">4 Cost Surfaces</div>
+                        <div class="comp-detail">C = Inference + Retrieval<br>+ Tooling + Persistence<br>Per-run via traces</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CI/CD -->
+            <div class="section-title">Azure DevOps &mdash; CI/CD Orchestrated Deployment</div>
+            <div class="layer" style="border-color: rgba(6,182,212,0.15); margin-bottom: 20px;">
+                <div class="layer-label ll-accent">Deployment Pipeline Architecture</div>
+                <div class="sub-label">All infrastructure is IaC (Bicep modules) &bull; Azure DevOps multi-stage YAML pipelines &bull; Parallel jobs deploy all 10 groups simultaneously</div>
+                <div class="components" style="margin-bottom:14px;">
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x1F680;</span>
+                        <div class="comp-name">Pipeline: infra-foundation</div>
+                        <div class="comp-detail">VNet, Key Vault, Cosmos DB, AI Search<br>Event Hub, APIM, Entra App Regs<br><strong style="color:var(--accent);">~25 min</strong> (single run)</div>
+                    </div>
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x2699;</span>
+                        <div class="comp-name">Pipeline: agent-groups-deploy</div>
+                        <div class="comp-detail">10 parallel stages (A1&ndash;A10 simultaneous)<br>Each: Container App Env + 10 agent revisions<br><strong style="color:var(--accent);">~12 min</strong> (all 100 agents)</div>
+                    </div>
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x1F9E0;</span>
+                        <div class="comp-name">Pipeline: platform-services</div>
+                        <div class="comp-detail">Health Sentinel + Self-Healing + GitHub Ops<br>Context Engine + Hardening Pipeline<br><strong style="color:var(--accent);">~15 min</strong> (parallel with agents)</div>
+                    </div>
+                    <div class="comp c-primary">
+                        <span class="comp-icon">&#x1F50D;</span>
+                        <div class="comp-name">Pipeline: validate-and-promote</div>
+                        <div class="comp-detail">Smoke tests &bull; Health checks &bull; Isolation tests<br>Security scan &bull; Blue-green traffic shift<br><strong style="color:var(--primary-light);">~20 min</strong> (gate before GA)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rollout">
+                <div class="phase"><div class="ph-num">D0</div><div class="ph-weeks">Hour 0&ndash;1</div><div class="ph-desc">IaC Foundation<br>VNet + Cosmos + KV<br>APIM + Entra ID</div></div>
+                <div class="phase"><div class="ph-num">D0</div><div class="ph-weeks">Hour 1&ndash;2</div><div class="ph-desc">All 100 Agents<br>A1&ndash;A10 parallel deploy<br>Health Sentinel online</div></div>
+                <div class="phase"><div class="ph-num">D0</div><div class="ph-weeks">Hour 2&ndash;3</div><div class="ph-desc">Validation Gate<br>Smoke + isolation tests<br>Self-healing verified</div></div>
+                <div class="phase"><div class="ph-num">D1&ndash;D3</div><div class="ph-weeks">Days 1&ndash;3</div><div class="ph-desc">Shadow Mode<br>Live traffic mirrored<br>Chaos + load testing</div></div>
+                <div class="phase ga"><div class="ph-num">GA</div><div class="ph-weeks">Day 3&ndash;5</div><div class="ph-desc">Blue-green cutover<br>100 agents live<br>Hypercare monitoring</div></div>
+            </div>
+            <div style="margin-top:14px; padding:14px 18px; border-radius:var(--radius); border:1px solid rgba(6,182,212,0.15); background:rgba(6,182,212,0.04); font-size:12px; color:var(--text-muted); line-height:1.8;">
+                <strong style="color:var(--accent-light);">&#x26A1; Total deployment: ~3 hours to fully provisioned</strong> (infra + 100 agents + health sentinel + self-healing + ChatGPT integration)<br>
+                <strong style="color:var(--accent-light);">&#x1F6E1; Total to GA: ~5 days</strong> (includes shadow mode validation, chaos testing, security scan, and blue-green cutover)<br>
+                <strong style="color:var(--text-dim);">Pipeline spec:</strong> Azure DevOps multi-stage YAML &bull; 10 parallel agent-group stages &bull; Bicep what-if + deployment &bull; Post-deploy gates (health score &ge; 90 required) &bull; Automated rollback on gate failure
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Architecture Document Footer -->
+            <div class="arch-doc-footer">
+                <div class="ft-brand">AlphaOne LLC</div>
+                <div>Enterprise AI Agent Reference Architecture v3.0 &bull; 100 Agents &bull; 10 Groups (A1&ndash;A10)</div>
+                <div>Context Engineering (Daly, 2026) &bull; Microsoft Azure &bull; OpenAI GPT-5.2 &bull; Self-Healing &bull; GitHub Ops</div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- MIT License -->
+            <div class="license-block">
+                <div style="text-align:center; margin-bottom:16px;">
+                    <span style="font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; background:linear-gradient(135deg, var(--primary-light), var(--accent)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">MIT License</span>
+                </div>
+                <p>Copyright &copy; 2026 AlphaOne LLC</p>
+                <p style="margin-top:12px;">Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &ldquo;Software&rdquo;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+                <p style="margin-top:12px;">The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+                <p style="margin-top:12px;">THE SOFTWARE IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-card">
+                <div class="contact-content">
+                    <span class="section-tag">Build With Us</span>
+                    <h2>Ready to Architect Your <span class="gradient-text">AI System</span>?</h2>
+                    <p>Our reference architectures are the starting point. Let's design one tailored to your enterprise requirements.</p>
+                    <a href="mailto:sales@alpha-one.mobi" class="btn btn-primary btn-lg">sales@alpha-one.mobi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">A1</span>
+                    <span class="logo-text">AlphaOne</span>
+                </a>
+                <p>Context-Engineered AI Systems & Agentic Software</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#principles">Principles</a>
+                <a href="reference.html">Reference Guide</a>
+                <a href="mvps.html">MVPs</a>
+                <a href="architectures.html">Reference Architectures</a>
+                <a href="opensource.html">Open Source</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AlphaOne LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
