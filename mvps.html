@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MVPs | AlphaOne LLC</title>
-    <meta name="description" content="AlphaOne LLC MVP products — Obsidian Halo cyber defense platform and AlphaOne Daily Intelligence Briefing with autonomous AI health monitoring.">
+    <meta name="description" content="AlphaOne LLC MVP products — Obsidian Halo cyber defense, FlowPatrol options intelligence, Financial Risk Dashboard, and the AlphaOne Daily Intelligence Briefing.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -150,7 +150,297 @@
     <!-- Divider -->
     <div class="section-divider"><div class="container"><hr></div></div>
 
-    <!-- MVP 2: Daily Intelligence Briefing -->
+    <!-- MVP 2: FlowPatrol -->
+    <section class="mvp-section" id="flowpatrol">
+        <div class="container">
+            <div class="mvp-header">
+                <div class="mvp-badge flow">Options Intelligence</div>
+                <h2>FlowPatrol</h2>
+                <p class="mvp-tagline">AI-powered options flow analysis, market structure intelligence, and conviction trade generation</p>
+            </div>
+
+            <div class="mvp-overview">
+                <div class="overview-text">
+                    <p>FlowPatrol is an AI-driven options flow intelligence platform that monitors institutional activity, detects unusual positioning, classifies market regimes, and generates conviction trade recommendations across multiple timeframes. The system processes live options chains, block trades, and cross-asset flows to surface actionable intelligence that would take a human analyst hours to compile.</p>
+                    <p>A 5-wave modular execution pipeline — from raw data collection through multi-agent analysis to dashboard generation — produces 39 structured intelligence artifacts per run. The output is a self-contained, responsive dashboard with 22 collapsible sections organized across 6 analytical zones, delivered to both desktop and mobile platforms.</p>
+                </div>
+                <div class="overview-stats">
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">5 Waves</span>
+                        <span class="overview-stat-label">Execution Pipeline</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">39</span>
+                        <span class="overview-stat-label">Analysis Artifacts</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">8 Modules</span>
+                        <span class="overview-stat-label">AI Analysis Engines</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">4 Plays</span>
+                        <span class="overview-stat-label">Conviction Playbook</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pipeline Architecture -->
+            <div class="architecture-section">
+                <h3>5-Wave Execution Pipeline</h3>
+                <p class="arch-intro">Each wave builds on the artifacts of the previous one. Raw market data enters Wave 0 and a fully rendered intelligence dashboard exits Wave 5 — no human intervention required.</p>
+
+                <div class="arch-grid">
+                    <div class="arch-card">
+                        <div class="arch-step flow-step">0</div>
+                        <h4>Boot &amp; Data Collection</h4>
+                        <p>Market state snapshot via Alpaca API — indices (SPY/QQQ/IWM), 14 mega-caps, 11 sector ETFs, 6 macro instruments, and crypto. Computes 20-day ATR, intraday change, and overnight regime classification.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step flow-step">1</div>
+                        <h4>Foundation Analysis</h4>
+                        <p>Two parallel AI agents analyze market structure and flow intelligence. Agent A maps regime classification, term structure, skew topology, and GEX landscape. Agent B classifies flow direction, detects unusual activity, and maps IV surface deformation.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step flow-step">2</div>
+                        <h4>Advanced Intelligence</h4>
+                        <p>Block correlation analysis, whale trade reconstruction, 47-dimensional anomaly detection via isolation forest, historical analog matching with 252-day lookback, and Granger-causality sync campaign detection across institutional trades.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step flow-step">3</div>
+                        <h4>Trade Discovery</h4>
+                        <p>Top 25 edge-ranked options plays, top 25 swing trades scored across 4 factors (flow 40%, volatility surface 25%, technical 20%, catalyst 15%), and top 25 LEAPS accumulation candidates. Full Greek surfaces including second and third-order Greeks.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step flow-step">4</div>
+                        <h4>Conviction Synthesis</h4>
+                        <p>Four conviction plays generated: day trade (0-3 DTE, GEX edge), swing trade (5-10 day accumulation), midterm position (4+ week LEAPS campaign), and long-term equity + LEAPS structure. Each with defined entries, targets, and risk parameters.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step flow-step">5</div>
+                        <h4>Dashboard Generation</h4>
+                        <p>All 39 JSON artifacts assembled into a self-contained HTML dashboard (~69KB). 22 collapsible sections across 6 zones — Command, Conviction, Structure, Flow, Analytics, and Action. Deployed to Cloudflare Pages with desktop and mobile layouts.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Capabilities -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Market Regime Classification</h3>
+                    <p>Overnight gap analysis classifies each session as Compression, Trend, Reversal, or Gap — informing all downstream trade generation and risk sizing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>GEX Landscape</h3>
+                    <p>Gamma exposure mapping identifies zero gamma lines, max gamma strikes, and negative gamma pockets — revealing where dealer hedging creates predictable price magnets.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Unusual Activity Scanner</h3>
+                    <p>AI-scored anomaly detection across volume, premium, strike concentration, and open interest changes. Conviction scores flag high-probability institutional positioning.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🐋</div>
+                    <h3>Whale Trade Reconstruction</h3>
+                    <p>Multi-leg structure detection identifies complex institutional strategies hidden across separate order flow — spreads, collars, and risk reversals reassembled from fragments.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Risk Composite Score</h3>
+                    <p>Weighted 0-100 risk score from 8 components: GEX (20%), skew (15%), 0DTE gamma (15%), P/C ratio (15%), unusual activity (10%), IV (10%), sector rotation (10%), smart money (5%).</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Greek Surfaces &amp; Stress Testing</h3>
+                    <p>Full Greek computation including second-order (vanna, charm, volga) and third-order (speed, color, zomma, ultima). Monte Carlo stress test across 10K paths with spot, IV, and time perturbations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Sector Rotation Mapping</h3>
+                    <p>Net delta and premium aggregation across 11 sector ETFs with rotation directional arrows — detecting institutional sector reallocation before it manifests in price.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🕐</div>
+                    <h3>Historical Analog Engine</h3>
+                    <p>252-day lookback using cosine similarity and dynamic time warping to match current market conditions against historical analogs — surfacing regime-specific precedents for each trade thesis.</p>
+                </div>
+            </div>
+
+            <!-- Dashboard Zones -->
+            <div class="intelligence-modules">
+                <h3>Dashboard Zones</h3>
+                <div class="modules-grid">
+                    <div class="module-chip flow-chip">Command &middot; Key Levels</div>
+                    <div class="module-chip flow-chip">Command &middot; Risk Gauge</div>
+                    <div class="module-chip flow-chip">Conviction Playbook</div>
+                    <div class="module-chip flow-chip">Top Options Plays</div>
+                    <div class="module-chip flow-chip">GEX Landscape</div>
+                    <div class="module-chip flow-chip">Term Structure</div>
+                    <div class="module-chip flow-chip">Skew Topology</div>
+                    <div class="module-chip flow-chip">Flow Stream</div>
+                    <div class="module-chip flow-chip">Unusual Activity</div>
+                    <div class="module-chip flow-chip">Sector Rotation</div>
+                    <div class="module-chip flow-chip">Historical Analogs</div>
+                    <div class="module-chip flow-chip">Greek Surfaces</div>
+                    <div class="module-chip flow-chip">Session Narrative</div>
+                    <div class="module-chip flow-chip">Overnight Risk Map</div>
+                </div>
+            </div>
+
+            <div class="mvp-footer-info">
+                <p>flowpatrol.alpha-one.mobi &middot; Desktop + Mobile</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider"><div class="container"><hr></div></div>
+
+    <!-- MVP 3: Financial Risk Dashboard -->
+    <section class="mvp-section" id="finrisk">
+        <div class="container">
+            <div class="mvp-header">
+                <div class="mvp-badge finrisk">Financial Risk</div>
+                <h2>Financial Risk Dashboard</h2>
+                <p class="mvp-tagline">Automated macro and systemic risk monitoring across 8 risk domains with graph-powered trend analysis</p>
+            </div>
+
+            <div class="mvp-overview">
+                <div class="overview-text">
+                    <p>The Financial Risk Dashboard is a fully automated pipeline that collects, validates, and visualizes financial risk indicators across 8 interconnected domains — from options market structure and margin debt levels to Japan carry trade exposure and hidden systemic vulnerabilities. Data is sourced directly from market APIs and regulatory filings, not scraped headlines.</p>
+                    <p>A LadybugDB graph database maintains a rolling 21-day history of every tracked metric, enabling automated anomaly detection (z-score &gt; 2.0), trend velocity analysis, and cross-metric correlation. The pipeline runs at market open every weekday, rendering 10 self-contained HTML dashboards and deploying them to Cloudflare Pages with access restricted to authorized users only.</p>
+                </div>
+                <div class="overview-stats">
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">10</span>
+                        <span class="overview-stat-label">Dashboards</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">8 Domains</span>
+                        <span class="overview-stat-label">Risk Coverage</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">21-Day</span>
+                        <span class="overview-stat-label">Graph Trend Window</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">~$0.50/mo</span>
+                        <span class="overview-stat-label">Operating Cost</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pipeline Architecture -->
+            <div class="architecture-section">
+                <h3>Automated Pipeline Architecture</h3>
+                <p class="arch-intro">Seven-stage pipeline from raw data collection to deployed dashboards. Every stage is instrumented, validated, and self-healing. The entire cycle completes in under 30 seconds.</p>
+
+                <div class="arch-grid">
+                    <div class="arch-card">
+                        <div class="arch-step finrisk-step">1</div>
+                        <h4>Multi-Source Data Collection</h4>
+                        <p>Alpaca API (28 calls) for real-time stock snapshots, option chains with full Greeks, and crypto bars. FINRA Excel direct download for margin debt. Brave Search (21 queries) with 1.0-source-only domain whitelist for macro indicators. Grok X Search for institutional news synthesis.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step finrisk-step">2</div>
+                        <h4>Schema Validation &amp; Scoring</h4>
+                        <p>Every collected metric passes through type checking, range validation, and freshness detection. Quality scoring produces a 0-100 completeness rating. Stale or invalid data falls back to cached values from the previous run — no missing fields in production output.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step finrisk-step">3</div>
+                        <h4>Graph Database Archive</h4>
+                        <p>All metrics are archived to a LadybugDB graph database as timestamped Metric nodes connected to Run nodes. The graph maintains a 21-day rolling window with automatic pruning of older data. Cross-run edges enable temporal analysis.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step finrisk-step">4</div>
+                        <h4>Graph Intelligence Queries</h4>
+                        <p>21-day trend analysis computes slope, velocity, and z-scores for every metric. Anomaly detection flags metrics with z-score &gt; 2.0. Persistent event tracking identifies risk signals that span multiple collection cycles.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step finrisk-step">5</div>
+                        <h4>Template-Based Rendering</h4>
+                        <p>Original hand-crafted HTML dashboards serve as templates. Live data and graph intelligence are injected via targeted string replacement — preserving the exact CSS, JavaScript, and visual design while updating every metric, date, and trend indicator.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step finrisk-step">6</div>
+                        <h4>Secured Deployment</h4>
+                        <p>10 HTML files committed (GPG-signed) and pushed to GitHub. Cloudflare Pages auto-deploys on push. Cloudflare Access enforces email-based authentication — only authorized users can view the dashboards. Both the custom domain and pages.dev subdomain are protected.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8 Risk Domains -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📉</div>
+                    <h3>Options Risk</h3>
+                    <p>ATM implied volatility, IV rank, put/call ratios, delta skew, and full Greeks across 10 tickers (indices + Magnificent 7). VIX and SKEW index tracking.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏦</div>
+                    <h3>Macro Risk</h3>
+                    <p>Yield curve (2s10s spread), SOFR rate, ISM PMI, high-yield credit spreads, initial jobless claims, and unemployment rate. Bond ETF proxy monitoring (TLT, HYG, LQD, IEF).</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Margin Debt</h3>
+                    <p>Direct FINRA Excel file parsing for monthly margin statistics. YoY and MoM change calculations, all-time high detection, net margin debit computation, and 349-month historical depth.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Defensive Rotation</h3>
+                    <p>Gold/SPX, Utilities/SPX, Copper/Gold, and Silver/Gold ratios with 6-month and 1-year change rates. Historical percentile rankings from 252 trading days of data.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🇯🇵</div>
+                    <h3>Japan Carry Trade</h3>
+                    <p>Yen proxy monitoring via FXY, Nikkei exposure via EWJ/DXJ, 20-day yen volatility, BOJ rate tracking, and carry trade size estimation from institutional sources.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🕳️</div>
+                    <h3>Hidden Systemic Risk</h3>
+                    <p>Investment-grade CDS spreads, passive ETF market share concentration, and commercial real estate delinquency rates — the risks that don't make headlines until they detonate.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Deflation Risk</h3>
+                    <p>Semiconductor valuations (NVDA, AMD, INTC, TSM), hyperscaler capex exposure (MSFT, GOOGL, META, AMZN), core PCE, and CPI tracking against the AI investment thesis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">₿</div>
+                    <h3>Bitcoin Death Cross &amp; Correlation</h3>
+                    <p>50-day and 200-day moving average crossover detection. 30/60/120-day rolling correlations against SPY, QQQ, GLD, and UUP — tracking Bitcoin's evolving relationship with traditional assets.</p>
+                </div>
+            </div>
+
+            <!-- Data Source Trust -->
+            <div class="intelligence-modules">
+                <h3>1.0-Source-Only Data Policy</h3>
+                <div class="modules-grid">
+                    <div class="module-chip finrisk-chip">Alpaca Markets API</div>
+                    <div class="module-chip finrisk-chip">FINRA (Direct)</div>
+                    <div class="module-chip finrisk-chip">Reuters</div>
+                    <div class="module-chip finrisk-chip">Bloomberg</div>
+                    <div class="module-chip finrisk-chip">Treasury.gov</div>
+                    <div class="module-chip finrisk-chip">FRED</div>
+                    <div class="module-chip finrisk-chip">BLS.gov</div>
+                    <div class="module-chip finrisk-chip">Federal Reserve</div>
+                    <div class="module-chip finrisk-chip">CBOE</div>
+                    <div class="module-chip finrisk-chip">ISM PMI</div>
+                </div>
+            </div>
+
+            <div class="mvp-footer-info">
+                <p>finrisk.alpha-one.mobi &middot; Cloudflare Access Protected</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider"><div class="container"><hr></div></div>
+
+    <!-- MVP 4: Daily Intelligence Briefing -->
     <section class="mvp-section" id="daily-briefing">
         <div class="container">
             <div class="mvp-header">
@@ -258,6 +548,83 @@
                         <div class="healing-icon">📊</div>
                         <h4>Health Dashboard</h4>
                         <p>A dedicated health monitoring dashboard provides real-time visibility into pipeline status, component health scores, remediation history, and system-wide metrics — giving operators confidence the system is operating within spec.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cost Engineering Section -->
+            <div class="cost-engineering-section">
+                <h3>Cost Engineering &amp; Token Economics</h3>
+                <p class="arch-intro">Running a 24/7 AI intelligence pipeline at production scale demands deliberate cost architecture. The briefing system achieved a 95% cost reduction through strategic model migration, token optimization, and zero-LLM-cost offloading.</p>
+
+                <!-- Cost Reduction Hero -->
+                <div class="cost-hero">
+                    <div class="cost-hero-item">
+                        <span class="cost-hero-label">Before</span>
+                        <span class="cost-hero-value cost-before">~$242/mo</span>
+                        <span class="cost-hero-detail">Claude Sonnet 4.6 &middot; 9 agents</span>
+                    </div>
+                    <div class="cost-hero-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </div>
+                    <div class="cost-hero-item">
+                        <span class="cost-hero-label">After</span>
+                        <span class="cost-hero-value cost-after">~$12/mo</span>
+                        <span class="cost-hero-detail">xAI Grok 4.1 &middot; 4 master agents</span>
+                    </div>
+                    <div class="cost-hero-savings">
+                        <span class="cost-savings-value">95.3%</span>
+                        <span class="cost-savings-label">Cost Reduction</span>
+                    </div>
+                </div>
+
+                <!-- Three Pillars of Cost Savings -->
+                <div class="arch-grid">
+                    <div class="arch-card">
+                        <div class="arch-step cost-step">1</div>
+                        <h4>Model Migration</h4>
+                        <p>Strategic migration from Anthropic Claude Sonnet 4.6 to xAI Grok 4.1 (fast reasoning and non-reasoning variants). The migration preserves intelligence quality while leveraging Grok's native x_search capability for real-time X/Twitter intelligence collection — eliminating a separate collection layer. Four master agents replaced nine individual agents through domain consolidation.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step cost-step">2</div>
+                        <h4>Token Optimization</h4>
+                        <p>Systematic token reduction across the entire pipeline. Brave Search results capped at 5 per query (eliminating ~80% of per-result token cost). Extra snippet fields disabled by default. Context-engineered prompts with structured output schemas reduce LLM verbosity. Per-run cost attribution tracks token spend across every pipeline stage.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step cost-step">3</div>
+                        <h4>Zero-LLM-Cost Offloading</h4>
+                        <p>Operations that don't require reasoning are offloaded to zero-cost compute: schema validation (deterministic), feed watchdog staleness detection (heuristic), quality scoring (local Ollama with Llama 3.2 3B), trend analysis (statistical), and graph database queries (Cypher). Only synthesis and analysis hit the LLM billing meter.</p>
+                    </div>
+                </div>
+
+                <!-- Detailed Breakdown -->
+                <div class="ai-depth-section" style="margin-top: 40px; margin-bottom: 0;">
+                    <h3>Cost Architecture Breakdown</h3>
+                    <div class="ai-depth-list">
+                        <div class="ai-depth-item">
+                            <span class="ai-depth-label">Master Agents</span>
+                            <span class="ai-depth-desc">4 domain-consolidated agents (Geopolitical, Economic, Threat, Technology) using xAI Grok 4.1 fast reasoning — ~$6.50/mo</span>
+                        </div>
+                        <div class="ai-depth-item">
+                            <span class="ai-depth-label">Data Generation</span>
+                            <span class="ai-depth-desc">Dashboard rendering and flow analysis using xAI Grok 4.1 fast non-reasoning — ~$2.50/mo</span>
+                        </div>
+                        <div class="ai-depth-item">
+                            <span class="ai-depth-label">Health Monitoring</span>
+                            <span class="ai-depth-desc">Autonomous health agent with anomaly detection and self-healing — ~$1.50/mo</span>
+                        </div>
+                        <div class="ai-depth-item">
+                            <span class="ai-depth-label">Local AI (Ollama)</span>
+                            <span class="ai-depth-desc">Llama 3.2 3B for BLUF narration, trend analysis, and source classification — $0/mo (on-device)</span>
+                        </div>
+                        <div class="ai-depth-item">
+                            <span class="ai-depth-label">Deterministic Ops</span>
+                            <span class="ai-depth-desc">Schema validation, feed watchdog, graph queries, statistical analysis — $0/mo (no LLM required)</span>
+                        </div>
+                        <div class="ai-depth-item">
+                            <span class="ai-depth-label">Annual Savings</span>
+                            <span class="ai-depth-desc">~$2,760/year reduction in AI inference costs while maintaining equivalent intelligence quality and output</span>
+                        </div>
                     </div>
                 </div>
             </div>

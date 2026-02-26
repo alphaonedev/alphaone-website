@@ -406,6 +406,154 @@
 }
 
 /* ========================================
+   FlowPatrol & FinRisk Badge Variants
+   ======================================== */
+
+/* FlowPatrol — amber/orange */
+.mvp-badge.flow {
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    color: #fbbf24;
+}
+
+/* Financial Risk — teal */
+.mvp-badge.finrisk {
+    background: rgba(6, 182, 212, 0.12);
+    border: 1px solid rgba(6, 182, 212, 0.25);
+    color: #22d3ee;
+}
+
+/* FlowPatrol module chips */
+.module-chip.flow-chip {
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+}
+
+/* FinRisk module chips */
+.module-chip.finrisk-chip {
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    color: #22d3ee;
+}
+
+/* ========================================
+   Step Marker Variants
+   ======================================== */
+
+/* FlowPatrol steps — amber gradient */
+.arch-step.flow-step {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+/* FinRisk steps — teal gradient */
+.arch-step.finrisk-step {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+}
+
+/* Cost Engineering steps — emerald gradient */
+.arch-step.cost-step {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+/* ========================================
+   Cost Engineering Section
+   ======================================== */
+.cost-engineering-section {
+    margin-bottom: 60px;
+}
+
+.cost-engineering-section h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+/* Cost Reduction Hero — Before → After */
+.cost-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 48px;
+    padding: 40px 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    flex-wrap: wrap;
+}
+
+.cost-hero-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.cost-hero-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+}
+
+.cost-hero-value {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+.cost-hero-value.cost-before {
+    color: #f87171;
+}
+
+.cost-hero-value.cost-after {
+    color: #4ade80;
+}
+
+.cost-hero-detail {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.cost-hero-arrow {
+    color: var(--text-dim);
+    flex-shrink: 0;
+}
+
+.cost-hero-savings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 28px;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: var(--radius);
+}
+
+.cost-savings-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #10b981;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.cost-savings-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #34d399;
+}
+
+/* ========================================
    Responsive
    ======================================== */
 @media (max-width: 768px) {
@@ -433,6 +581,20 @@
 
     .ai-depth-label {
         min-width: unset;
+    }
+
+    .cost-hero {
+        flex-direction: column;
+        gap: 20px;
+        padding: 28px 20px;
+    }
+
+    .cost-hero-arrow {
+        transform: rotate(90deg);
+    }
+
+    .cost-hero-value {
+        font-size: 2rem;
     }
 }
 
