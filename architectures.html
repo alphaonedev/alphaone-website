@@ -46,6 +46,477 @@
         </div>
     </section>
 
+    <!-- Docker Multi-Framework AI Agent Orchestration Platform -->
+    <section class="mvp-section" id="docker-multi-framework-agents">
+        <div class="ref-arch-wrap">
+
+            <!-- Architecture Header -->
+            <div class="ref-arch-header">
+                <h2>Docker Multi-Framework AI Agent <span class="gradient-text">Orchestration Platform</span></h2>
+                <div class="ref-arch-sub">
+                    3 Frameworks &bull; 12+ Autonomous Agents &bull; Containerized &bull; CIS-Hardened<br>
+                    Production-grade Docker orchestration unifying Claude Code, LangGraph, and Microsoft Agent Framework
+                </div>
+                <div class="header-badges">
+                    <span class="badge badge-primary">Claude Code Agents</span>
+                    <span class="badge badge-accent">LangGraph Deep Agents</span>
+                    <span class="badge badge-green">Microsoft Agent Framework</span>
+                    <span class="badge badge-orange">CIS Docker Benchmark</span>
+                    <span class="badge badge-red">Zero-Trust Containers</span>
+                </div>
+                <div class="header-meta">
+                    <span>&#x1F4D0; Conforms to: Daly Framework (2026)</span>
+                    <span>&#x1F4C4; Version 1.0</span>
+                    <span>&#x1F4C5; February 2026</span>
+                    <span>&#x1F517; <a href="https://github.com/alphaonedev/docker-claude-agents" style="color:var(--accent-light); text-decoration:none;">GitHub</a></span>
+                </div>
+            </div>
+
+            <!-- Architecture Non-Negotiables -->
+            <div class="section-title">Architecture Non-Negotiables</div>
+            <div class="principles">
+                <div class="principle-card">
+                    <div class="pnum">1</div>
+                    <div class="pname">Framework Sovereignty</div>
+                    <div class="pdesc">Each AI framework runs in isolated containers with independent runtimes. No shared process space. Claude Code, LangGraph, and Microsoft agents never co-mingle state.</div>
+                </div>
+                <div class="principle-card">
+                    <div class="pnum">2</div>
+                    <div class="pname">CIS-Hardened by Default</div>
+                    <div class="pdesc">Every container: cap_drop ALL, no-new-privileges, read-only rootfs, pids_limit 256, tini PID 1. No exceptions. Security is structural, not optional.</div>
+                </div>
+                <div class="principle-card">
+                    <div class="pnum">3</div>
+                    <div class="pname">Observable Communication</div>
+                    <div class="pdesc">All inter-agent communication flows through inspectable channels: JSON files on shared volumes, LangGraph state checkpoints, or gRPC streams. No hidden side-channels.</div>
+                </div>
+            </div>
+
+            <!-- Unified Orchestration Topology -->
+            <div class="section-title">Unified Orchestration Topology</div>
+            <div class="layer" style="border-color: rgba(168,85,247,0.15);">
+                <div class="layer-label ll-purple">Docker Compose &mdash; Unified Control Plane</div>
+                <div class="sub-label">Single docker-compose.yml with YAML anchors (x-agent-defaults) &bull; Framework-specific overlays &bull; Shared agent-net bridge network</div>
+                <div class="components">
+                    <div class="comp c-purple" style="flex:2">
+                        <span class="comp-icon">&#x1F3D7;</span>
+                        <div class="comp-name">Compose Orchestrator</div>
+                        <div class="comp-detail">YAML anchors eliminate duplication &bull; x-agent-defaults, x-agent-environment, x-agent-volumes<br>Framework overlays: docker-compose.langgraph.yml, docker-compose.msagent.yml<br>Combined: docker compose -f ... -f ... -f ... up --build</div>
+                    </div>
+                    <div class="comp c-purple">
+                        <span class="comp-icon">&#x1F310;</span>
+                        <div class="comp-name">agent-net Bridge</div>
+                        <div class="comp-detail">Isolated bridge network<br>Docker DNS resolution<br>Outbound: API endpoints only</div>
+                    </div>
+                    <div class="comp c-purple">
+                        <span class="comp-icon">&#x1F504;</span>
+                        <div class="comp-name">Init Service</div>
+                        <div class="comp-detail">Alpine container pre-creates<br>volume directory structure<br>Agents wait via depends_on</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flow-arrow"><div class="arrows">&#x25BC; &#x25BC; &#x25BC;</div><div class="label">Docker Compose orchestrates all three framework stacks in parallel</div></div>
+
+            <!-- Framework 1: Claude Code Agents -->
+            <div class="section-title">Framework 1 &mdash; Claude Code Agents (Master-Controller Pattern)</div>
+            <div class="layer" style="border-color: rgba(99,102,241,0.15);">
+                <div class="layer-label ll-primary">Claude Code &mdash; 6 Autonomous Agents</div>
+                <div class="sub-label">Single base image (Dockerfile.base) &bull; 4-line thin Dockerfiles per agent &bull; File-based IPC via shared Docker volumes &bull; JSON protocol contracts</div>
+                <div class="components" style="margin-bottom:14px;">
+                    <div class="comp c-primary" style="flex:2">
+                        <span class="comp-icon">&#x1F9E0;</span>
+                        <div class="comp-name">Master Controller</div>
+                        <div class="comp-detail">Decomposes incoming tasks &bull; Delegates to 5 specialists<br>Monitors progress via polling (15s) &bull; Aggregates final results<br>Reads: /app/workspace/.tasks/incoming.json</div>
+                    </div>
+                    <div class="comp c-primary">
+                        <span class="comp-icon">&#x1F50D;</span>
+                        <div class="comp-name">Researcher</div>
+                        <div class="comp-detail">Codebase analysis<br>Architecture mapping<br>Technical findings</div>
+                    </div>
+                    <div class="comp c-primary">
+                        <span class="comp-icon">&#x1F4BB;</span>
+                        <div class="comp-name">Coder</div>
+                        <div class="comp-detail">Feature implementation<br>Bug fixes &bull; Refactoring<br>Code generation</div>
+                    </div>
+                </div>
+                <div class="components">
+                    <div class="comp c-primary">
+                        <span class="comp-icon">&#x1F50E;</span>
+                        <div class="comp-name">Reviewer</div>
+                        <div class="comp-detail">Code review &bull; OWASP audit<br>Best-practice enforcement</div>
+                    </div>
+                    <div class="comp c-primary">
+                        <span class="comp-icon">&#x2705;</span>
+                        <div class="comp-name">Tester</div>
+                        <div class="comp-detail">Test authoring &bull; Execution<br>Coverage &bull; Regression detection</div>
+                    </div>
+                    <div class="comp c-primary">
+                        <span class="comp-icon">&#x1F680;</span>
+                        <div class="comp-name">Deployer</div>
+                        <div class="comp-detail">Dockerfiles &bull; CI/CD pipelines<br>Deployment scripts &bull; Infra config</div>
+                    </div>
+                </div>
+                <div class="dim-row">
+                    <span>&#x1F4C1; IPC: shared-tasks/ &bull; shared-status/ &bull; shared-output/ (Docker named volumes)</span>
+                    <span>&#x1F4DC; Contracts: task.schema.json &bull; status.schema.json &bull; output.schema.json</span>
+                </div>
+            </div>
+
+            <div class="flow-arrow"><div class="arrows">&#x25BC; &#x25B2; &nbsp; &#x25BC; &#x25B2; &nbsp; &#x25BC; &#x25B2;</div><div class="label">Read / Write &harr; Shared Docker Volumes (JSON Protocol)</div></div>
+
+            <!-- Framework 2: LangGraph Deep Agents -->
+            <div class="section-title">Framework 2 &mdash; LangGraph Deep Agents (Graph-Based Orchestration)</div>
+            <div class="layer" style="border-color: rgba(6,182,212,0.15);">
+                <div class="layer-label ll-accent">LangGraph &mdash; Stateful Graph Execution</div>
+                <div class="sub-label">langgraph build generates Docker images &bull; Graph-based workflows: nodes, edges, conditional routing &bull; State checkpointing to PostgreSQL</div>
+                <div class="components" style="margin-bottom:14px;">
+                    <div class="comp c-accent" style="flex:2">
+                        <span class="comp-icon">&#x1F5FA;</span>
+                        <div class="comp-name">LangGraph API Server</div>
+                        <div class="comp-detail">Graph execution runtime &bull; REST + streaming endpoints<br>Manages agent state machines &bull; Human-in-the-loop breakpoints<br>Multi-agent topologies: supervisor, handoff, hierarchical teams</div>
+                    </div>
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x1F9ED;</span>
+                        <div class="comp-name">Planning Agent</div>
+                        <div class="comp-detail">Deep Agents SDK &bull; deepagents CLI<br>Task decomposition<br>Sub-agent spawning</div>
+                    </div>
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x2699;</span>
+                        <div class="comp-name">Tool Executor Nodes</div>
+                        <div class="comp-detail">Filesystem access<br>Code execution<br>API integration tools</div>
+                    </div>
+                </div>
+                <div class="components">
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x1F4BE;</span>
+                        <div class="comp-name">PostgreSQL (Checkpoint)</div>
+                        <div class="comp-detail">State persistence &bull; Graph checkpoints<br>Replay &bull; Time-travel debugging<br>pgvector for embeddings</div>
+                    </div>
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x26A1;</span>
+                        <div class="comp-name">Redis (Pub/Sub)</div>
+                        <div class="comp-detail">Real-time state streaming<br>Cross-agent notifications<br>Task queue coordination</div>
+                    </div>
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x1F504;</span>
+                        <div class="comp-name">LangSmith Tracing</div>
+                        <div class="comp-detail">Observability &bull; Run traces<br>Token tracking &bull; Latency<br>Evaluation datasets</div>
+                    </div>
+                </div>
+                <div class="dim-row">
+                    <span>&#x1F5A7; Topologies: Sequential &bull; Fan-Out/Fan-In &bull; Supervisor &bull; Handoff &bull; Hierarchical Teams</span>
+                    <span>&#x1F504; State: Checkpoint &rarr; Resume &bull; Branch &bull; Replay &bull; Human-in-the-loop</span>
+                </div>
+            </div>
+
+            <!-- LangGraph Execution Loop -->
+            <div class="sub-label" style="margin-top:18px; margin-bottom:8px; font-size:13px; font-weight:700; color:var(--accent-light);">LangGraph Agent Execution Loop:</div>
+            <div class="loop-wrap" style="margin-bottom:20px;">
+                <div class="loop-step"><div class="num">1</div><div class="lbl">INVOKE</div></div>
+                <div class="loop-arr">&rarr;</div>
+                <div class="loop-step"><div class="num">2</div><div class="lbl">ROUTE</div></div>
+                <div class="loop-arr">&rarr;</div>
+                <div class="loop-step"><div class="num">3</div><div class="lbl">EXECUTE</div></div>
+                <div class="loop-arr">&rarr;</div>
+                <div class="loop-step"><div class="num">4</div><div class="lbl">CHECKPOINT</div></div>
+                <div class="loop-arr">&rarr;</div>
+                <div class="loop-step"><div class="num">5</div><div class="lbl">EVALUATE</div></div>
+                <div class="loop-arr">&rarr;</div>
+                <div class="loop-step"><div class="num">6</div><div class="lbl">LOOP / END</div></div>
+            </div>
+
+            <div class="flow-arrow"><div class="arrows">&#x25BC; &#x25BC; &#x25BC;</div><div class="label">LangGraph state checkpoints persist to PostgreSQL &bull; Events stream via Redis</div></div>
+
+            <!-- Framework 3: Microsoft Agent Framework -->
+            <div class="section-title">Framework 3 &mdash; Microsoft Agent Framework (Semantic Kernel + AutoGen)</div>
+            <div class="layer" style="border-color: rgba(16,185,129,0.15);">
+                <div class="layer-label ll-green">Microsoft Agent Framework &mdash; Unified SDK</div>
+                <div class="sub-label">Semantic Kernel (v1.39+) + AutoGen (v0.4) merged Oct 2025 &bull; Graph-based workflows &bull; MCP/A2A protocol support &bull; gRPC distributed runtime</div>
+                <div class="components" style="margin-bottom:14px;">
+                    <div class="comp c-green" style="flex:2">
+                        <span class="comp-icon">&#x1F9E9;</span>
+                        <div class="comp-name">Semantic Kernel Runtime</div>
+                        <div class="comp-detail">Kernel + Plugins + Planners + Memory + Agents<br>Native functions + OpenAPI plugins + MCP tools<br>Multi-model: Azure OpenAI, Anthropic, Ollama, HuggingFace</div>
+                    </div>
+                    <div class="comp c-green">
+                        <span class="comp-icon">&#x1F916;</span>
+                        <div class="comp-name">AutoGen Agents</div>
+                        <div class="comp-detail">Actor model runtime<br>Multi-agent conversations<br>Group chat patterns</div>
+                    </div>
+                    <div class="comp c-green">
+                        <span class="comp-icon">&#x1F4AC;</span>
+                        <div class="comp-name">Agent Chat Protocol</div>
+                        <div class="comp-detail">Structured messaging<br>Tool call routing<br>Conversation history</div>
+                    </div>
+                </div>
+                <div class="components">
+                    <div class="comp c-green">
+                        <span class="comp-icon">&#x1F5A7;</span>
+                        <div class="comp-name">gRPC Distributed Runtime</div>
+                        <div class="comp-detail">Cross-container agent comm<br>Protobuf serialization<br>Service mesh ready</div>
+                    </div>
+                    <div class="comp c-green">
+                        <span class="comp-icon">&#x1F4E6;</span>
+                        <div class="comp-name">Docker Code Executor</div>
+                        <div class="comp-detail">Sandboxed code execution<br>Per-task containers<br>Filesystem isolation</div>
+                    </div>
+                    <div class="comp c-green">
+                        <span class="comp-icon">&#x1F9E0;</span>
+                        <div class="comp-name">Kernel Memory</div>
+                        <div class="comp-detail">RAG pipeline container<br>Document ingestion<br>Semantic search &bull; Vector store</div>
+                    </div>
+                </div>
+                <div class="dim-row">
+                    <span>&#x1F517; Protocols: MCP (Model Context Protocol) &bull; A2A (Agent-to-Agent) &bull; gRPC &bull; OpenAPI</span>
+                    <span>&#x2601; Azure AI Foundry integration &bull; Local-first with Docker &bull; Cloud-optional</span>
+                </div>
+            </div>
+
+            <div class="flow-arrow"><div class="arrows">&#x25BC; &#x25B2; &nbsp; &#x25BC; &#x25B2; &nbsp; &#x25BC; &#x25B2;</div><div class="label">gRPC distributed runtime &harr; Kernel Memory &harr; Docker Code Executor</div></div>
+
+            <!-- Container Security Architecture -->
+            <div class="section-title">Container Security &mdash; CIS Docker Benchmark Compliance</div>
+            <div class="layer" style="border-color: rgba(239,68,68,0.12);">
+                <div class="layer-label ll-red">Security Hardening Layer</div>
+                <div class="sub-label">Every container in every framework stack enforces these controls. No exceptions. Verified by CI on every commit.</div>
+                <div class="components" style="margin-bottom:14px;">
+                    <div class="comp c-red">
+                        <span class="comp-icon">&#x1F6E1;</span>
+                        <div class="comp-name">cap_drop: [ALL]</div>
+                        <div class="comp-detail">CIS 5.3 &bull; All Linux capabilities dropped<br>No privilege escalation surface<br>PostgreSQL gets targeted cap_add</div>
+                    </div>
+                    <div class="comp c-red">
+                        <span class="comp-icon">&#x1F512;</span>
+                        <div class="comp-name">no-new-privileges</div>
+                        <div class="comp-detail">CIS 5.25 &bull; security_opt enforced<br>Prevents setuid/setgid escalation<br>Applied via x-agent-defaults anchor</div>
+                    </div>
+                    <div class="comp c-red">
+                        <span class="comp-icon">&#x1F4BE;</span>
+                        <div class="comp-name">read_only: true</div>
+                        <div class="comp-detail">CIS 5.12 &bull; Immutable root filesystem<br>Writable: tmpfs (/tmp, ~/.cache)<br>+ explicit volume mounts only</div>
+                    </div>
+                    <div class="comp c-red">
+                        <span class="comp-icon">&#x1F6AB;</span>
+                        <div class="comp-name">pids_limit: 256</div>
+                        <div class="comp-detail">CIS 5.28 &bull; Fork bomb prevention<br>Resource exhaustion guard<br>Per-container enforcement</div>
+                    </div>
+                    <div class="comp c-red">
+                        <span class="comp-icon">&#x2699;</span>
+                        <div class="comp-name">tini PID 1</div>
+                        <div class="comp-detail">CIS 5.29 &bull; Proper signal handling<br>Zombie process reaping<br>Clean SIGTERM propagation</div>
+                    </div>
+                </div>
+                <div class="components">
+                    <div class="comp c-red">
+                        <span class="comp-icon">&#x1F464;</span>
+                        <div class="comp-name">USER node (non-root)</div>
+                        <div class="comp-detail">CIS 5.15 &bull; All agents run as node user<br>No root access in any container<br>Least-privilege enforcement</div>
+                    </div>
+                    <div class="comp c-red">
+                        <span class="comp-icon">&#x1F4CA;</span>
+                        <div class="comp-name">Resource Limits</div>
+                        <div class="comp-detail">CIS 5.10/5.11 &bull; CPU: 2 cores max<br>Memory: 4 GB max &bull; 512 MB reserved<br>deploy.resources.limits enforced</div>
+                    </div>
+                    <div class="comp c-red">
+                        <span class="comp-icon">&#x1F4DD;</span>
+                        <div class="comp-name">Log Rotation</div>
+                        <div class="comp-detail">CIS 5.7 &bull; json-file driver<br>max-size: 10m &bull; max-file: 5<br>Prevents disk exhaustion</div>
+                    </div>
+                    <div class="comp c-red">
+                        <span class="comp-icon">&#x1F50D;</span>
+                        <div class="comp-name">Trivy Scanning</div>
+                        <div class="comp-detail">CI pipeline vulnerability scan<br>Base image + dependencies<br>Block on CRITICAL/HIGH CVEs</div>
+                    </div>
+                    <div class="comp c-red">
+                        <span class="comp-icon">&#x1F510;</span>
+                        <div class="comp-name">Secret Management</div>
+                        <div class="comp-detail">.env file (dev) &bull; Docker secrets (prod)<br>Never in Dockerfiles or CLI args<br>.claude/ mounted read-only</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Communication & Data Architecture -->
+            <div class="section-title">Communication & Data Architecture</div>
+            <div class="two-col">
+                <div class="layer" style="border-color: rgba(99,102,241,0.12);">
+                    <div class="layer-label ll-primary">Inter-Agent Communication</div>
+                    <div class="scope-card sk-global">
+                        <div class="sc-name">Claude Agents &mdash; File-Based IPC</div>
+                        <div class="sc-desc">JSON files on 3 shared Docker volumes: tasks/, status/, output/. Per-agent subdirectories. Atomic writes via tmp+mv. Polling-based (15s).</div>
+                    </div>
+                    <div class="scope-card sk-tenant">
+                        <div class="sc-name">LangGraph &mdash; State Graph + Checkpoints</div>
+                        <div class="sc-desc">Graph state persisted to PostgreSQL. Real-time events via Redis pub/sub. Checkpoint &rarr; resume &rarr; branch &rarr; replay.</div>
+                    </div>
+                    <div class="scope-card sk-user">
+                        <div class="sc-name">Microsoft &mdash; gRPC + Actor Model</div>
+                        <div class="sc-desc">Protobuf-serialized messages over gRPC. AutoGen actor runtime for multi-agent conversations. Docker DNS service discovery.</div>
+                    </div>
+                    <div class="scope-card sk-session">
+                        <div class="sc-name">Cross-Framework &mdash; Shared Workspace</div>
+                        <div class="sc-desc">All frameworks mount ./workspace at /app/workspace. Common codebase access. Framework outputs readable by others.</div>
+                    </div>
+                </div>
+                <div class="layer" style="border-color: rgba(245,158,11,0.12);">
+                    <div class="layer-label ll-orange">Data & State Persistence</div>
+                    <div style="display:flex; flex-direction:column; gap:10px;">
+                        <div class="comp c-orange">
+                            <div class="comp-name">&#x1F4C1; Docker Named Volumes</div>
+                            <div class="comp-detail">shared-tasks/ &bull; shared-status/ &bull; shared-output/<br>Persist across container restarts<br>Explicit cleanup: make clean</div>
+                        </div>
+                        <div class="comp c-orange">
+                            <div class="comp-name">&#x1F4BE; PostgreSQL</div>
+                            <div class="comp-detail">LangGraph state checkpoints &bull; pgvector embeddings<br>Microsoft Kernel Memory store<br>Healthcheck: pg_isready</div>
+                        </div>
+                        <div class="comp c-orange">
+                            <div class="comp-name">&#x26A1; Redis</div>
+                            <div class="comp-detail">LangGraph real-time streaming<br>Task queue coordination<br>Pub/sub event bus</div>
+                        </div>
+                        <div class="comp c-orange">
+                            <div class="comp-name">&#x1F4DC; JSON Schema Contracts</div>
+                            <div class="comp-detail">task.schema.json &bull; status.schema.json<br>output.schema.json &bull; Validated in CI<br>Single source of truth for IPC</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Strategy -->
+            <div class="section-title">Container Image Strategy</div>
+            <div class="layer" style="border-color: rgba(6,182,212,0.12);">
+                <div class="layer-label ll-accent">Image Hierarchy</div>
+                <div class="components">
+                    <div class="comp c-accent" style="flex:2">
+                        <span class="comp-icon">&#x1F4E6;</span>
+                        <div class="comp-name">claude-agent-base (Dockerfile.base)</div>
+                        <div class="comp-detail">FROM node:22-slim &bull; Single source of truth for all Claude agents<br>Installs: Node.js, Claude Code CLI, tini, git, jq, curl<br>OCI labels: BUILD_DATE, VCS_REF &bull; Healthcheck: pgrep -x node</div>
+                    </div>
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x1F527;</span>
+                        <div class="comp-name">6 Agent Images</div>
+                        <div class="comp-detail">4-line thin Dockerfiles each<br>FROM + LABEL + COPY + ENV<br>Zero duplication</div>
+                    </div>
+                </div>
+                <div class="components" style="margin-top:12px;">
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x1F5FA;</span>
+                        <div class="comp-name">LangGraph Image</div>
+                        <div class="comp-detail">langgraph build generates image<br>Python runtime + dependencies<br>Graph definitions baked in</div>
+                    </div>
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x1F9E9;</span>
+                        <div class="comp-name">Microsoft Agent Image</div>
+                        <div class="comp-detail">.NET / Python base<br>Semantic Kernel + AutoGen<br>gRPC runtime included</div>
+                    </div>
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x1F4BE;</span>
+                        <div class="comp-name">Infrastructure Images</div>
+                        <div class="comp-detail">postgres:16-alpine (checkpoints)<br>redis:7-alpine (pub/sub)<br>Official images, pinned tags</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CI/CD Pipeline -->
+            <div class="section-title">CI/CD &mdash; GitHub Actions Pipeline</div>
+            <div class="layer" style="border-color: rgba(6,182,212,0.15); margin-bottom:20px;">
+                <div class="layer-label ll-accent">Continuous Integration &amp; Deployment</div>
+                <div class="sub-label">GitHub Actions on push/PR to main &bull; Structure validation + JSON schema checks + Trivy scan + multi-arch build</div>
+                <div class="components">
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x2705;</span>
+                        <div class="comp-name">Structure Check</div>
+                        <div class="comp-detail">Verify all agent dirs exist<br>Required files: Dockerfile,<br>system-prompt.md, CLAUDE.md</div>
+                    </div>
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x1F4DC;</span>
+                        <div class="comp-name">Schema Validation</div>
+                        <div class="comp-detail">jq validates all JSON files<br>schemas/ + examples/ + mcp-config<br>Fail counter: exits non-zero</div>
+                    </div>
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x1F6E1;</span>
+                        <div class="comp-name">Trivy Scan</div>
+                        <div class="comp-detail">aquasecurity/trivy-action<br>Scans claude-agent-base image<br>Blocks on CRITICAL severity</div>
+                    </div>
+                    <div class="comp c-accent">
+                        <span class="comp-icon">&#x1F680;</span>
+                        <div class="comp-name">Build &amp; Tag</div>
+                        <div class="comp-detail">docker build with BUILD_DATE<br>VCS_REF from git rev-parse<br>Semantic versioning (v1.0.0+)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deployment Modes -->
+            <div class="section-title">Deployment Modes</div>
+            <div class="rollout">
+                <div class="phase"><div class="ph-num">1</div><div class="ph-weeks">Dev</div><div class="ph-desc">make chat<br>Single interactive agent<br>Ad-hoc development</div></div>
+                <div class="phase"><div class="ph-num">2</div><div class="ph-weeks">Pair</div><div class="ph-desc">make cowork<br>Lead + Reviewer<br>Pair programming mode</div></div>
+                <div class="phase"><div class="ph-num">3</div><div class="ph-weeks">Team</div><div class="ph-desc">make team<br>Full 6-agent Claude stack<br>Complex task decomposition</div></div>
+                <div class="phase"><div class="ph-num">4</div><div class="ph-weeks">Multi-FW</div><div class="ph-desc">make platform<br>All 3 frameworks<br>12+ agents orchestrated</div></div>
+                <div class="phase ga"><div class="ph-num">5</div><div class="ph-weeks">MCP</div><div class="ph-desc">make mcp<br>+ GitHub, Search, DB<br>Full tool integration</div></div>
+            </div>
+            <div style="margin-top:14px; padding:14px 18px; border-radius:var(--radius); border:1px solid rgba(6,182,212,0.15); background:rgba(6,182,212,0.04); font-size:12px; color:var(--text-muted); line-height:1.8;">
+                <strong style="color:var(--accent-light);">&#x26A1; Quick start: 3 commands to fully operational</strong> &mdash; make setup &rarr; make build &rarr; make team<br>
+                <strong style="color:var(--accent-light);">&#x1F6E1; Production path:</strong> Pin CLAUDE_CODE_VERSION &bull; Use Docker secrets &bull; Enable Trivy in CI &bull; Add network policies<br>
+                <strong style="color:var(--text-dim);">Scale targets:</strong> Single Docker host (default) &rarr; Docker Swarm (multi-host) &rarr; Kubernetes (enterprise)
+            </div>
+
+            <!-- MCP Integration -->
+            <div class="section-title">MCP Server Integration (Tool Servers)</div>
+            <div class="layer" style="border-color: rgba(168,85,247,0.15);">
+                <div class="layer-label ll-purple">Model Context Protocol Overlay</div>
+                <div class="sub-label">docker-compose.mcp.yml overlay &bull; Adds tool servers that all agent frameworks can access via Docker DNS</div>
+                <div class="components">
+                    <div class="comp c-purple">
+                        <span class="comp-icon">&#x1F4BB;</span>
+                        <div class="comp-name">mcp-github</div>
+                        <div class="comp-detail">Repos, Issues, PRs<br>Requires: GITHUB_TOKEN<br>Healthcheck: HTTP probe</div>
+                    </div>
+                    <div class="comp c-purple">
+                        <span class="comp-icon">&#x1F4C1;</span>
+                        <div class="comp-name">mcp-filesystem</div>
+                        <div class="comp-detail">Structured file I/O<br>Scoped to /app/workspace<br>No external dependencies</div>
+                    </div>
+                    <div class="comp c-purple">
+                        <span class="comp-icon">&#x1F50D;</span>
+                        <div class="comp-name">mcp-brave-search</div>
+                        <div class="comp-detail">Web search capability<br>Requires: BRAVE_API_KEY<br>Rate-limited queries</div>
+                    </div>
+                    <div class="comp c-purple">
+                        <span class="comp-icon">&#x1F4BE;</span>
+                        <div class="comp-name">mcp-postgres</div>
+                        <div class="comp-detail">Database access<br>Shared with LangGraph<br>SQL query execution</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Architecture Document Footer -->
+            <div class="arch-doc-footer">
+                <div class="ft-brand">AlphaOne LLC</div>
+                <div>Docker Multi-Framework AI Agent Orchestration Platform v1.0</div>
+                <div>Claude Code Agents &bull; LangGraph Deep Agents &bull; Microsoft Agent Framework &bull; CIS Docker Benchmark</div>
+                <div style="margin-top:8px;">
+                    <a href="https://github.com/alphaonedev/docker-claude-agents" style="color:var(--accent-light); text-decoration:none; font-size:13px;">github.com/alphaonedev/docker-claude-agents</a>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- MIT License -->
+            <div class="license-block">
+                <div style="text-align:center; margin-bottom:16px;">
+                    <span style="font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; background:linear-gradient(135deg, var(--primary-light), var(--accent)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">MIT License</span>
+                </div>
+                <p>Copyright &copy; 2026 AlphaOne LLC</p>
+                <p style="margin-top:12px;">Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &ldquo;Software&rdquo;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+                <p style="margin-top:12px;">The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+                <p style="margin-top:12px;">THE SOFTWARE IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Enterprise AI Agent Reference Architecture -->
     <section class="mvp-section" id="enterprise-ai-agents">
         <div class="ref-arch-wrap">
