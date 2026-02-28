@@ -553,6 +553,112 @@
                 </div>
             </div>
 
+            <!-- SPAS: Source Provenance Accuracy Score -->
+            <div class="self-healing-section">
+                <h3>SPAS &mdash; Source Provenance Accuracy Score</h3>
+                <p class="arch-intro">Detecting PSYOPS and information operations (INFOPS) that bypass traditional source authority ratings. SPAS traces claims back to their original source and scores accuracy across five dimensions using AI-powered analysis.</p>
+
+                <div class="healing-grid">
+                    <div class="healing-item">
+                        <div class="healing-icon">🎯</div>
+                        <h4>Origin Authority</h4>
+                        <p>Traces each claim to its original source — government agency, wire service, or firsthand reporting — and scores the authority of that origin. Claims attributed to unnamed officials or social media posts score lower than Reuters or CENTCOM statements.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">🔗</div>
+                        <h4>Corroboration Factor</h4>
+                        <p>Measures how many independent sources confirm the same claim. A single-source report scores near zero; a claim corroborated by 3+ independent wire services scores near 1.0. Cross-domain corroboration (e.g., SIGINT + HUMINT + OSINT) scores highest.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">⚔️</div>
+                        <h4>Adversarial Source Discount</h4>
+                        <p>Applies a credibility discount when claims originate from state media of adversarial nations, known propaganda outlets, or entities with documented information warfare programs. Calibrated against historical deception patterns.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">📐</div>
+                        <h4>Attribution Clarity</h4>
+                        <p>Scores how precisely a claim is attributed. Named officials with verifiable statements score highest. "Sources familiar with the matter" or "reports suggest" score lower. Completely unattributed claims receive minimum scores.</p>
+                    </div>
+                </div>
+
+                <div class="ai-depth-section" style="margin-top: 30px; margin-bottom: 0;">
+                    <h3>SPAS Classification Tiers</h3>
+                    <div class="ai-depth-list">
+                        <div class="ai-depth-item">
+                            <span class="ai-depth-label">HIGH CONFIDENCE</span>
+                            <span class="ai-depth-desc">Score &ge; 0.80 — Multiple independent sources, authoritative origin, clear attribution</span>
+                        </div>
+                        <div class="ai-depth-item">
+                            <span class="ai-depth-label">MODERATE</span>
+                            <span class="ai-depth-desc">Score &ge; 0.60 — Credible sources with some corroboration, standard attribution</span>
+                        </div>
+                        <div class="ai-depth-item">
+                            <span class="ai-depth-label">LOW CONFIDENCE</span>
+                            <span class="ai-depth-desc">Score &ge; 0.40 — Limited corroboration, single-source, or weak attribution</span>
+                        </div>
+                        <div class="ai-depth-item">
+                            <span class="ai-depth-label">SUSPECT</span>
+                            <span class="ai-depth-desc">Score &ge; 0.20 — Adversarial source indicators, contradictory evidence, or known disinformation vectors</span>
+                        </div>
+                        <div class="ai-depth-item">
+                            <span class="ai-depth-label">DISINFO RISK</span>
+                            <span class="ai-depth-desc">Score &lt; 0.20 — Strong indicators of information warfare, psyop, or deliberate manipulation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Focus Mode: Area of Focus Crisis Monitoring -->
+            <div class="self-healing-section">
+                <h3>Area of Focus &mdash; Crisis-Mode Hourly Monitoring</h3>
+                <p class="arch-intro">When a global crisis escalates to the point of mass human impact, Focus Mode activates hourly intelligence collection and briefing regeneration for a 72-hour monitoring window. This ensures the dashboard stays current during rapidly evolving events that affect a significant percentage of the global population.</p>
+
+                <div class="healing-grid">
+                    <div class="healing-item">
+                        <div class="healing-icon">🚨</div>
+                        <h4>Threshold-Triggered Activation</h4>
+                        <p>Focus Mode auto-activates when the Sentinel 1 alerting engine detects a CRITICAL alert from eligible agents — warfare, WMD proliferation, mass-casualty terrorism, or pandemic-level threats. Economic and cyber-only events are excluded; the trigger requires direct mass human impact at population scale.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">⏱️</div>
+                        <h4>72-Hour Lifecycle</h4>
+                        <p>Each Focus Mode activation runs for a maximum of 72 hours with hourly collection cycles. The dashboard displays a live countdown showing incident start time, elapsed time, and time remaining. Global crises often hit stasis within this window (ceasefire, negotiations, stabilization).</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">📡</div>
+                        <h4>Hourly Collection &amp; Briefing</h4>
+                        <p>During the 72-hour window, the focused agent's master orchestrator runs every hour instead of its normal 2-4 hour schedule. After each collection, the full briefing regenerates automatically — pulling fresh data across all 15 domains while prioritizing the crisis agent.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">🔻</div>
+                        <h4>De-escalation Auto-Deactivation</h4>
+                        <p>Focus Mode automatically deactivates when the focused agent's posture drops below RED for two consecutive scans — indicating de-escalation, ceasefire, or resolution. The system can also be manually deactivated, and the 72-hour hard cap ensures no runaway cost accumulation.</p>
+                    </div>
+                </div>
+
+                <div class="ai-depth-section" style="margin-top: 30px; margin-bottom: 0;">
+                    <h3>Focus Mode Eligible Domains</h3>
+                    <div class="ai-depth-list">
+                        <div class="ai-depth-item">
+                            <span class="ai-depth-label">Active Warfare</span>
+                            <span class="ai-depth-desc">Iran Watch, Russia-NATO Watch, China-Taiwan Watch — military operations, strikes, armed conflict</span>
+                        </div>
+                        <div class="ai-depth-item">
+                            <span class="ai-depth-label">WMD / CBRN</span>
+                            <span class="ai-depth-desc">Doomsday Watch — nuclear, biological, chemical weapon proliferation or deployment threats</span>
+                        </div>
+                        <div class="ai-depth-item">
+                            <span class="ai-depth-label">Mass-Casualty Terrorism</span>
+                            <span class="ai-depth-desc">FTO Watch, Domestic Watch, Threat Watch — terrorist attacks with population-scale impact</span>
+                        </div>
+                        <div class="ai-depth-item">
+                            <span class="ai-depth-label">Pandemic Threats</span>
+                            <span class="ai-depth-desc">Novel pathogen with endemic-to-pandemic trajectory — global health emergencies at population scale</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Cost Engineering Section -->
             <div class="cost-engineering-section">
                 <h3>Cost Engineering &amp; Token Economics</h3>
@@ -661,6 +767,14 @@
                     <div class="ai-depth-item">
                         <span class="ai-depth-label">Observability</span>
                         <span class="ai-depth-desc">Real-time dashboards, trace logging, cost attribution per pipeline run</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">SPAS Scoring</span>
+                        <span class="ai-depth-desc">Source Provenance Accuracy Score — AI-powered PSYOPS and information operations (INFOPS) detection across 5 dimensions</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Crisis Focus Mode</span>
+                        <span class="ai-depth-desc">Threshold-triggered hourly monitoring for global crises — 72-hour lifecycle with auto-activation and de-escalation detection</span>
                     </div>
                 </div>
             </div>
