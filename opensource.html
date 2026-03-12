@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Source | AlphaOne LLC</title>
-    <meta name="description" content="AlphaOne LLC open source contributions — OpenClaw Graph, a graph-native AI skill database with Neo4j integration and TOON optimization that reduced token costs by 229%.">
+    <meta name="description" content="AlphaOne LLC open source contributions — OpenClaw Graph, a Neo4j-native AI skill database with TOON optimization that reduced token costs by 229%.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -51,14 +51,14 @@
             <div class="mvp-header">
                 <div class="mvp-badge oss">Open Source</div>
                 <h2>OpenClaw Graph</h2>
-                <p class="mvp-tagline">Graph-native AI skill database for the OpenClaw community &mdash; now with Neo4j integration</p>
+                <p class="mvp-tagline">Graph-native AI skill database for the OpenClaw community &mdash; powered by Neo4j</p>
                 <a href="https://alphaonedev.github.io/openclaw-graph/" target="_blank" class="btn btn-primary" style="margin-top:20px;">View Project &rarr;</a>
             </div>
 
             <div class="mvp-overview">
                 <div class="overview-text">
                     <p>OpenClaw Graph is AlphaOne's contribution to the open source OpenClaw project — a graph database layer that fundamentally transforms how AI agents discover, relate, and invoke skills. By replacing flat skill registries with a graph-native architecture, agents gain multi-hop reasoning across skill relationships, cluster-aware discovery, and dramatically reduced token consumption.</p>
-                    <p>v1.4 introduces Neo4j integration for production deployments. The entire skill graph migrates into an existing Neo4j instance in under 1 second, adding only ~10 MB — compared to 3.2 GB for the standalone LadybugDB. Skills become proper graph citizens with SkillCluster nodes, IN_CLUSTER relationships, and namespace-safe labels that coexist with other graph domains in the same database.</p>
+                    <p>v1.4 is Neo4j-native. The entire skill graph runs on Neo4j with proper graph modeling — SkillCluster nodes, IN_CLUSTER and RELATED_TO relationships, namespaced labels (OCAgent, OCMemory, OCTool) for multi-graph coexistence, and workspace-scoped isolation. ~10 MB footprint with sub-millisecond query times.</p>
                 </div>
                 <div class="overview-stats">
                     <div class="overview-stat">
@@ -74,8 +74,8 @@
                         <span class="overview-stat-label">Skill Clusters</span>
                     </div>
                     <div class="overview-stat">
-                        <span class="overview-stat-value">2</span>
-                        <span class="overview-stat-label">Graph Backends</span>
+                        <span class="overview-stat-value">~10MB</span>
+                        <span class="overview-stat-label">Neo4j Footprint</span>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                     <div class="arch-card">
                         <div class="arch-step">3</div>
                         <h4>Multi-Graph Coexistence</h4>
-                        <p>Namespaced labels (OCAgent, OCMemory, OCTool) let the skill graph coexist with intelligence, analytics, and reporting domains in a single Neo4j instance. One database, multiple knowledge domains, workspace-level isolation.</p>
+                        <p>Namespaced labels (OCAgent, OCMemory, OCTool) let the skill graph coexist with other graph domains in a shared Neo4j instance. One database, multiple knowledge domains, workspace-level isolation.</p>
                     </div>
                     <div class="arch-card">
                         <div class="arch-step">4</div>
@@ -147,12 +147,12 @@
                         <span class="ai-depth-desc">229% reduction through TOON optimization — targeted retrieval, structural compression, cached traversals</span>
                     </div>
                     <div class="ai-depth-item">
-                        <span class="ai-depth-label">Neo4j Migration</span>
-                        <span class="ai-depth-desc">Full graph migrates in 0.9 seconds, adds only ~10 MB to Neo4j vs 3.2 GB standalone — 99.7% storage reduction</span>
+                        <span class="ai-depth-label">Neo4j Performance</span>
+                        <span class="ai-depth-desc">Sub-millisecond skill lookups, ~2ms full scans across 316 nodes, ~10 MB total footprint — installs on macOS, Ubuntu, and Fedora</span>
                     </div>
                     <div class="ai-depth-item">
-                        <span class="ai-depth-label">Multi-Domain Graph</span>
-                        <span class="ai-depth-desc">4 logical graphs coexist in one Neo4j instance — 72K+ nodes, 258K+ relationships, 178 MB total on disk</span>
+                        <span class="ai-depth-label">Graph Coexistence</span>
+                        <span class="ai-depth-desc">Namespaced labels and workspace-scoped queries let OpenClaw Graph coexist safely with other graph domains in a shared Neo4j instance — zero collisions, zero cross-domain leakage</span>
                     </div>
                     <div class="ai-depth-item">
                         <span class="ai-depth-label">Context Quality</span>
