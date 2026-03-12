@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Source | AlphaOne LLC</title>
-    <meta name="description" content="AlphaOne LLC open source contributions — OpenClaw Graph, a graph-enhanced AI skill database with TOON optimization that reduced token costs by 229%.">
+    <meta name="description" content="AlphaOne LLC open source contributions — OpenClaw Graph, a graph-native AI skill database with Neo4j integration and TOON optimization that reduced token costs by 229%.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -51,14 +51,14 @@
             <div class="mvp-header">
                 <div class="mvp-badge oss">Open Source</div>
                 <h2>OpenClaw Graph</h2>
-                <p class="mvp-tagline">Graph-enhanced AI skill database for the OpenClaw community</p>
+                <p class="mvp-tagline">Graph-native AI skill database for the OpenClaw community &mdash; now with Neo4j integration</p>
                 <a href="https://alphaonedev.github.io/openclaw-graph/" target="_blank" class="btn btn-primary" style="margin-top:20px;">View Project &rarr;</a>
             </div>
 
             <div class="mvp-overview">
                 <div class="overview-text">
                     <p>OpenClaw Graph is AlphaOne's contribution to the open source OpenClaw project — a graph database layer that fundamentally transforms how AI agents discover, relate, and invoke skills. By replacing flat skill registries with a graph-native architecture, agents gain multi-hop reasoning across skill relationships, cluster-aware discovery, and dramatically reduced token consumption.</p>
-                    <p>The project demonstrates our core belief that context architecture — not model selection — is the differentiator in production AI systems. Graph databases provide the structural foundation for scoped, efficient, and relationship-aware context assembly.</p>
+                    <p>v1.4 introduces Neo4j integration for production deployments. The entire skill graph migrates into an existing Neo4j instance in under 1 second, adding only ~10 MB — compared to 3.2 GB for the standalone LadybugDB. Skills become proper graph citizens with SkillCluster nodes, IN_CLUSTER relationships, and namespace-safe labels that coexist with other graph domains in the same database.</p>
                 </div>
                 <div class="overview-stats">
                     <div class="overview-stat">
@@ -74,8 +74,8 @@
                         <span class="overview-stat-label">Skill Clusters</span>
                     </div>
                     <div class="overview-stat">
-                        <span class="overview-stat-value">545K+</span>
-                        <span class="overview-stat-label">Graph Nodes</span>
+                        <span class="overview-stat-value">2</span>
+                        <span class="overview-stat-label">Graph Backends</span>
                     </div>
                 </div>
             </div>
@@ -83,28 +83,28 @@
             <!-- How AI is Enhanced with Graph -->
             <div class="architecture-section">
                 <h3>How AI is Enhanced with Graph Database Capabilities</h3>
-                <p class="arch-intro">Traditional AI skill registries are flat lists — the agent must scan everything to find what it needs, consuming tokens proportional to the registry size. Graph databases change the fundamental economics.</p>
+                <p class="arch-intro">Traditional AI skill registries are flat lists — the agent must scan everything to find what it needs, consuming tokens proportional to the registry size. Graph databases change the fundamental economics. With Neo4j integration, skills become first-class graph citizens alongside other knowledge domains.</p>
 
                 <div class="arch-grid">
                     <div class="arch-card">
                         <div class="arch-step">1</div>
                         <h4>Relationship-Aware Discovery</h4>
-                        <p>Skills are connected through typed edges — dependencies, compositions, alternatives, and cluster memberships. Instead of scanning a flat list, agents traverse relationships to find exactly what they need in logarithmic time.</p>
+                        <p>Skills are connected through typed edges — RELATED_TO for dependencies, IN_CLUSTER for semantic grouping. Neo4j's native graph storage means traversals are index-free adjacency lookups — constant time regardless of graph size.</p>
                     </div>
                     <div class="arch-card">
                         <div class="arch-step">2</div>
                         <h4>Cluster-Based Context Assembly</h4>
-                        <p>Related skills are grouped into semantic clusters. When an agent needs capabilities in a domain, it retrieves the relevant cluster — getting a coherent, pre-organized context window instead of pulling individual skills and hoping they compose well.</p>
+                        <p>27 SkillCluster nodes group related skills into semantic domains. Each cluster is a proper graph node with IN_CLUSTER edges — agents retrieve coherent, pre-organized context windows instead of arbitrary skill fragments.</p>
                     </div>
                     <div class="arch-card">
                         <div class="arch-step">3</div>
-                        <h4>Multi-Hop Reasoning</h4>
-                        <p>Graph traversal enables agents to reason across skill relationships — "if I need skill A, I also need its dependencies B and C, and there's an optimized alternative D." This compositional reasoning is impossible with flat registries.</p>
+                        <h4>Multi-Graph Coexistence</h4>
+                        <p>Namespaced labels (OCAgent, OCMemory, OCTool) let the skill graph coexist with intelligence, analytics, and reporting domains in a single Neo4j instance. One database, multiple knowledge domains, workspace-level isolation.</p>
                     </div>
                     <div class="arch-card">
                         <div class="arch-step">4</div>
                         <h4>Scoped Retrieval</h4>
-                        <p>Graph queries naturally enforce scope boundaries. Agents retrieve only the subgraph relevant to their current task — no over-fetching, no token waste on irrelevant context. This is context assembly, not context accumulation.</p>
+                        <p>Cypher queries naturally enforce scope boundaries via workspace properties. Agents retrieve only the subgraph relevant to their identity — no over-fetching, no token waste. Context assembly, not context accumulation.</p>
                     </div>
                 </div>
             </div>
@@ -147,20 +147,20 @@
                         <span class="ai-depth-desc">229% reduction through TOON optimization — targeted retrieval, structural compression, cached traversals</span>
                     </div>
                     <div class="ai-depth-item">
-                        <span class="ai-depth-label">Skill Discovery</span>
-                        <span class="ai-depth-desc">Graph traversal replaces linear scan — logarithmic vs. linear complexity for skill lookup</span>
+                        <span class="ai-depth-label">Neo4j Migration</span>
+                        <span class="ai-depth-desc">Full graph migrates in 0.9 seconds, adds only ~10 MB to Neo4j vs 3.2 GB standalone — 99.7% storage reduction</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Multi-Domain Graph</span>
+                        <span class="ai-depth-desc">4 logical graphs coexist in one Neo4j instance — 72K+ nodes, 258K+ relationships, 178 MB total on disk</span>
                     </div>
                     <div class="ai-depth-item">
                         <span class="ai-depth-label">Context Quality</span>
-                        <span class="ai-depth-desc">Cluster-aware assembly delivers coherent, pre-organized context instead of arbitrary skill fragments</span>
-                    </div>
-                    <div class="ai-depth-item">
-                        <span class="ai-depth-label">Relationship Reasoning</span>
-                        <span class="ai-depth-desc">Multi-hop graph queries enable compositional skill reasoning impossible with flat registries</span>
+                        <span class="ai-depth-desc">Cluster-aware assembly with proper SkillCluster nodes delivers coherent, pre-organized context instead of arbitrary skill fragments</span>
                     </div>
                     <div class="ai-depth-item">
                         <span class="ai-depth-label">Scalability</span>
-                        <span class="ai-depth-desc">545K+ nodes with sub-millisecond query times — cost stays flat as the skill database grows</span>
+                        <span class="ai-depth-desc">Sub-millisecond query times across 316 skills, 27 clusters, 217 typed relationships — cost stays flat as the graph grows</span>
                     </div>
                 </div>
             </div>
