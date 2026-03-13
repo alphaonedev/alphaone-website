@@ -58,12 +58,13 @@
             <div class="mvp-overview">
                 <div class="overview-text">
                     <p>OpenClaw Graph is AlphaOne's contribution to the open source OpenClaw project — a graph database layer that fundamentally transforms how AI agents discover, relate, and invoke skills. By replacing flat skill registries with a graph-native architecture, agents gain multi-hop reasoning across skill relationships, cluster-aware discovery, and dramatically reduced token consumption.</p>
-                    <p>v1.4 is Neo4j-native. The entire skill graph runs on Neo4j with proper graph modeling — SkillCluster nodes, IN_CLUSTER and RELATED_TO relationships, namespaced labels (OCAgent, OCMemory, OCTool) for multi-graph coexistence, and workspace-scoped isolation. ~10 MB footprint with sub-millisecond query times.</p>
+                    <p>v1.5 introduces a <strong>Rust event-driven sync daemon</strong> that materializes Neo4j graph data into OpenClaw workspace files with FSEvents file watching for sub-second write-back. The Rust binary replaces a Python polling script — eliminating interpreter startup overhead for a 111x per-cycle speedup and 12x memory reduction. Persistent Bolt connection, 3.8 MB binary, ~4 MB RSS.</p>
+                    <p>The entire skill graph runs on Neo4j with proper graph modeling — SkillCluster nodes, typed relationships, namespaced labels for multi-graph coexistence, and workspace-scoped isolation. ~10 MB footprint with sub-millisecond query times.</p>
                 </div>
                 <div class="overview-stats">
                     <div class="overview-stat">
-                        <span class="overview-stat-value">229%</span>
-                        <span class="overview-stat-label">Token Cost Reduction</span>
+                        <span class="overview-stat-value">111x</span>
+                        <span class="overview-stat-label">Faster Sync (Rust)</span>
                     </div>
                     <div class="overview-stat">
                         <span class="overview-stat-value">316</span>
@@ -74,8 +75,8 @@
                         <span class="overview-stat-label">Skill Clusters</span>
                     </div>
                     <div class="overview-stat">
-                        <span class="overview-stat-value">~10MB</span>
-                        <span class="overview-stat-label">Neo4j Footprint</span>
+                        <span class="overview-stat-value">~4MB</span>
+                        <span class="overview-stat-label">Daemon RSS</span>
                     </div>
                 </div>
             </div>
@@ -138,10 +139,51 @@
                 </div>
             </div>
 
+            <!-- Rust Sync Daemon -->
+            <div class="architecture-section">
+                <h3>Rust Event-Driven Sync Daemon</h3>
+                <p class="arch-intro">The workspace materializer is a long-running Rust binary (<code>neo4j-sync</code>) that bridges Neo4j and OpenClaw flat files. It maintains a persistent Bolt connection and uses macOS FSEvents for instant write-back — replacing a Python polling script that spent 97% of each invocation on interpreter startup.</p>
+
+                <div class="arch-grid">
+                    <div class="arch-card">
+                        <div class="arch-step">&#9881;</div>
+                        <h4>Persistent Connection</h4>
+                        <p>A single Neo4j Bolt connection stays open for the lifetime of the daemon. No per-cycle startup cost, no connection churn — 60 new connections/hour reduced to 1.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step">&#9889;</div>
+                        <h4>Event-Driven Write-Back</h4>
+                        <p>FSEvents file watching with 500ms debounce detects IDENTITY.md changes and syncs to Neo4j in under a second. Agents see identity updates reflected instantly instead of waiting up to 60 seconds.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step">&#128230;</div>
+                        <h4>3.8 MB Binary</h4>
+                        <p>Compiled with LTO and size optimization. The entire daemon — Neo4j driver, file watcher, async runtime, regex engine — fits in a 3.8 MB arm64 binary with ~4 MB RSS at runtime.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step">&#128736;</div>
+                        <h4>Zero-Downtime Migration</h4>
+                        <p>Drop-in replacement for the Python script. Same launchd service name, same log paths, same workspace files. Atomic swap: unload Python, load Rust — under 1 second of downtime.</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Performance Data -->
             <div class="ai-depth-section">
                 <h3>Performance Impact</h3>
                 <div class="ai-depth-list">
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Rust Sync Speed</span>
+                        <span class="ai-depth-desc">111x faster per-cycle — 5ms (Rust) vs 555ms (Python). 97% of Python's wall time was interpreter startup, now eliminated entirely</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Write-Back Latency</span>
+                        <span class="ai-depth-desc">120x faster — sub-500ms event-driven write-back (FSEvents) replaces 60-second polling. Agent identity changes hit Neo4j near-instantly</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Memory Footprint</span>
+                        <span class="ai-depth-desc">12x smaller — ~4 MB RSS (Rust daemon) vs ~50 MB (Python interpreter + neo4j driver). 3.8 MB arm64 binary with LTO optimization</span>
+                    </div>
                     <div class="ai-depth-item">
                         <span class="ai-depth-label">Token Cost</span>
                         <span class="ai-depth-desc">229% reduction through TOON optimization — targeted retrieval, structural compression, cached traversals</span>
@@ -149,14 +191,6 @@
                     <div class="ai-depth-item">
                         <span class="ai-depth-label">Neo4j Performance</span>
                         <span class="ai-depth-desc">Sub-millisecond skill lookups, ~2ms full scans across 316 nodes, ~10 MB total footprint — installs on macOS, Ubuntu, and Fedora</span>
-                    </div>
-                    <div class="ai-depth-item">
-                        <span class="ai-depth-label">Graph Coexistence</span>
-                        <span class="ai-depth-desc">Namespaced labels and workspace-scoped queries let OpenClaw Graph coexist safely with other graph domains in a shared Neo4j instance — zero collisions, zero cross-domain leakage</span>
-                    </div>
-                    <div class="ai-depth-item">
-                        <span class="ai-depth-label">Context Quality</span>
-                        <span class="ai-depth-desc">Cluster-aware assembly with proper SkillCluster nodes delivers coherent, pre-organized context instead of arbitrary skill fragments</span>
                     </div>
                     <div class="ai-depth-item">
                         <span class="ai-depth-label">Scalability</span>
