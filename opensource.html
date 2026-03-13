@@ -59,6 +59,7 @@
                 <div class="overview-text">
                     <p>OpenClaw Graph is AlphaOne's contribution to the open source OpenClaw project — a graph database layer that fundamentally transforms how AI agents discover, relate, and invoke skills. By replacing flat skill registries with a graph-native architecture, agents gain multi-hop reasoning across skill relationships, cluster-aware discovery, and dramatically reduced token consumption.</p>
                     <p>v1.5 introduces a <strong>Rust event-driven sync daemon</strong> that materializes Neo4j graph data into OpenClaw workspace files with FSEvents file watching for sub-second write-back. The Rust binary replaces a Python polling script — eliminating interpreter startup overhead for a 111x per-cycle speedup and 12x memory reduction. Persistent Bolt connection, 3.8 MB binary, ~4 MB RSS.</p>
+                    <p>v1.5 also ships a <strong>self-contained installer</strong> &mdash; <code>seed.py</code> reads all 315 skills directly from the repo's SKILL.md files, requiring zero external data files. One command: <code>./install.sh</code> seeds Neo4j, deploys workspace stubs, and optionally builds the Rust daemon.</p>
                     <p>The entire skill graph runs on Neo4j with proper graph modeling — SkillCluster nodes, typed relationships, namespaced labels for multi-graph coexistence, and workspace-scoped isolation. ~10 MB footprint with sub-millisecond query times.</p>
                 </div>
                 <div class="overview-stats">
@@ -67,7 +68,7 @@
                         <span class="overview-stat-label">Faster Sync (Rust)</span>
                     </div>
                     <div class="overview-stat">
-                        <span class="overview-stat-value">316</span>
+                        <span class="overview-stat-value">315</span>
                         <span class="overview-stat-label">Skills Mapped</span>
                     </div>
                     <div class="overview-stat">
@@ -168,6 +169,35 @@
                 </div>
             </div>
 
+            <!-- Self-Contained Installation -->
+            <div class="self-healing-section">
+                <h3>Self-Contained v1.5 Installer</h3>
+                <p class="arch-intro">One command installs everything. <code>seed.py</code> reads skills directly from the repo's 315 SKILL.md files and 217 relationship pairs &mdash; no external data files, no migration scripts, no manual steps.</p>
+
+                <div class="healing-grid">
+                    <div class="healing-item">
+                        <div class="healing-icon">&#128230;</div>
+                        <h4>Zero External Dependencies</h4>
+                        <p>Skills are parsed from YAML frontmatter in the repo's <code>skills/*/SKILL.md</code> files. Relationships loaded from <code>seed-data/skill_rels.json</code>. Workspace defaults embedded in Python. Only Neo4j + Python neo4j driver required.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">&#9889;</div>
+                        <h4>Sub-Second Seeding</h4>
+                        <p>315 skills, 27 clusters, 217 relationships, and 50 workspace nodes seeded in under 1 second. UNWIND batches of 50, MERGE for full idempotency &mdash; safe to re-run anytime.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">&#128736;</div>
+                        <h4>Multi-Workspace Support</h4>
+                        <p><code>./install.sh --workspace myagent</code> creates isolated workspace nodes with auto-deployed stubs. Run multiple agents on a single Neo4j instance with workspace-scoped isolation.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">&#9989;</div>
+                        <h4>Built-In Verification</h4>
+                        <p><code>seed.py --verify</code> validates all node counts, relationship edges, and workspace stub queries. <code>--dry-run</code> previews every operation before touching Neo4j.</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Performance Data -->
             <div class="ai-depth-section">
                 <h3>Performance Impact</h3>
@@ -190,11 +220,11 @@
                     </div>
                     <div class="ai-depth-item">
                         <span class="ai-depth-label">Neo4j Performance</span>
-                        <span class="ai-depth-desc">Sub-millisecond skill lookups, ~2ms full scans across 316 nodes, ~10 MB total footprint — installs on macOS, Ubuntu, and Fedora</span>
+                        <span class="ai-depth-desc">Sub-millisecond skill lookups, ~2ms full scans across 315 nodes, ~10 MB total footprint — installs on macOS, Ubuntu, and Fedora</span>
                     </div>
                     <div class="ai-depth-item">
                         <span class="ai-depth-label">Scalability</span>
-                        <span class="ai-depth-desc">Sub-millisecond query times across 316 skills, 27 clusters, 217 typed relationships — cost stays flat as the graph grows</span>
+                        <span class="ai-depth-desc">Sub-millisecond query times across 315 skills, 27 clusters, 217 typed relationships — cost stays flat as the graph grows</span>
                     </div>
                 </div>
             </div>
