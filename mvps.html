@@ -647,6 +647,99 @@
                 </div>
             </div>
 
+            <!-- Zero-Touch CI/CD Pipeline -->
+            <div class="cicd-section">
+                <h3>Zero-Touch CI/CD Pipeline</h3>
+                <p class="arch-intro">Fully automated, zero-touch deployment across two repositories. Every commit reaching production has passed full integration testing twice &mdash; once in CI and once on the live server before the service accepts traffic. No human intervention at any stage.</p>
+
+                <div class="cicd-pipeline">
+                    <div class="pipeline-track">
+                        <div class="pipeline-label">API Deployment &mdash; ~51 seconds</div>
+                        <div class="pipeline-stages">
+                            <div class="pipeline-stage">
+                                <div class="stage-icon">📤</div>
+                                <div class="stage-content">
+                                    <h4>Push to Main</h4>
+                                    <p>Developer pushes to <code>finrisk-agents-only</code> main branch</p>
+                                </div>
+                            </div>
+                            <div class="pipeline-arrow">→</div>
+                            <div class="pipeline-stage">
+                                <div class="stage-icon">🧪</div>
+                                <div class="stage-content">
+                                    <h4>CI Test Suite</h4>
+                                    <p>GitHub Actions executes full integration tests on Python 3.12</p>
+                                </div>
+                            </div>
+                            <div class="pipeline-arrow">→</div>
+                            <div class="pipeline-stage">
+                                <div class="stage-icon">🔐</div>
+                                <div class="stage-content">
+                                    <h4>SSH Deploy</h4>
+                                    <p>Secure SSH to production &mdash; pull latest, re-validate on-server</p>
+                                </div>
+                            </div>
+                            <div class="pipeline-arrow">→</div>
+                            <div class="pipeline-stage">
+                                <div class="stage-icon">🔄</div>
+                                <div class="stage-content">
+                                    <h4>Restart &amp; Verify</h4>
+                                    <p>Service restart + health endpoint confirmation before accepting traffic</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-track">
+                        <div class="pipeline-label">Health Dashboard &mdash; ~45 seconds</div>
+                        <div class="pipeline-stages">
+                            <div class="pipeline-stage">
+                                <div class="stage-icon">📤</div>
+                                <div class="stage-content">
+                                    <h4>Push to Main</h4>
+                                    <p>Push to <code>finrisk-health-monitor</code> main branch</p>
+                                </div>
+                            </div>
+                            <div class="pipeline-arrow">→</div>
+                            <div class="pipeline-stage">
+                                <div class="stage-icon">☁️</div>
+                                <div class="stage-content">
+                                    <h4>Cloudflare Pages</h4>
+                                    <p>Auto-build and deploy to Cloudflare Pages edge network</p>
+                                </div>
+                            </div>
+                            <div class="pipeline-arrow">→</div>
+                            <div class="pipeline-stage">
+                                <div class="stage-icon">🛡️</div>
+                                <div class="stage-content">
+                                    <h4>Zero Trust Gate</h4>
+                                    <p>Cloudflare Zero Trust access controls enforce operator-only access</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cicd-guarantees">
+                    <div class="guarantee-item">
+                        <span class="guarantee-icon">✅</span>
+                        <span>Test-before-deploy gate &mdash; no code reaches production without passing full integration suite</span>
+                    </div>
+                    <div class="guarantee-item">
+                        <span class="guarantee-icon">✅</span>
+                        <span>Double validation &mdash; tests run in CI <em>and</em> on the live server before service accepts traffic</span>
+                    </div>
+                    <div class="guarantee-item">
+                        <span class="guarantee-icon">✅</span>
+                        <span>Automated rollback validation &mdash; health endpoint must confirm availability post-deploy</span>
+                    </div>
+                    <div class="guarantee-item">
+                        <span class="guarantee-icon">✅</span>
+                        <span>Zero human intervention &mdash; end-to-end automation from commit to live in under 60 seconds</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="mvp-footer-info">
                 <p><a href="https://github.com/alphaonedev/finrisk-agents-only" target="_blank" rel="noopener">github.com/alphaonedev/finrisk-agents-only</a> &middot; Proprietary &middot; AlphaOne LLC</p>
             </div>
