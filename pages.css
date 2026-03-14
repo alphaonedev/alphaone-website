@@ -451,6 +451,23 @@
     background: linear-gradient(135deg, #06b6d4, #0891b2);
 }
 
+/* FinRisk API — violet/purple */
+.mvp-badge.api {
+    background: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    color: #8b5cf6;
+}
+
+.module-chip.api-chip {
+    background: rgba(139, 92, 246, 0.08);
+    border-color: rgba(139, 92, 246, 0.25);
+    color: #8b5cf6;
+}
+
+.arch-step.api-step {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
 /* Cost Engineering steps — emerald gradient */
 .arch-step.cost-step {
     background: linear-gradient(135deg, #10b981, #059669);

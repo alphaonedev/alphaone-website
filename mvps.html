@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MVPs | AlphaOne LLC</title>
-    <meta name="description" content="AlphaOne LLC MVP products — Obsidian Halo cyber defense, FlowPatrol options intelligence, Financial Risk Dashboard, and the AlphaOne Daily Intelligence Briefing.">
+    <meta name="description" content="AlphaOne LLC MVP products — Obsidian Halo cyber defense, FlowPatrol options intelligence, Financial Risk Dashboard, FinRisk Agents-Only API, and the AlphaOne Daily Intelligence Briefing.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -441,7 +441,222 @@
     <!-- Divider -->
     <div class="section-divider"><div class="container"><hr></div></div>
 
-    <!-- MVP 4: Daily Intelligence Briefing -->
+    <!-- MVP 4: FinRisk Agents-Only API -->
+    <section class="mvp-section" id="finrisk-api">
+        <div class="container">
+            <div class="mvp-header">
+                <div class="mvp-badge api">Non-Human Identity API</div>
+                <h2>FinRisk Agents-Only API</h2>
+                <p class="mvp-tagline">AI-powered financial risk monitoring API built exclusively for autonomous AI agents &mdash; no UI, no login page, no human-facing interface</p>
+            </div>
+
+            <div class="mvp-overview">
+                <div class="overview-text">
+                    <p>FinRisk is a non-human identity (NHI) API &mdash; built exclusively for AI agents, not humans. Autonomous agents authenticate with tiered API keys, query financial risk scores and market data, and receive structured JSON responses designed for machine consumption. The system meters every agent request, enforces tiered rate limits, and gates paid access via X-402 payment protocol. There is no UI, no login page, no human-facing interface &mdash; the dashboards exist solely for the human operator to monitor infrastructure health.</p>
+                    <p>The API continuously collects market data from multiple sources (FRED, Alpaca, FINRA, xAI/Grok), computes composite risk scores using AI analysis, and serves them to authenticated agent clients. It persists scores, customer data, and usage events in Neo4j, exposes Prometheus metrics, and runs a 5-level self-healing health monitoring engine &mdash; all autonomously on a single production droplet behind HTTPS with rate limiting, X-402 payment gating, and Zero Trust-protected operator dashboards.</p>
+                </div>
+                <div class="overview-stats">
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">NHI</span>
+                        <span class="overview-stat-label">Non-Human Identity</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">10</span>
+                        <span class="overview-stat-label">Risk Monitors</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">X-402</span>
+                        <span class="overview-stat-label">Payment Gating</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">0% Human</span>
+                        <span class="overview-stat-label">No UI &middot; JSON Only</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NHI Infrastructure Architecture -->
+            <div class="architecture-section">
+                <h3>NHI Infrastructure Architecture</h3>
+                <p class="arch-intro">A single production droplet running behind HTTPS with tiered API key authentication, usage metering, rate limiting, X-402 payment gating, and Prometheus metrics. The API's sole purpose is to serve as a reliable, self-healing financial data backbone that AI agents programmatically consume to inform their own decision-making.</p>
+
+                <div class="arch-grid">
+                    <div class="arch-card">
+                        <div class="arch-step api-step">1</div>
+                        <h4>Agent Authentication &amp; Metering</h4>
+                        <p>Tiered API key system with per-agent usage metering. Every request is authenticated, rate-limited, and logged. Customer data, usage events, and billing records persist in Neo4j. Agents discover capabilities via free OpenAPI schema endpoint.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step api-step">2</div>
+                        <h4>AI-Powered Data Collection</h4>
+                        <p>Continuous market data ingestion from FRED (yields, unemployment, CPI), Alpaca (real-time prices, options, crypto), FINRA (margin debt), and xAI/Grok (AI-driven analysis and search). Multi-source fusion with TTL caching and staleness detection.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step api-step">3</div>
+                        <h4>Composite Risk Scoring</h4>
+                        <p>All 10 monitor scores computed with weighted composites, regime classification (ELEVATED/NORMAL/LOW), score deltas, confidence levels, and active alert counts. AI analysis enhances raw data with contextual risk assessment.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step api-step">4</div>
+                        <h4>Neo4j Persistence &amp; Prometheus Metrics</h4>
+                        <p>Risk scores, customer data, and usage events persist in Neo4j graph database. Prometheus metrics expose request latency, error rates, monitor health, and circuit breaker states for operational observability.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step api-step">5</div>
+                        <h4>X-402 Payment Protocol &amp; Rate Limiting</h4>
+                        <p>Pay-per-request pricing in USDC on Base blockchain. Tiered rate limits enforce fair usage. Free discovery endpoints (health, pricing, schema) require no payment. Paid endpoints return 402 without valid X-PAYMENT header.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step api-step">6</div>
+                        <h4>Zero Trust Operator Dashboards</h4>
+                        <p>Health and monitoring dashboards exist solely for the human operator — protected behind Cloudflare Zero Trust access control. No agent-facing UI exists. The API serves JSON exclusively; humans observe infrastructure only.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10 Risk Monitors -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🇯🇵</div>
+                    <h3>Japan Carry Trade Unwind</h3>
+                    <p>USD/JPY, JGB yield, and EWJ tracking with 1.5x weight. Monitors yen volatility and BOJ rate movements for carry trade blow-up risk.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>FINRA Margin Debt Cascade</h3>
+                    <p>Direct FINRA margin statistics with 1.3x weight. YoY change rates, all-time high detection, and net margin debit computation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📉</div>
+                    <h3>Macro Recession Warning</h3>
+                    <p>Yield curve inversion, initial claims, CPI, and unemployment rate from FRED. 1.2x weight with multi-indicator confirmation logic.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🕳️</div>
+                    <h3>Hidden Systemic Risk</h3>
+                    <p>CRE delinquency, bank credit contraction, and Treasury General Account drawdowns. 1.4x weight — the risks that detonate without warning.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Defensive Rotation Signal</h3>
+                    <p>Gold, silver, utilities vs. SPY and IWM ratio analysis. 0.8x weight detects institutional flight-to-safety before it hits headlines.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Deflation/Repricing Risk</h3>
+                    <p>NVDA, AMD, MSFT, GOOGL, META, SMCI semiconductor and hyperscaler valuations. 1.1x weight tracking the AI investment thesis unwind risk.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">₿</div>
+                    <h3>Bitcoin Death Cross</h3>
+                    <p>50-day and 200-day moving average crossover detection on BTC/USD. 0.7x weight with golden cross / death cross regime classification.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>BTC Cross-Asset Correlation</h3>
+                    <p>Rolling correlations against QQQ, TLT, GLD, and UUP. 0.6x weight tracking Bitcoin's evolving relationship with traditional asset classes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Options/Derivatives Warning</h3>
+                    <p>VIX proxy analysis and SPY options market structure. 1.2x weight monitoring implied volatility regime shifts and derivatives stress.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔥</div>
+                    <h3>Energy Paradox (NHI-Discovered)</h3>
+                    <p>Proprietary anomaly detection across XLE, USO, XOM, CVX, OXY, COP. 1.3x weight — premium endpoint for a pattern no human analyst identified.</p>
+                </div>
+            </div>
+
+            <!-- API Endpoints -->
+            <div class="intelligence-modules">
+                <h3>API Endpoints</h3>
+                <div class="modules-grid">
+                    <div class="module-chip api-chip">/v1/health (Free)</div>
+                    <div class="module-chip api-chip">/v1/pricing (Free)</div>
+                    <div class="module-chip api-chip">/v1/openapi.json (Free)</div>
+                    <div class="module-chip api-chip">/v1/risk/scores ($0.005)</div>
+                    <div class="module-chip api-chip">/v1/risk/alerts ($0.002)</div>
+                    <div class="module-chip api-chip">/v1/risk/monitor/{id} ($0.003)</div>
+                    <div class="module-chip api-chip">/v1/risk/energy-paradox ($0.01)</div>
+                    <div class="module-chip api-chip">/v1/risk/correlations ($0.005)</div>
+                </div>
+            </div>
+
+            <!-- Data Sources & Infrastructure -->
+            <div class="intelligence-modules">
+                <h3>Data Sources &amp; Infrastructure</h3>
+                <div class="modules-grid">
+                    <div class="module-chip api-chip">FRED</div>
+                    <div class="module-chip api-chip">Alpaca Markets API</div>
+                    <div class="module-chip api-chip">FINRA (Direct)</div>
+                    <div class="module-chip api-chip">xAI / Grok</div>
+                    <div class="module-chip api-chip">Neo4j (Persistence)</div>
+                    <div class="module-chip api-chip">Prometheus (Metrics)</div>
+                    <div class="module-chip api-chip">Cloudflare Zero Trust</div>
+                    <div class="module-chip api-chip">HTTPS + Rate Limiting</div>
+                </div>
+            </div>
+
+            <!-- Autonomous Self-Healing Health Monitoring -->
+            <div class="self-healing-section">
+                <h3>Autonomous Self-Healing &amp; Health Monitoring</h3>
+                <p class="arch-intro">Full-spectrum health monitoring with a 5-level self-healing engine that detects component degradation, manages circuit breakers on flaky data sources, and takes graduated corrective action &mdash; from resetting connections up to AI-driven root cause analysis. A Zero Trust-protected operator dashboard auto-refreshes every 30 seconds, providing the human operator real-time visibility into the NHI infrastructure. All running autonomously.</p>
+
+                <div class="healing-grid">
+                    <div class="healing-item">
+                        <div class="healing-icon">💚</div>
+                        <h4>Health Score Ring</h4>
+                        <p>Animated 0-100 composite health gauge with color-coded thresholds — green (healthy), amber (degraded), red (critical). Single-glance system status derived from all monitored components.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">📊</div>
+                        <h4>Uptime History &amp; Component Health</h4>
+                        <p>60-check visual uptime bar per component with green/amber/red state tracking. Component health table covers 6 subsystems with success rate bars, avg/p95 latency, and failure counts.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">🔌</div>
+                        <h4>Circuit Breakers on Flaky Sources</h4>
+                        <p>Visual state indicators (closed/open/half-open) with trip counts for each external data dependency (FRED, Alpaca, FINRA, xAI). Prevents cascade failures by isolating degraded sources while the API continues serving agents from cached or alternate data.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">🖥️</div>
+                        <h4>System Resources</h4>
+                        <p>Memory, disk, and CPU load with progress bars and threshold coloring. Proactive alerting before resource exhaustion impacts API availability or response latency.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">⚠️</div>
+                        <h4>Anomaly Detection &amp; Data Freshness</h4>
+                        <p>Severity-coded anomaly list with automatic detection. Per-monitor data freshness cards track age, staleness, and quality scores — ensuring agents always receive current intelligence.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">🔧</div>
+                        <h4>5-Level Self-Healing Engine</h4>
+                        <p>Graduated corrective action across 5 escalation levels with cooldown timers: connection resets, cache invalidation, service restarts, pipeline resets, and AI-driven root cause analysis via xAI/Grok. All autonomous &mdash; no human intervention required.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">🕸️</div>
+                        <h4>Neo4j Graph Stats</h4>
+                        <p>Real-time node counts by type and relationship totals from the graph database. Monitors graph integrity and growth patterns to ensure correlation queries remain performant.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">📈</div>
+                        <h4>Health Score History</h4>
+                        <p>Canvas chart of the last 60 health score readings with trend analysis. Essential-Only mode triggers a red alert banner when Level 3 self-healing activates, restricting to critical operations only.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mvp-footer-info">
+                <p><a href="https://github.com/alphaonedev/finrisk-agents-only" target="_blank" rel="noopener">github.com/alphaonedev/finrisk-agents-only</a> &middot; Proprietary &middot; AlphaOne LLC</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider"><div class="container"><hr></div></div>
+
+    <!-- MVP 5: Daily Intelligence Briefing -->
     <section class="mvp-section" id="daily-briefing">
         <div class="container">
             <div class="mvp-header">
