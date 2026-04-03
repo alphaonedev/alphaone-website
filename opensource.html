@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Source | AlphaOne LLC</title>
-    <meta name="description" content="AlphaOne LLC open source contributions — OpenClaw Graph, a Neo4j-native AI skill database with TOON optimization that reduced token costs by 229%.">
+    <meta name="description" content="AlphaOne LLC open source contributions — ai-memory (persistent AI memory with zero token cost and 79% savings via TOON format) and OpenClaw Graph (Neo4j-native AI skill database with 229% token cost reduction).">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -42,6 +42,138 @@
             <div class="hero-badge">Giving Back</div>
             <h1>Open Source <span class="gradient-text">Contributions</span></h1>
             <p class="hero-sub">We believe the best way to advance AI engineering is to share what we learn. Our open source work is contributed back to the communities that make this work possible.</p>
+        </div>
+    </section>
+
+    <!-- ai-memory -->
+    <section class="mvp-section" id="ai-memory">
+        <div class="container">
+            <div class="mvp-header">
+                <div class="mvp-badge oss">Open Source</div>
+                <h2>ai-memory</h2>
+                <p class="mvp-tagline">Persistent memory for any AI &mdash; zero token cost until recalled, 79% smaller responses with TOON format</p>
+                <a href="https://alphaonedev.github.io/ai-memory-mcp/" target="_blank" class="btn btn-primary" style="margin-top:20px;">View Project &rarr;</a>
+            </div>
+
+            <div class="mvp-overview">
+                <div class="overview-text">
+                    <p>ai-memory gives any AI assistant persistent memory across sessions. Unlike built-in memory systems (Claude auto-memory, ChatGPT memory) that load your entire memory into every conversation &mdash; burning tokens and money on every message &mdash; ai-memory uses <strong>zero context tokens until recalled</strong>. Only relevant memories come back, ranked by a 6-factor scoring algorithm.</p>
+                    <p>A single Rust binary with three interfaces (MCP, HTTP, CLI), four feature tiers from zero-dependency keyword search to autonomous recall with local LLMs via Ollama, and <strong>TOON format</strong> (Token-Oriented Object Notation) that cuts response tokens by 79%. Works with Claude, ChatGPT, Grok, Llama, Cursor, Windsurf, Continue.dev, and any MCP-compatible platform.</p>
+                    <p>The MCP server provides <strong>recall-first prompts</strong> that teach AI clients to use memory proactively &mdash; recalling at session start, storing corrections as permanent knowledge, and using TOON compact format automatically. 158 tests across 14/14 modules with 95%+ coverage.</p>
+                </div>
+                <div class="overview-stats">
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">79%</span>
+                        <span class="overview-stat-label">Token Savings (TOON)</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">17</span>
+                        <span class="overview-stat-label">MCP Tools</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">158</span>
+                        <span class="overview-stat-label">Tests (95%+ Coverage)</span>
+                    </div>
+                    <div class="overview-stat">
+                        <span class="overview-stat-value">4</span>
+                        <span class="overview-stat-label">Feature Tiers</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zero Token Cost -->
+            <div class="architecture-section">
+                <h3>Why Zero Token Cost Matters</h3>
+                <p class="arch-intro">Every AI platform that offers built-in memory charges you tokens for it &mdash; whether you use it or not. ai-memory eliminates that tax entirely.</p>
+
+                <div class="arch-grid">
+                    <div class="arch-card">
+                        <div class="arch-step">$0</div>
+                        <h4>Zero Cost Until Recall</h4>
+                        <p>Built-in systems inject 200+ lines of memory into every conversation's system prompt. ai-memory uses zero context tokens until the AI explicitly calls <code>memory_recall</code>. You only pay for what you use.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step">79%</div>
+                        <h4>TOON Compact Format</h4>
+                        <p>When memories are recalled, TOON (Token-Oriented Object Notation) declares field names once as a header, then lists values as pipe-delimited rows. 3 memories: JSON = 1,600 bytes, TOON compact = 336 bytes.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step">6x</div>
+                        <h4>6-Factor Ranked Recall</h4>
+                        <p>FTS relevance, priority weight, access frequency, confidence, tier boost, and recency decay. Only the most relevant memories surface &mdash; no wasted tokens on irrelevant context.</p>
+                    </div>
+                    <div class="arch-card">
+                        <div class="arch-step">&#9881;</div>
+                        <h4>MCP Prompts</h4>
+                        <p>Two MCP prompts (<code>recall-first</code> + <code>memory-workflow</code>) teach AI clients to use memory proactively at connection time. No manual configuration needed &mdash; the behavior is built in.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Feature Tiers -->
+            <div class="self-healing-section">
+                <h3>4 Feature Tiers</h3>
+                <p class="arch-intro">Scale from zero-dependency keyword search to autonomous memory management with local LLMs. Each tier builds on the one below it.</p>
+
+                <div class="healing-grid">
+                    <div class="healing-item">
+                        <div class="healing-icon">&#128269;</div>
+                        <h4>Keyword</h4>
+                        <p>SQLite FTS5 full-text search. Zero ML dependencies, zero memory overhead. 13 MCP tools. The binary is entirely self-contained.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">&#129504;</div>
+                        <h4>Semantic</h4>
+                        <p>Adds dense vector embeddings (all-MiniLM-L6-v2, 384-dim) with HNSW index. Hybrid recall blends FTS5 + cosine similarity. 14 MCP tools. ~256 MB RAM.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">&#9889;</div>
+                        <h4>Smart</h4>
+                        <p>Upgrades to nomic-embed-text (768-dim) via Ollama. Adds Gemma 4 E2B LLM for query expansion, auto-tagging, and contradiction detection. 17 MCP tools. ~1 GB RAM.</p>
+                    </div>
+                    <div class="healing-item">
+                        <div class="healing-icon">&#127919;</div>
+                        <h4>Autonomous</h4>
+                        <p>Gemma 4 E4B + neural cross-encoder reranker (ms-marco-MiniLM). Full autonomous memory reflection and contradiction resolution. 17 MCP tools. ~4 GB RAM.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platform Compatibility -->
+            <div class="ai-depth-section">
+                <h3>Works With Any AI Platform</h3>
+                <div class="ai-depth-list">
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Claude Code</span>
+                        <span class="ai-depth-desc">MCP native &mdash; replaces auto-memory with zero-token recall. Disable <code>autoMemoryEnabled</code> in settings.json</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">OpenAI Codex CLI</span>
+                        <span class="ai-depth-desc">TOML-based MCP config. Works with <code>codex mcp add</code> CLI shortcut</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Google Gemini CLI</span>
+                        <span class="ai-depth-desc">JSON-based MCP config. Supports <code>gemini mcp add</code> CLI shortcut</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Cursor, Windsurf, Continue.dev</span>
+                        <span class="ai-depth-desc">MCP native via platform-specific config files. Same command and args</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">xAI Grok, META Llama</span>
+                        <span class="ai-depth-desc">HTTP API on localhost:9077 &mdash; works with any platform that can make HTTP requests</span>
+                    </div>
+                    <div class="ai-depth-item">
+                        <span class="ai-depth-label">Quality</span>
+                        <span class="ai-depth-desc">158 tests (115 unit + 43 integration), 14/14 modules, 95%+ coverage. Red-team validated at smart and autonomous tiers</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="oss-cta">
+                <a href="https://alphaonedev.github.io/ai-memory-mcp/" target="_blank" class="btn btn-primary btn-lg">Explore ai-memory &rarr;</a>
+                <a href="https://github.com/alphaonedev/ai-memory-mcp" target="_blank" class="btn btn-outline btn-lg">View on GitHub</a>
+            </div>
         </div>
     </section>
 
