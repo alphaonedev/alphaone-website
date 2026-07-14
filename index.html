@@ -1,257 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlphaOne LLC | Context-Engineered AI Systems & Agentic Software</title>
-    <meta name="description" content="AlphaOne LLC engineers production agentic AI systems with context architecture, structural isolation, memory governance, and zero-trust design for commercial deployments.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlphaOne</title>
+<meta name="description" content="AlphaOne LLC — building in stealth.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  :root { --bg: #07090c; --fg: #e8ebef; --dim: #6b7480; --accent: #4f8cff; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  main { padding: 2rem; }
+  .mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #14202e, #0b1017);
+    border: 1px solid #1d2836;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    margin-bottom: 1.75rem;
+  }
+  h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid #1d2836;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    color: var(--dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+  .contact { margin-top: 2.5rem; font-size: 0.85rem; color: var(--dim); }
+  .contact a { color: var(--fg); text-decoration: none; border-bottom: 1px solid #2a3646; }
+  .contact a:hover { color: var(--accent); border-color: var(--accent); }
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <span class="logo-icon">A1</span>
-                <span class="logo-text">AlphaOne</span>
-            </a>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#principles">Principles</a></li>
-                <li><a href="reference.html">Reference Guide</a></li>
-                <li><a href="mvps.html">MVPs</a></li>
-                <li><a href="architectures.html">Reference Architectures</a></li>
-                <li><a href="opensource.html">Open Source</a></li>
-                <li><a href="#contact" class="btn btn-nav">Contact Us</a></li>
-            </ul>
-            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="container hero-content">
-            <div class="hero-badge">Context-Engineered AI</div>
-            <h1>We Engineer the <span class="gradient-text">Context</span> That Makes AI Systems Work</h1>
-            <p class="hero-sub">Models are commoditized. Context is not. AlphaOne builds production agentic AI systems with the isolation, memory governance, and architectural discipline that separate demos from deployable software.</p>
-            <div class="hero-actions">
-                <a href="#contact" class="btn btn-primary">Start a Conversation</a>
-                <a href="#services" class="btn btn-outline">Explore Services</a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-value">Context-Engineered</span>
-                    <span class="stat-label">Architecture</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <span class="stat-value">Zero Trust</span>
-                    <span class="stat-label">By Design</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat">
-                    <span class="stat-value">Production-Grade</span>
-                    <span class="stat-label">AI Systems</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">What We Do</span>
-                <h2>Engineering for <span class="gradient-text">Commercial AI Systems</span></h2>
-                <p>Production agent systems require more than model access. They require context discipline, structural isolation, and architectural rigor.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93L12 22"/><path d="M12 2a4 4 0 0 0-4 4c0 1.95 1.4 3.58 3.25 3.93"/><path d="M8.56 13a8 8 0 0 0-2.3 3.5"/><path d="M15.44 13a8 8 0 0 1 2.3 3.5"/><path d="M6 21h12"/></svg>
-                    </div>
-                    <h3>Agentic AI Systems</h3>
-                    <p>Multi-agent architectures with scoped context, structured memory, and promotion gates — agents that reason, plan, and execute with disciplined context reconstruction on every run.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 8h2m2 0h2m2 0h2"/><path d="M7 12h10"/></svg>
-                    </div>
-                    <h3>Context Architecture & Engineering</h3>
-                    <p>Systems designed around canonical truth stores, memory governance, and scope-typed context — where information flows are engineered, not improvised.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-                    </div>
-                    <h3>AI Systems Design & Strategy</h3>
-                    <p>We map your domain to a context-engineered architecture — identifying memory scopes, isolation boundaries, agent topologies, and economic surfaces before a line of code is written.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-                    </div>
-                    <h3>Deterministic AI Automation</h3>
-                    <p>Workflow automation backed by deterministic replay, trace envelopes, and full auditability — systems that adapt to changing conditions while remaining reproducible and compliant.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-                    </div>
-                    <h3>Multi-Tenant AI Infrastructure</h3>
-                    <p>Data-plane isolation enforced at the storage and routing layers. Tenant boundaries that survive scale, with mandatory predicate filtering before ranking — never after.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-                    </div>
-                    <h3>Production AI Operations</h3>
-                    <p>Token budgets, per-run cost modeling, lifecycle garbage collection, and observability pipelines. Context is an economic surface — we treat it like one.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Principles Section -->
-    <section class="capabilities" id="principles">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">What We Believe</span>
-                <h2>Principles Behind Every <span class="gradient-text">System We Build</span></h2>
-                <p>These aren't buzzwords. They're the engineering principles behind every system we build.</p>
-            </div>
-            <div class="capabilities-layout">
-                <div class="capability-item">
-                    <div class="capability-number">01</div>
-                    <div class="capability-content">
-                        <h3>Context Over Model</h3>
-                        <p>Models are interchangeable. The competitive advantage lives in how you scope, assemble, and govern context across agents, sessions, and tenants. We engineer the context — not just the prompt.</p>
-                    </div>
-                </div>
-                <div class="capability-item">
-                    <div class="capability-number">02</div>
-                    <div class="capability-content">
-                        <h3>Isolation is Infrastructure</h3>
-                        <p>Security and tenant isolation are enforced at the data plane — in storage partitions and routing layers. Never delegated to model instructions. Never best-effort.</p>
-                    </div>
-                </div>
-                <div class="capability-item">
-                    <div class="capability-number">03</div>
-                    <div class="capability-content">
-                        <h3>Assemble, Don't Accumulate</h3>
-                        <p>Context is reconstructed per run, not allowed to grow unchecked. Every execution gets a purpose-built working set — scoped, budget-aware, and free of drift.</p>
-                    </div>
-                </div>
-                <div class="capability-item">
-                    <div class="capability-number">04</div>
-                    <div class="capability-content">
-                        <h3>Zero Trust by Design</h3>
-                        <p>Every agent, subagent output, and data flow is untrusted by default. Promotion gates validate before anything becomes durable. Privacy is architectural routing, not conditional masking.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Approach Section -->
-    <section class="approach" id="approach">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Our Process</span>
-                <h2>From Idea to <span class="gradient-text">Intelligent System</span></h2>
-                <p>A battle-tested process that moves fast without cutting corners.</p>
-            </div>
-            <div class="approach-grid">
-                <div class="approach-step">
-                    <div class="step-marker">
-                        <span>1</span>
-                        <div class="step-line"></div>
-                    </div>
-                    <div class="step-content">
-                        <h3>Discovery & Scoping</h3>
-                        <p>We map your problem space, identify context boundaries, and define memory scopes — determining where AI creates value and what isolation, compliance, and cost constraints apply.</p>
-                    </div>
-                </div>
-                <div class="approach-step">
-                    <div class="step-marker">
-                        <span>2</span>
-                        <div class="step-line"></div>
-                    </div>
-                    <div class="step-content">
-                        <h3>Plan Before Execute</h3>
-                        <p>Agent topologies, context flows, canonical truth stores, promotion rules, and token budgets — all designed before the first line of code. Architecture precedes inference.</p>
-                    </div>
-                </div>
-                <div class="approach-step">
-                    <div class="step-marker">
-                        <span>3</span>
-                        <div class="step-line"></div>
-                    </div>
-                    <div class="step-content">
-                        <h3>Build & Validate</h3>
-                        <p>Rapid development with deterministic replay and trace-driven testing against real-world scenarios. Every agent run is reproducible, auditable, and cost-attributed.</p>
-                    </div>
-                </div>
-                <div class="approach-step">
-                    <div class="step-marker">
-                        <span>4</span>
-                        <div class="step-line"></div>
-                    </div>
-                    <div class="step-content">
-                        <h3>Deploy & Harden</h3>
-                        <p>Production deployment with lifecycle garbage collection, retention enforcement, and asynchronous hardening pipelines. Systems that get more reliable over time, not more fragile.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA / Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-card">
-                <div class="contact-content">
-                    <span class="section-tag">Let's Talk</span>
-                    <h2>Ready to Build Something <span class="gradient-text">Intelligent</span>?</h2>
-                    <p>Whether you have a specific AI project in mind or want to explore what's possible, we'd like to hear from you.</p>
-                    <a href="mailto:sales@alpha-one.mobi" class="btn btn-primary btn-lg">sales@alpha-one.mobi</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <a href="#" class="logo">
-                    <span class="logo-icon">A1</span>
-                    <span class="logo-text">AlphaOne</span>
-                </a>
-                <p>Context-Engineered AI Systems & Agentic Software</p>
-            </div>
-            <div class="footer-links">
-                <a href="#services">Services</a>
-                <a href="#principles">Principles</a>
-                <a href="reference.html">Reference Guide</a>
-                <a href="mvps.html">MVPs</a>
-                <a href="architectures.html">Reference Architectures</a>
-                <a href="opensource.html">Open Source</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 AlphaOne LLC. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="main.js"></script>
+<main>
+  <div class="mark">A1</div>
+  <h1>AlphaOne</h1>
+  <div class="status"><span class="dot"></span>Stealth Mode</div>
+  <p class="contact">Inquiries — <a href="mailto:justin@alpha-one.mobi">justin@alpha-one.mobi</a></p>
+</main>
 </body>
 </html>
